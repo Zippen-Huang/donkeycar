@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -64,46 +65,43 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../about-parts/">About parts</a>
+    <a class="" href="../build_instructions/">Build a Car</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../build_instructions/">Build instructions</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../contribute/">Contribute</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../getting_started/">Getting started</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../how-it-works/">How it works</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
+    <span class="caption-text">Parts</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../about-parts/">Parts Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../actuators/">Actuators</a>
+                </li>
+                <li class=" current">
+                    
     <a class="current" href="./">Stores</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#datasets">Datasets</a></li>
+    <li class="toctree-l3"><a href="#stores">Stores</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#moving-square">Moving Square</a></li>
-        
-            <li><a class="toctree-l3" href="#driving-datasets">Driving Datasets</a></li>
+            <li><a class="toctree-l4" href="#tub">Tub</a></li>
         
         </ul>
     
 
     </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../contribute/">Contribute</a>
 	    </li>
           
         </ul>
@@ -127,6 +125,10 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Parts &raquo;</li>
+        
+      
     
     <li>Stores</li>
     <li class="wy-breadcrumbs-aside">
@@ -141,17 +143,28 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="datasets">Datasets</h1>
-<p>Donkey has several builtin datasets to help users test their autopilots and confirm that they can learn from image sequences. </p>
-<h2 id="moving-square">Moving Square</h2>
-<p>A single color moving square bounces around the screen.</p>
-<p>Outputs:
-<em> X - 120x160px image of moving square on black background.
-</em> Y - x and y cordinates of center of square in the image. (use options to only return x or y)</p>
-<h2 id="driving-datasets">Driving Datasets</h2>
-<p><a href="https://wroscoe.github.io/keras-lane-following-autopilot.html#keras-lane-following-autopilot">Blog post showing how to train a model from these datasets</a></p>
+                <h1 id="stores">Stores</h1>
+<p>Stores are components to save and retrieve data produced by other parts. </p>
+<h2 id="tub">Tub</h2>
+<p>This is the standard donkey data store and it is modeled after the ROSBAG.</p>
+<blockquote>
+<p>TODO: The structure of the Tub part is not ideal and should be changed.</p>
 <ul>
-<li>DIYRobocars 1/10th scale track on Feb 11th - <a href="https://s3.amazonaws.com/donkey_resources/warehouseRGB.pkl">warehouseRGB.pkl</a></li>
+<li>types should not need to be specified and could be inspected and saved 
+on the first loop.</li>
+</ul>
+</blockquote>
+<p>Example creation </p>
+<pre><code class="python">import donkey as dk
+
+T = dk.parts.Tub(path, inputs, types)
+
+</code></pre>
+
+<h3 id="accepted-types">Accepted Types</h3>
+<ul>
+<li><code>float</code> - saved as record</li>
+<li><code>int</code> - saved as record</li>
 </ul>
               
             </div>
@@ -160,8 +173,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../contribute/" class="btn btn-neutral float-right" title="Contribute">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../how-it-works/" class="btn btn-neutral" title="How it works"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../actuators/" class="btn btn-neutral" title="Actuators"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -189,8 +204,10 @@
           <a href="https://github.com/wroscoe/donkey" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../how-it-works/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../actuators/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../contribute/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

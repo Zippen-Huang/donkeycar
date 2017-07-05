@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -64,12 +65,26 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../about-parts/">About parts</a>
+    <a class="" href="../build_instructions/">Build a Car</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../build_instructions/">Build instructions</a>
+    <span class="caption-text">Parts</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../about-parts/">Parts Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../actuators/">Actuators</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../stores/">Stores</a>
+                </li>
+    </ul>
 	    </li>
           
             <li class="toctree-l1 current">
@@ -81,7 +96,9 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#guiding-developement-principles">Guiding Developement Principles</a></li>
+            <li><a class="toctree-l3" href="#add-a-part">Add a part.</a></li>
+        
+            <li><a class="toctree-l3" href="#fix-a-bug-or-reply-to-issues">Fix a bug or reply to issues.</a></li>
         
             <li><a class="toctree-l3" href="#tests">Tests</a></li>
         
@@ -89,21 +106,6 @@
     
 
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../getting_started/">Getting started</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../how-it-works/">How it works</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../stores/">Stores</a>
 	    </li>
           
         </ul>
@@ -142,28 +144,15 @@
             <div class="section">
               
                 <h1 id="contribute-to-donkey">Contribute to Donkey</h1>
-<p>This is an opensource project to help accelerate the developement of self driving autos. See below how you can contribute. </p>
+<p>Donkey is an opensource project to help accelerate the developement of 
+self driving autos. See below how you can contribute. </p>
+<h3 id="add-a-part">Add a part.</h3>
+<p>Submit a github issue when you find a problem with the code. </p>
+<h3 id="fix-a-bug-or-reply-to-issues">Fix a bug or reply to issues.</h3>
 <ol>
-<li>Submit a github issue when you find a problem with the code. </li>
 <li>Submit a github issue that describes a feature that you want. This is where the conversation can start. </li>
 <li>Fork the code, make your change and submit a pull request. </li>
 </ol>
-<h3 id="guiding-developement-principles">Guiding Developement Principles</h3>
-<ul>
-<li>
-<p><strong>Modularity</strong>: A self driving system is composed of standalone, independently configurable modules that can be connected modules.</p>
-</li>
-<li>
-<p><strong>Minimalism</strong>: Each component should be kept short (&lt;100 lines of code). Each peice of code should be transparent apon first reading. No black magic, it slows the speed of innovation. </p>
-</li>
-<li>
-<p><strong>Extensiblity</strong>: New components should be simple to create by following a template. </p>
-</li>
-<li>
-<p><strong>Python</strong>: Keep it simple. </p>
-</li>
-</ul>
-<p><strong><em>These guidelines are nearly copied from Keras because they are so good</em></strong> </p>
 <h2 id="tests">Tests</h2>
 <p>Make sure all tests pass before submitting your pull request.</p>
 <p>Run tests with: <code>python -m unittest</code></p>
@@ -174,10 +163,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../getting_started/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../build_instructions/" class="btn btn-neutral" title="Build instructions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../stores/" class="btn btn-neutral" title="Stores"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -205,10 +192,8 @@
           <a href="https://github.com/wroscoe/donkey" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../build_instructions/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../stores/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../getting_started/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

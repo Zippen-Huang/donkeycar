@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="./css/theme.css" type="text/css" />
   <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="./css/highlight.css">
+  <link href="./extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -62,9 +63,11 @@
     <a class="current" href=".">Home</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#donkey">Donkey</a></li>
+    <li class="toctree-l2"><a href="#about-donkey">About Donkey</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l3" href="#guiding-developement-principles">Guiding Developement Principles</a></li>
         
             <li><a class="toctree-l3" href="#getting-started-in-30-seconds">Getting started in 30 seconds.</a></li>
         
@@ -76,32 +79,31 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="about-parts/">About parts</a>
+    <a class="" href="build_instructions/">Build a Car</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="build_instructions/">Build instructions</a>
+    <span class="caption-text">Parts</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="about-parts/">Parts Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="actuators/">Actuators</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="stores/">Stores</a>
+                </li>
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
     <a class="" href="contribute/">Contribute</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="getting_started/">Getting started</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="how-it-works/">How it works</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="stores/">Stores</a>
 	    </li>
           
         </ul>
@@ -139,14 +141,33 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="donkey">Donkey</h1>
+                <h1 id="about-donkey">About Donkey</h1>
 <p>Donkey is a high level self driving library written in Python and capable of 
 controlling ackerman or differential drive vehicles. It was developed with a 
 focus on enabling fast experimentation and easy contribution.</p>
-<p>Use Donkey if you want to:
+<p><em>Use Donkey if you want to...</em>
 <em> Build your own small scale self driving car.
 </em> Implement computer vision or neural network based auto-pilots.
 * Use an arbitrary number of sensors on your car. </p>
+<h3 id="guiding-developement-principles">Guiding Developement Principles</h3>
+<ul>
+<li>
+<p><strong>Modularity</strong>: A self driving system is composed of standalone, 
+independently configurable modules that can be connected modules.</p>
+</li>
+<li>
+<p><strong>Minimalism</strong>: Each component should be kept short (&lt;100 lines of code). 
+Each peice of code should be transparent apon first reading. No black magic, it slows the speed of innovation. </p>
+</li>
+<li>
+<p><strong>Extensiblity</strong>: New components should be simple to create by following a 
+template. </p>
+</li>
+<li>
+<p><strong>Python</strong>: Keep it simple. </p>
+</li>
+</ul>
+<p><strong><em>These guidelines are nearly copied from <a href="http://keras.io">Keras</a> because they are so good</em></strong> </p>
 <h2 id="getting-started-in-30-seconds">Getting started in 30 seconds.</h2>
 <h3 id="record-images-from-the-camera">Record images from the camera</h3>
 <pre><code class="python">
@@ -178,7 +199,7 @@ V.start(max_loop_count=100)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="about-parts/" class="btn btn-neutral float-right" title="About parts">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="build_instructions/" class="btn btn-neutral float-right" title="Build a Car">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -208,7 +229,7 @@ V.start(max_loop_count=100)
       
       
       
-        <span style="margin-left: 15px"><a href="about-parts/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="build_instructions/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
@@ -219,5 +240,5 @@ V.start(max_loop_count=100)
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-07-05 04:49:44
+Build Date UTC : 2017-07-05 06:13:16
 -->

@@ -11,14 +11,6 @@
 
     
     <url>
-     <loc>/about-parts/</loc>
-     <lastmod>2017-07-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
      <loc>/build_instructions/</loc>
      <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
@@ -26,32 +18,30 @@
     
 
     
+        
     <url>
-     <loc>/contribute/</loc>
+     <loc>/about-parts/</loc>
      <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
+        
     <url>
-     <loc>/getting_started/</loc>
+     <loc>/actuators/</loc>
      <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-    <url>
-     <loc>/how-it-works/</loc>
-     <lastmod>2017-07-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
+        
     <url>
      <loc>/stores/</loc>
+     <lastmod>2017-07-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/contribute/</loc>
      <lastmod>2017-07-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
