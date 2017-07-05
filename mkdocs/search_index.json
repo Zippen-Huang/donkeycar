@@ -1,0 +1,299 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Donkey\n\n\nDonkey is a high level self driving library written in Python and capable of \ncontrolling ackerman or differential drive vehicles. It was developed with a \nfocus on enabling fast experimentation and easy contribution.\n\n\nUse Donkey if you want to:\n\n Build your own small scale self driving car.\n\n Implement computer vision or neural network based auto-pilots.\n* Use an arbitrary number of sensors on your car. \n\n\nGetting started in 30 seconds.\n\n\nRecord images from the camera\n\n\n\nimport donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ninputs=['image']\ntypes=['image_array']\npath = '~/mydonkey/gettings_started'\ntub = dk.parts.Tub(path, inputs, types)\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)\n\n\n\n\nMore examples\n\n\nYou can find more examples in the examples folder.",
+            "title": "Home"
+        },
+        {
+            "location": "/#donkey",
+            "text": "Donkey is a high level self driving library written in Python and capable of \ncontrolling ackerman or differential drive vehicles. It was developed with a \nfocus on enabling fast experimentation and easy contribution.  Use Donkey if you want to:  Build your own small scale self driving car.  Implement computer vision or neural network based auto-pilots.\n* Use an arbitrary number of sensors on your car.",
+            "title": "Donkey"
+        },
+        {
+            "location": "/#getting-started-in-30-seconds",
+            "text": "",
+            "title": "Getting started in 30 seconds."
+        },
+        {
+            "location": "/#record-images-from-the-camera",
+            "text": "import donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ninputs=['image']\ntypes=['image_array']\npath = '~/mydonkey/gettings_started'\ntub = dk.parts.Tub(path, inputs, types)\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)",
+            "title": "Record images from the camera"
+        },
+        {
+            "location": "/#more-examples",
+            "text": "You can find more examples in the examples folder.",
+            "title": "More examples"
+        },
+        {
+            "location": "/about-parts/",
+            "text": "About Donkey Parts\n\n\nParts are the modular components of a vehicle that are run in sequence in the\ndrive loop. These include ...\n\n Sensors - Cameras, Lidar, Odometers, GPS ...\n\n Actuators - Motor Controllers\n\n Pilots - Lane Detectors, Behavioral Cloning models, ...\n\n Controllers - Web based or bluetooth.\n* Stores - Tub, or a way to save data. \n\n\nAll Donkey Parts have a number of methods in common.\n\n \npart.run()\n : function used to run the part\n\n \npart.run_threaded(\n : drive loop function run if part is threaded.\n* \npart.update()\n : threaded function",
+            "title": "About parts"
+        },
+        {
+            "location": "/about-parts/#about-donkey-parts",
+            "text": "Parts are the modular components of a vehicle that are run in sequence in the\ndrive loop. These include ...  Sensors - Cameras, Lidar, Odometers, GPS ...  Actuators - Motor Controllers  Pilots - Lane Detectors, Behavioral Cloning models, ...  Controllers - Web based or bluetooth.\n* Stores - Tub, or a way to save data.   All Donkey Parts have a number of methods in common.   part.run()  : function used to run the part   part.run_threaded(  : drive loop function run if part is threaded.\n*  part.update()  : threaded function",
+            "title": "About Donkey Parts"
+        },
+        {
+            "location": "/build_instructions/",
+            "text": "Build a donkey vehicle.",
+            "title": "Build instructions"
+        },
+        {
+            "location": "/build_instructions/#build-a-donkey-vehicle",
+            "text": "",
+            "title": "Build a donkey vehicle."
+        },
+        {
+            "location": "/contribute/",
+            "text": "Contribute to Donkey\n\n\nThis is an opensource project to help accelerate the developement of self driving autos. See below how you can contribute. \n\n\n\n\nSubmit a github issue when you find a problem with the code. \n\n\nSubmit a github issue that describes a feature that you want. This is where the conversation can start. \n\n\nFork the code, make your change and submit a pull request. \n\n\n\n\nGuiding Developement Principles\n\n\n\n\n\n\nModularity\n: A self driving system is composed of standalone, independently configurable modules that can be connected modules.\n\n\n\n\n\n\nMinimalism\n: Each component should be kept short (<100 lines of code). Each peice of code should be transparent apon first reading. No black magic, it slows the speed of innovation. \n\n\n\n\n\n\nExtensiblity\n: New components should be simple to create by following a template. \n\n\n\n\n\n\nPython\n: Keep it simple. \n\n\n\n\n\n\nThese guidelines are nearly copied from Keras because they are so good\n \n\n\nTests\n\n\nMake sure all tests pass before submitting your pull request.\n\n\nRun tests with: \npython -m unittest",
+            "title": "Contribute"
+        },
+        {
+            "location": "/contribute/#contribute-to-donkey",
+            "text": "This is an opensource project to help accelerate the developement of self driving autos. See below how you can contribute.    Submit a github issue when you find a problem with the code.   Submit a github issue that describes a feature that you want. This is where the conversation can start.   Fork the code, make your change and submit a pull request.",
+            "title": "Contribute to Donkey"
+        },
+        {
+            "location": "/contribute/#guiding-developement-principles",
+            "text": "Modularity : A self driving system is composed of standalone, independently configurable modules that can be connected modules.    Minimalism : Each component should be kept short (<100 lines of code). Each peice of code should be transparent apon first reading. No black magic, it slows the speed of innovation.     Extensiblity : New components should be simple to create by following a template.     Python : Keep it simple.     These guidelines are nearly copied from Keras because they are so good",
+            "title": "Guiding Developement Principles"
+        },
+        {
+            "location": "/contribute/#tests",
+            "text": "Make sure all tests pass before submitting your pull request.  Run tests with:  python -m unittest",
+            "title": "Tests"
+        },
+        {
+            "location": "/getting_started/",
+            "text": "Drive your car.\n\n\nNow that you have built your car, you'll want to drive it. \n\n\nStart your server\n\n\n\n\nOpen a termial and find your ip address by typing \nifconfig\n\n\nStart a server by running the \nserve_no_pilot.py\n demo script.\n\n\nNow you can load the control page at \nlocalhost:8887\n\n\n\n\nStart your car\n\n\n\n\nOpen another terminal\n\n\n\n\nUse this code to find the ip address of your pi. Change the IP base ip address to match your router.\n\n\nsudo nmap -sP 192.168.1.0/24 | awk '/^Nmap/{ip=$NF}/B8:27:EB/{print ip}'\n\n3. Connect to your pi by running \nssh pi@<your_pi_ip_address>\n\n4. Activate your python virtual environment \n\ncd donkey\nsource env/bin/activate\n\n5. Start your drive script.\n\npython scripts/drive.py  --remote http://<your server address>:8887\n `\n\n\n\n\n\n\nControl your car\n\n\nYou can now control your car with the virtual joystic on your computer or your phone.",
+            "title": "Getting started"
+        },
+        {
+            "location": "/getting_started/#drive-your-car",
+            "text": "Now that you have built your car, you'll want to drive it.",
+            "title": "Drive your car."
+        },
+        {
+            "location": "/getting_started/#start-your-server",
+            "text": "Open a termial and find your ip address by typing  ifconfig  Start a server by running the  serve_no_pilot.py  demo script.  Now you can load the control page at  localhost:8887",
+            "title": "Start your server"
+        },
+        {
+            "location": "/getting_started/#start-your-car",
+            "text": "Open another terminal   Use this code to find the ip address of your pi. Change the IP base ip address to match your router.  sudo nmap -sP 192.168.1.0/24 | awk '/^Nmap/{ip=$NF}/B8:27:EB/{print ip}' \n3. Connect to your pi by running  ssh pi@<your_pi_ip_address> \n4. Activate your python virtual environment  cd donkey\nsource env/bin/activate \n5. Start your drive script. python scripts/drive.py  --remote http://<your server address>:8887  `",
+            "title": "Start your car"
+        },
+        {
+            "location": "/getting_started/#control-your-car",
+            "text": "You can now control your car with the virtual joystic on your computer or your phone.",
+            "title": "Control your car"
+        },
+        {
+            "location": "/how-it-works/",
+            "text": "Notes on how the software works - by @adrianco\n\n\n\n\nReading the code for the first time, there are likely to be some errors here\n\n\n\n\n\n\nRun server on the EC2 instance - scripts/serve.py\n\n\n\n\nWeb server for user interface\n\n\nServes multiple vehicles and pilots from a single instance\n\n\nPilots can be users or autopilots\n\n\nCollects sessions for training\n\n\n\n\nremotes.py - donkey.remotes.DonkeyPilotApplication\n\n\n\n\ntornado web application\n\n\n\n\nhome page\n\n\n\n\nadd screen shot of home page here\n\n\n\n\nvehicles\n\n\n\n\nVehicleListView - List of vehicles connected \n\n\nVehicleView - Control page for selected vehicle\n\n\n\n\nsessions - captured 160x120 pixel 4KB images for training\n\n\n\n\nSessionListView - show all the session folders\n\n\nSessionView - show all the images in a session and delete selected\n\n\nSessionImageView - returns jpeg images from a session folder\n\n\n\n\npilots\n\n\n\n\nPilotListView - show list of pilot options\n\n\n\n\napi/vehicles\n\n\n\n\nVehicleAPI - change the pilot\n\n\nDriveAPI - receive POST requests from VehicleView to control steering and throttle\n\n\nVideoAPI - serves a MJPEG of images from the vehicle updated at 5fps\n\n\nControlAPI - Receive POST from vehicle and return steering/throttle from a pilot\n\n\nLogs - REMOTE angle: throttle: drive_mode:\n\n\n\n\n\n\nRun on the Raspberry Pi3 on the car - scripts/drive.py\n\n\n\n\nstarted with URL to server as argument\n\n\nconfig from vehicle.ini - there are other files for differential cars and specific models\n\n\ntrained model is default.h5 specified in vehicle.ini, about 500KB\n\n\nset up actuators to control steering and throttle\n\n\nmixers.AckermanSteeringMixer - blend steering and throttle\n\n\nsensors.PiVideoStream - setup image capture from camera\n\n\nremotes.RemoteClient - setup remote hosts\n\n\npilots.KerasCategorical - choose and setup local Keras pilot\n\n\nvehicles.BaseVehicle - create a car\n\n\nstart the car\n\n\n\n\nremotes.py - donkey.remotes.DonkeyPilotApplication\n\n\n\n\nclient code for talking to the EC2 instance\n\n\n\n\nRemoteClient - send post requests to the server\n\n\n\n\nupdate - loop to request the server, delay 20ms\n\n\ndecide - post sensor data to server and get angle/throttle back\n\n\nconnection failures retry after 3s\n\n\ntimeouts after 250ms, reduce throttle to 80%\n\n\n\n\nmixers.py - blend steering and throttle\n\n\n\n\noptions for separate steering servo and for differential motor drive\n\n\n\n\nsensors.py - camera and a test fake camera only\n\n\nPiVideoStream - initialize and wait 2s for it to warm up\n\n\npilots.py - manage pilots, can contain one or more models to control throttle/steering\n\n\nKerasCategorical - load the model\n\n\n\n\nkeras.models.load_model - pick the right pilot\n\n\nmodel.predict - decide what throttle/steering to use based on an image\n\n\n\n\nvehicles.py - pull together everything to make a car\n\n\nBaseVehicle - initialize and start the drive loop\n\n\n\n\nget timestamp\n\n\nget current frame from camera\n\n\nmake remote call passing in image, angle, throttle, and time since start\n\n\nif drive_mode local - use pilot to decide angle/throttle\n\n\nif drive_mode local_angle - use pilot to decide angle only\n\n\nupdate actuator mixer with angle/throttle\n\n\ncalculate lag to get round loop\n\n\nlog CAR: angle: throttle: drive_mode: lag:\n\n\nsleep for remaining time up to 500ms \n\n\n\n\n\n\nTraining\n\n\nscripts/explore.py - train and test many models to find the best one\n\n\n\n\nloop and explore parameters on datasets\n\n\n\n\nscripts/sessions_to_hdf5.py - create a model containing dataset from session(s)\n\n\nscripts/simulate.py - run a fake car on the server, generate fake images\n\n\nscripts/train.py - train a keras model from simulated or recorded sessions\n\n\n\n\nbatch size 128\n\n\nsessions.sessions_to_dataset - combine multiple sessions into a dataset\n\n\ndatasets.split_datasets - separate training and validation data, 10% chunks\n\n\nmodels.categorical_model_factory - create model using nvidia_conv\n\n\nmodels.train_gen - steps set to number of training batches (I think?)\n\n\n\n\nmodels.py - create and train models\n\n\nnvidia_conv - five convolution layers and two dense layers\n\n\ncategorical_model_factory - create model with categorical angle/continuous throttle outputs\n\n\n\n\nmodel.compile - loss function weights angle loss 0.9 more than throttle loss 0.1\n\n\n\n\ntrain_gen - train and save the best until validation error stops improving\n\n\n\n\nmodel.fit_generator - default 10 steps per epoch - set by amount of data, 100 epochs\n\n\n\n\ndatasets.py - datasets are images and and angle/throttle values\n\n\nsplit_datasets - return three shuffled generators for train, validate and test\n\n\nsessions.py - images with angle, throttle and milliseconds since start in filename\n\n\n\n\nExample frame_01359_ttl_0.25_agl_3.4989908547067235e-18_mil_0.0.jpg\n\n\nAbove has throttle at 25% and angle near zero, time not being recorded\n\n\n\n\n\n\nUtilities\n\n\nscripts/setup.py - create default folder, copy config file and model to be customized\n\n\nscripts/find_car.py - find your car's IP on a local network\n\n\nscripts/upload_to_S3.py - upload dataset to S3 - default bucket donkey_resources\n\n\n\n\nPredict server, different authors\n\n\nsdsandbox_drive.py - alternative server implementation, steering only",
+            "title": "How it works"
+        },
+        {
+            "location": "/how-it-works/#notes-on-how-the-software-works-by-adrianco",
+            "text": "Reading the code for the first time, there are likely to be some errors here",
+            "title": "Notes on how the software works - by @adrianco"
+        },
+        {
+            "location": "/how-it-works/#run-server-on-the-ec2-instance-scriptsservepy",
+            "text": "Web server for user interface  Serves multiple vehicles and pilots from a single instance  Pilots can be users or autopilots  Collects sessions for training",
+            "title": "Run server on the EC2 instance - scripts/serve.py"
+        },
+        {
+            "location": "/how-it-works/#remotespy-donkeyremotesdonkeypilotapplication",
+            "text": "tornado web application",
+            "title": "remotes.py - donkey.remotes.DonkeyPilotApplication"
+        },
+        {
+            "location": "/how-it-works/#home-page",
+            "text": "add screen shot of home page here",
+            "title": "home page"
+        },
+        {
+            "location": "/how-it-works/#vehicles",
+            "text": "VehicleListView - List of vehicles connected   VehicleView - Control page for selected vehicle",
+            "title": "vehicles"
+        },
+        {
+            "location": "/how-it-works/#sessions-captured-160x120-pixel-4kb-images-for-training",
+            "text": "SessionListView - show all the session folders  SessionView - show all the images in a session and delete selected  SessionImageView - returns jpeg images from a session folder",
+            "title": "sessions - captured 160x120 pixel 4KB images for training"
+        },
+        {
+            "location": "/how-it-works/#pilots",
+            "text": "PilotListView - show list of pilot options",
+            "title": "pilots"
+        },
+        {
+            "location": "/how-it-works/#apivehicles",
+            "text": "VehicleAPI - change the pilot  DriveAPI - receive POST requests from VehicleView to control steering and throttle  VideoAPI - serves a MJPEG of images from the vehicle updated at 5fps  ControlAPI - Receive POST from vehicle and return steering/throttle from a pilot  Logs - REMOTE angle: throttle: drive_mode:",
+            "title": "api/vehicles"
+        },
+        {
+            "location": "/how-it-works/#run-on-the-raspberry-pi3-on-the-car-scriptsdrivepy",
+            "text": "started with URL to server as argument  config from vehicle.ini - there are other files for differential cars and specific models  trained model is default.h5 specified in vehicle.ini, about 500KB  set up actuators to control steering and throttle  mixers.AckermanSteeringMixer - blend steering and throttle  sensors.PiVideoStream - setup image capture from camera  remotes.RemoteClient - setup remote hosts  pilots.KerasCategorical - choose and setup local Keras pilot  vehicles.BaseVehicle - create a car  start the car",
+            "title": "Run on the Raspberry Pi3 on the car - scripts/drive.py"
+        },
+        {
+            "location": "/how-it-works/#remotespy-donkeyremotesdonkeypilotapplication_1",
+            "text": "client code for talking to the EC2 instance",
+            "title": "remotes.py - donkey.remotes.DonkeyPilotApplication"
+        },
+        {
+            "location": "/how-it-works/#remoteclient-send-post-requests-to-the-server",
+            "text": "update - loop to request the server, delay 20ms  decide - post sensor data to server and get angle/throttle back  connection failures retry after 3s  timeouts after 250ms, reduce throttle to 80%",
+            "title": "RemoteClient - send post requests to the server"
+        },
+        {
+            "location": "/how-it-works/#mixerspy-blend-steering-and-throttle",
+            "text": "options for separate steering servo and for differential motor drive",
+            "title": "mixers.py - blend steering and throttle"
+        },
+        {
+            "location": "/how-it-works/#sensorspy-camera-and-a-test-fake-camera-only",
+            "text": "",
+            "title": "sensors.py - camera and a test fake camera only"
+        },
+        {
+            "location": "/how-it-works/#pivideostream-initialize-and-wait-2s-for-it-to-warm-up",
+            "text": "",
+            "title": "PiVideoStream - initialize and wait 2s for it to warm up"
+        },
+        {
+            "location": "/how-it-works/#pilotspy-manage-pilots-can-contain-one-or-more-models-to-control-throttlesteering",
+            "text": "",
+            "title": "pilots.py - manage pilots, can contain one or more models to control throttle/steering"
+        },
+        {
+            "location": "/how-it-works/#kerascategorical-load-the-model",
+            "text": "keras.models.load_model - pick the right pilot  model.predict - decide what throttle/steering to use based on an image",
+            "title": "KerasCategorical - load the model"
+        },
+        {
+            "location": "/how-it-works/#vehiclespy-pull-together-everything-to-make-a-car",
+            "text": "",
+            "title": "vehicles.py - pull together everything to make a car"
+        },
+        {
+            "location": "/how-it-works/#basevehicle-initialize-and-start-the-drive-loop",
+            "text": "get timestamp  get current frame from camera  make remote call passing in image, angle, throttle, and time since start  if drive_mode local - use pilot to decide angle/throttle  if drive_mode local_angle - use pilot to decide angle only  update actuator mixer with angle/throttle  calculate lag to get round loop  log CAR: angle: throttle: drive_mode: lag:  sleep for remaining time up to 500ms",
+            "title": "BaseVehicle - initialize and start the drive loop"
+        },
+        {
+            "location": "/how-it-works/#training",
+            "text": "",
+            "title": "Training"
+        },
+        {
+            "location": "/how-it-works/#scriptsexplorepy-train-and-test-many-models-to-find-the-best-one",
+            "text": "loop and explore parameters on datasets",
+            "title": "scripts/explore.py - train and test many models to find the best one"
+        },
+        {
+            "location": "/how-it-works/#scriptssessions_to_hdf5py-create-a-model-containing-dataset-from-sessions",
+            "text": "",
+            "title": "scripts/sessions_to_hdf5.py - create a model containing dataset from session(s)"
+        },
+        {
+            "location": "/how-it-works/#scriptssimulatepy-run-a-fake-car-on-the-server-generate-fake-images",
+            "text": "",
+            "title": "scripts/simulate.py - run a fake car on the server, generate fake images"
+        },
+        {
+            "location": "/how-it-works/#scriptstrainpy-train-a-keras-model-from-simulated-or-recorded-sessions",
+            "text": "batch size 128  sessions.sessions_to_dataset - combine multiple sessions into a dataset  datasets.split_datasets - separate training and validation data, 10% chunks  models.categorical_model_factory - create model using nvidia_conv  models.train_gen - steps set to number of training batches (I think?)",
+            "title": "scripts/train.py - train a keras model from simulated or recorded sessions"
+        },
+        {
+            "location": "/how-it-works/#modelspy-create-and-train-models",
+            "text": "",
+            "title": "models.py - create and train models"
+        },
+        {
+            "location": "/how-it-works/#nvidia_conv-five-convolution-layers-and-two-dense-layers",
+            "text": "",
+            "title": "nvidia_conv - five convolution layers and two dense layers"
+        },
+        {
+            "location": "/how-it-works/#categorical_model_factory-create-model-with-categorical-anglecontinuous-throttle-outputs",
+            "text": "model.compile - loss function weights angle loss 0.9 more than throttle loss 0.1",
+            "title": "categorical_model_factory - create model with categorical angle/continuous throttle outputs"
+        },
+        {
+            "location": "/how-it-works/#train_gen-train-and-save-the-best-until-validation-error-stops-improving",
+            "text": "model.fit_generator - default 10 steps per epoch - set by amount of data, 100 epochs",
+            "title": "train_gen - train and save the best until validation error stops improving"
+        },
+        {
+            "location": "/how-it-works/#datasetspy-datasets-are-images-and-and-anglethrottle-values",
+            "text": "",
+            "title": "datasets.py - datasets are images and and angle/throttle values"
+        },
+        {
+            "location": "/how-it-works/#split_datasets-return-three-shuffled-generators-for-train-validate-and-test",
+            "text": "",
+            "title": "split_datasets - return three shuffled generators for train, validate and test"
+        },
+        {
+            "location": "/how-it-works/#sessionspy-images-with-angle-throttle-and-milliseconds-since-start-in-filename",
+            "text": "Example frame_01359_ttl_0.25_agl_3.4989908547067235e-18_mil_0.0.jpg  Above has throttle at 25% and angle near zero, time not being recorded",
+            "title": "sessions.py - images with angle, throttle and milliseconds since start in filename"
+        },
+        {
+            "location": "/how-it-works/#utilities",
+            "text": "",
+            "title": "Utilities"
+        },
+        {
+            "location": "/how-it-works/#scriptssetuppy-create-default-folder-copy-config-file-and-model-to-be-customized",
+            "text": "",
+            "title": "scripts/setup.py - create default folder, copy config file and model to be customized"
+        },
+        {
+            "location": "/how-it-works/#scriptsfind_carpy-find-your-cars-ip-on-a-local-network",
+            "text": "",
+            "title": "scripts/find_car.py - find your car's IP on a local network"
+        },
+        {
+            "location": "/how-it-works/#scriptsupload_to_s3py-upload-dataset-to-s3-default-bucket-donkey_resources",
+            "text": "",
+            "title": "scripts/upload_to_S3.py - upload dataset to S3 - default bucket donkey_resources"
+        },
+        {
+            "location": "/how-it-works/#predict-server-different-authors",
+            "text": "",
+            "title": "Predict server, different authors"
+        },
+        {
+            "location": "/how-it-works/#sdsandbox_drivepy-alternative-server-implementation-steering-only",
+            "text": "",
+            "title": "sdsandbox_drive.py - alternative server implementation, steering only"
+        },
+        {
+            "location": "/stores/",
+            "text": "Datasets\n\n\nDonkey has several builtin datasets to help users test their autopilots and confirm that they can learn from image sequences. \n\n\nMoving Square\n\n\nA single color moving square bounces around the screen.\n\n\nOutputs:\n\n X - 120x160px image of moving square on black background.\n\n Y - x and y cordinates of center of square in the image. (use options to only return x or y)\n\n\nDriving Datasets\n\n\nBlog post showing how to train a model from these datasets\n\n\n\n\nDIYRobocars 1/10th scale track on Feb 11th - \nwarehouseRGB.pkl",
+            "title": "Stores"
+        },
+        {
+            "location": "/stores/#datasets",
+            "text": "Donkey has several builtin datasets to help users test their autopilots and confirm that they can learn from image sequences.",
+            "title": "Datasets"
+        },
+        {
+            "location": "/stores/#moving-square",
+            "text": "A single color moving square bounces around the screen.  Outputs:  X - 120x160px image of moving square on black background.  Y - x and y cordinates of center of square in the image. (use options to only return x or y)",
+            "title": "Moving Square"
+        },
+        {
+            "location": "/stores/#driving-datasets",
+            "text": "Blog post showing how to train a model from these datasets   DIYRobocars 1/10th scale track on Feb 11th -  warehouseRGB.pkl",
+            "title": "Driving Datasets"
+        }
+    ]
+}
