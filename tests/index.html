@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Build a Car - Donkey Car</title>
+  <title>Tests - Donkey Car</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Build a Car";
-    var mkdocs_page_input_path = "build_instructions.md";
-    var mkdocs_page_url = "/build_instructions/";
+    var mkdocs_page_name = "Tests";
+    var mkdocs_page_input_path = "tests.md";
+    var mkdocs_page_url = "/tests/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -63,15 +63,9 @@
     <a class="" href="..">Home</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Build a Car</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#build-a-donkey-vehicle">Build a donkey vehicle.</a></li>
-    
-
-    </ul>
+    <a class="" href="../build_instructions/">Build a Car</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -98,9 +92,23 @@
     <a class="" href="../contribute/">Contribute</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../tests/">Tests</a>
+    <a class="current" href="./">Tests</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#tests">Tests</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#run-all-the-tests">Run all the tests</a></li>
+        
+            <li><a class="toctree-l3" href="#organization">Organization</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
         </ul>
@@ -125,10 +133,10 @@
     
       
     
-    <li>Build a Car</li>
+    <li>Tests</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/wroscoe/donkey/edit/master/docs/build_instructions.md"
+        <a href="https://github.com/wroscoe/donkey/edit/master/docs/tests.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -138,7 +146,18 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="build-a-donkey-vehicle">Build a donkey vehicle.</h1>
+                <h1 id="tests">Tests</h1>
+<p>There is a limited test suite to ensure that the your changes to the code
+don't break something unintended. </p>
+<h3 id="run-all-the-tests">Run all the tests</h3>
+<p><code>python -m unittest</code></p>
+<h3 id="organization">Organization</h3>
+<p>The test code is in <code>tests</code> foders in the same folder as the code. This is to
+help keep the test code linked to the code its self. If you change the code, 
+change the tests. :)</p>
+<blockquote>
+<p>TODO: Skip tests that require specific hardware.</p>
+</blockquote>
               
             </div>
           </div>
@@ -146,10 +165,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../about-parts/" class="btn btn-neutral float-right" title="Parts Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../contribute/" class="btn btn-neutral" title="Contribute"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -177,10 +194,8 @@
           <a href="https://github.com/wroscoe/donkey" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../contribute/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../about-parts/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

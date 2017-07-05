@@ -77,7 +77,7 @@
         },
         {
             "location": "/contribute/",
-            "text": "Contribute to Donkey\n\n\nDonkey is an opensource project to help accelerate the developement of \nself driving autos. See below how you can contribute. \n\n\nAdd a part.\n\n\nSubmit a github issue when you find a problem with the code. \n\n\nFix a bug or reply to issues.\n\n\n\n\nSubmit a github issue that describes a feature that you want. This is where the conversation can start. \n\n\nFork the code, make your change and submit a pull request. \n\n\n\n\nTests\n\n\nMake sure all tests pass before submitting your pull request.\n\n\nRun tests with: \npython -m unittest",
+            "text": "Contribute to Donkey\n\n\nDonkey is an opensource project to help accelerate the developement of \nself driving autos. See below how you can contribute. \n\n\nAdd a part.\n\n\nAre you a hardware specialist that can write a donkey part wrapper for a\nGPS unit or a data scientist that can write an recursive neural net autopilot?\nIf so please write a part so other people driving donkeys can use the part.\n\n\nFix or report a bug.\n\n\nIf you find a problem with the code and you know how to fix it then please\nclone the repo, make your fix, and submit your pull request.\n\n\nReply to issues.\n\n\nHelping close or triage the issues is a good way to help.\n\n\nNeed Inspiration?\n\n\nSearch the code or docs for \nTODO\n to find places where you might be able \nto find a better solution. \n\n\nImprove the documentation.\n\n\nYou can fix grammar or provide clarity by clicking the the \nEdit on GitHub\n \nlink in the top right corner.",
             "title": "Contribute"
         },
         {
@@ -87,18 +87,48 @@
         },
         {
             "location": "/contribute/#add-a-part",
-            "text": "Submit a github issue when you find a problem with the code.",
+            "text": "Are you a hardware specialist that can write a donkey part wrapper for a\nGPS unit or a data scientist that can write an recursive neural net autopilot?\nIf so please write a part so other people driving donkeys can use the part.",
             "title": "Add a part."
         },
         {
-            "location": "/contribute/#fix-a-bug-or-reply-to-issues",
-            "text": "Submit a github issue that describes a feature that you want. This is where the conversation can start.   Fork the code, make your change and submit a pull request.",
-            "title": "Fix a bug or reply to issues."
+            "location": "/contribute/#fix-or-report-a-bug",
+            "text": "If you find a problem with the code and you know how to fix it then please\nclone the repo, make your fix, and submit your pull request.",
+            "title": "Fix or report a bug."
         },
         {
-            "location": "/contribute/#tests",
-            "text": "Make sure all tests pass before submitting your pull request.  Run tests with:  python -m unittest",
+            "location": "/contribute/#reply-to-issues",
+            "text": "Helping close or triage the issues is a good way to help.",
+            "title": "Reply to issues."
+        },
+        {
+            "location": "/contribute/#need-inspiration",
+            "text": "Search the code or docs for  TODO  to find places where you might be able \nto find a better solution.",
+            "title": "Need Inspiration?"
+        },
+        {
+            "location": "/contribute/#improve-the-documentation",
+            "text": "You can fix grammar or provide clarity by clicking the the  Edit on GitHub  \nlink in the top right corner.",
+            "title": "Improve the documentation."
+        },
+        {
+            "location": "/tests/",
+            "text": "Tests\n\n\nThere is a limited test suite to ensure that the your changes to the code\ndon't break something unintended. \n\n\nRun all the tests\n\n\npython -m unittest\n\n\nOrganization\n\n\nThe test code is in \ntests\n foders in the same folder as the code. This is to\nhelp keep the test code linked to the code its self. If you change the code, \nchange the tests. :)\n\n\n\n\nTODO: Skip tests that require specific hardware.",
             "title": "Tests"
+        },
+        {
+            "location": "/tests/#tests",
+            "text": "There is a limited test suite to ensure that the your changes to the code\ndon't break something unintended.",
+            "title": "Tests"
+        },
+        {
+            "location": "/tests/#run-all-the-tests",
+            "text": "python -m unittest",
+            "title": "Run all the tests"
+        },
+        {
+            "location": "/tests/#organization",
+            "text": "The test code is in  tests  foders in the same folder as the code. This is to\nhelp keep the test code linked to the code its self. If you change the code, \nchange the tests. :)   TODO: Skip tests that require specific hardware.",
+            "title": "Organization"
         }
     ]
 }
