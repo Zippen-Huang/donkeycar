@@ -70,6 +70,14 @@
             
     <li class="toctree-l2"><a href="#build-a-donkey-vehicle">Build a donkey vehicle.</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#calibrate-your-vehicle">Calibrate your vehicle.</a></li>
+        
+            <li><a class="toctree-l3" href="#drive-the-car">Drive the car.</a></li>
+        
+        </ul>
+    
 
     </ul>
 	    </li>
@@ -139,6 +147,35 @@
             <div class="section">
               
                 <h1 id="build-a-donkey-vehicle">Build a donkey vehicle.</h1>
+<p>The standard hardware build instructions can be found in this 
+<a href="https://docs.google.com/document/d/11IPqZcDcLTd2mtYaR5ONpDxFgL9Y1nMNTDvEarST8Wk/edit#heading=h.ayg28mpf8hvb">google doc</a>.</p>
+<p>Once you have the car built and the Raspbery Pi running with the given
+disk image follow these steps to start running the latest version of Donkey. </p>
+<p>On the Pi pull the most recent version.  </p>
+<pre><code>git fetch origin dev
+get checkout dev
+</code></pre>
+
+<h3 id="calibrate-your-vehicle">Calibrate your vehicle.</h3>
+<p>The goal of calibrating your vehicle is to make it run the same as other vehicles
+when given the same <code>angle</code> and <code>throttle</code> values. For example if you give the
+car an angle=0 and throttle=0 the wheels should point straight and the 
+vehicle should not move.</p>
+<p>Assuming you've built the Donkey2 or your car uses the same motor controller 
+you can run <code>python scripts/calibrate.py</code> to find the right PWM settings for 
+your car. </p>
+<p>Enter the PWM values determined during your calibration into the </p>
+<h3 id="drive-the-car">Drive the car.</h3>
+<p><strong> put your car in a box or on blocks to avoid it running away </strong></p>
+<p>After you've updated the script you use to drive your car with the correct 
+PWM settings then you can run the script that will start your vehicles 
+drive loop. </p>
+<pre><code>python examples/donkey2.py
+</code></pre>
+
+<ol>
+<li>Run the drive script </li>
+</ol>
               
             </div>
           </div>
