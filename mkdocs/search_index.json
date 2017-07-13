@@ -2,13 +2,18 @@
     "docs": [
         {
             "location": "/",
-            "text": "About Donkey\n\n\nDonkey is a high level self driving library written in Python and capable of \ncontrolling ackerman or differential drive vehicles. It was developed with a \nfocus on enabling fast experimentation and easy contribution.\n\n\nUse Donkey if you want to...\n\n\n Build your own small scale self driving car.\n\n Implement computer vision or neural network based auto-pilots.\n* Use an arbitrary number of sensors on your car. \n\n\nGuiding Developement Principles\n\n\n\n\n\n\nModularity\n: A self driving system is composed of standalone, \nindependently configurable modules that can be connected modules.\n\n\n\n\n\n\nMinimalism\n: Each component should be kept short (<100 lines of code). \nEach peice of code should be transparent apon first reading. No black magic, it slows the speed of innovation. \n\n\n\n\n\n\nExtensiblity\n: New components should be simple to create by following a \ntemplate. \n\n\n\n\n\n\nPython\n: Keep it simple. \n\n\n\n\n\n\nThese guidelines are nearly copied from \nKeras\n because they are so good\n \n\n\nGetting started in 30 seconds.\n\n\nRecord images from the camera\n\n\n\nimport donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ninputs=['image']\ntypes=['image_array']\npath = '~/mydonkey/gettings_started'\ntub = dk.parts.Tub(path, inputs, types)\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)\n\n\n\n\nMore examples\n\n\nYou can find more examples in the examples folder.",
+            "text": "About Donkey\n\n\nDonkey is a high level self driving library written in Python and capable of \ncontrolling ackerman or differential drive vehicles. It was developed with a \nfocus on enabling fast experimentation and easy contribution.\n\n\nUse Donkey if you want to...\n\n\n\n\nBuild your own small scale self driving car.\n\n\nImplement computer vision or neural network based auto-pilots.\n\n\nUse an arbitrary number of sensors on your car. \n\n\n\n\nGuiding Developement Principles\n\n\n\n\n\n\nModularity\n: A self driving system is composed of standalone, \nindependently configurable modules that can be connected modules.\n\n\n\n\n\n\nMinimalism\n: Each component should be kept short (<100 lines of code). \nEach peice of code should be transparent apon first reading. No black magic, it slows the speed of innovation. \n\n\n\n\n\n\nExtensiblity\n: New components should be simple to create by following a \ntemplate. \n\n\n\n\n\n\nPython\n: Keep it simple. \n\n\n\n\n\n\nThese guidelines are nearly copied from \nKeras\n because they are so good\n \n\n\nGetting started in 30 seconds.\n\n\nRecord images from the camera\n\n\n\nimport donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ntub = dk.parts.Tub(path='~/mydonkey/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)\n\n\n\n\nMore examples\n\n\nYou can find more examples in the examples folder.",
             "title": "Home"
         },
         {
             "location": "/#about-donkey",
-            "text": "Donkey is a high level self driving library written in Python and capable of \ncontrolling ackerman or differential drive vehicles. It was developed with a \nfocus on enabling fast experimentation and easy contribution.  Use Donkey if you want to...   Build your own small scale self driving car.  Implement computer vision or neural network based auto-pilots.\n* Use an arbitrary number of sensors on your car.",
+            "text": "Donkey is a high level self driving library written in Python and capable of \ncontrolling ackerman or differential drive vehicles. It was developed with a \nfocus on enabling fast experimentation and easy contribution.",
             "title": "About Donkey"
+        },
+        {
+            "location": "/#use-donkey-if-you-want-to",
+            "text": "Build your own small scale self driving car.  Implement computer vision or neural network based auto-pilots.  Use an arbitrary number of sensors on your car.",
+            "title": "Use Donkey if you want to..."
         },
         {
             "location": "/#guiding-developement-principles",
@@ -22,7 +27,7 @@
         },
         {
             "location": "/#record-images-from-the-camera",
-            "text": "import donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ninputs=['image']\ntypes=['image_array']\npath = '~/mydonkey/gettings_started'\ntub = dk.parts.Tub(path, inputs, types)\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)",
+            "text": "import donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ntub = dk.parts.Tub(path='~/mydonkey/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)",
             "title": "Record images from the camera"
         },
         {
@@ -32,23 +37,33 @@
         },
         {
             "location": "/build_instructions/",
-            "text": "Build a donkey vehicle.\n\n\nThe standard hardware build instructions can be found in this \n\ngoogle doc\n.\n\n\nOnce you have the car built and the Raspbery Pi running with the given\ndisk image follow these steps to start running the latest version of Donkey. \n\n\nOn the Pi pull the most recent version.  \n\n\ngit fetch origin dev\nget checkout dev\n\n\n\n\nCalibrate your vehicle.\n\n\nThe goal of calibrating your vehicle is to make it run the same as other vehicles\nwhen given the same \nangle\n and \nthrottle\n values. For example if you give the\ncar an angle=0 and throttle=0 the wheels should point straight and the \nvehicle should not move.\n\n\nAssuming you've built the Donkey2 or your car uses the same motor controller \nyou can run \npython scripts/calibrate.py\n to find the right PWM settings for \nyour car. \n\n\nEnter the PWM values determined during your calibration into the \n\n\nDrive the car.\n\n\n put your car in a box or on blocks to avoid it running away \n\n\nAfter you've updated the script you use to drive your car with the correct \nPWM settings then you can run the script that will start your vehicles \ndrive loop. \n\n\npython examples/donkey2.py\n\n\n\n\n\n\nRun the drive script",
+            "text": "Build Instructions\n\n\nBuild.\n\n\nThe standard hardware build instructions can be found in this \n\ngoogle doc\n.\n\n\nOnce you have the car built and the Raspbery Pi running with the given\ndisk image follow these steps to start running the latest version of Donkey. \n\n\nOn the Pi pull the most recent version.  \n\n\ngit fetch origin dev\nget checkout dev\n\n\n\n\nCalibrate.\n\n\nThe goal of calibrating your vehicle is to make it run the same as other vehicles\nwhen given the same \nangle\n and \nthrottle\n values. For example if you give the\ncar an angle=0 and throttle=0 the wheels should point straight and the \nvehicle should not move.\n\n\nAssuming you've built the Donkey2 or your car uses the same motor controller \nyou can run \npython scripts/calibrate.py\n to find the right PWM settings for \nyour car. \n\n\nEnter the PWM values determined during your calibration into the \n\n\nDrive.\n\n\n put your car in a box or on blocks to avoid it running away \n\n\nAfter you've updated the script you use to drive your car with the correct \nPWM settings then you can run the script that will start your vehicles \ndrive loop. \n\n\npython examples/donkey2.py\n\n\n\n\nExplore\n\n\nNow that you have a working car you can modify it with different sensors\n or autopilots. See other parts of this documentation to see what you can do.",
             "title": "Build a Car"
         },
         {
-            "location": "/build_instructions/#build-a-donkey-vehicle",
+            "location": "/build_instructions/#build-instructions",
+            "text": "",
+            "title": "Build Instructions"
+        },
+        {
+            "location": "/build_instructions/#build",
             "text": "The standard hardware build instructions can be found in this  google doc .  Once you have the car built and the Raspbery Pi running with the given\ndisk image follow these steps to start running the latest version of Donkey.   On the Pi pull the most recent version.    git fetch origin dev\nget checkout dev",
-            "title": "Build a donkey vehicle."
+            "title": "Build."
         },
         {
-            "location": "/build_instructions/#calibrate-your-vehicle",
+            "location": "/build_instructions/#calibrate",
             "text": "The goal of calibrating your vehicle is to make it run the same as other vehicles\nwhen given the same  angle  and  throttle  values. For example if you give the\ncar an angle=0 and throttle=0 the wheels should point straight and the \nvehicle should not move.  Assuming you've built the Donkey2 or your car uses the same motor controller \nyou can run  python scripts/calibrate.py  to find the right PWM settings for \nyour car.   Enter the PWM values determined during your calibration into the",
-            "title": "Calibrate your vehicle."
+            "title": "Calibrate."
         },
         {
-            "location": "/build_instructions/#drive-the-car",
-            "text": "put your car in a box or on blocks to avoid it running away   After you've updated the script you use to drive your car with the correct \nPWM settings then you can run the script that will start your vehicles \ndrive loop.   python examples/donkey2.py   Run the drive script",
-            "title": "Drive the car."
+            "location": "/build_instructions/#drive",
+            "text": "put your car in a box or on blocks to avoid it running away   After you've updated the script you use to drive your car with the correct \nPWM settings then you can run the script that will start your vehicles \ndrive loop.   python examples/donkey2.py",
+            "title": "Drive."
+        },
+        {
+            "location": "/build_instructions/#explore",
+            "text": "Now that you have a working car you can modify it with different sensors\n or autopilots. See other parts of this documentation to see what you can do.",
+            "title": "Explore"
         },
         {
             "location": "/about-parts/",
