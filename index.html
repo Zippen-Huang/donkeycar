@@ -182,7 +182,10 @@ template. </p>
 <h2 id="installation">Installation</h2>
 <h3 id="developement-version">Developement version</h3>
 <pre><code class="bash">git clone https://github.com/wroscoe/donkey donkeycar
-pip install -e donkeycar
+cd donkeycar
+git fetch origin dev
+git checkout dev
+pip install -e .
 </code></pre>
 
 <p>Now create a fake car on your computer to see if it works. </p>
@@ -263,5 +266,5 @@ V.start(max_loop_count=100)
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-08-08 05:28:01
+Build Date UTC : 2017-08-08 05:39:48
 -->
