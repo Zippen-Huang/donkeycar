@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "About Donkey\n\n\nDonkey is a high level self driving library written in Python and capable of \ncontrolling ackerman or differential drive vehicles. It was developed with a \nfocus on enabling fast experimentation and easy contribution.\n\n\nUse Donkey if you want to...\n\n\n\n\nBuild your own small scale self driving car.\n\n\nImplement computer vision or neural network based auto-pilots.\n\n\nUse an arbitrary number of sensors on your car. \n\n\n\n\nGuiding Developement Principles\n\n\n\n\n\n\nModularity\n: A self driving system is composed of standalone, \nindependently configurable modules that can be connected modules.\n\n\n\n\n\n\nMinimalism\n: Each component should be kept short (<100 lines of code). \nEach peice of code should be transparent apon first reading. No black magic, it slows the speed of innovation. \n\n\n\n\n\n\nExtensiblity\n: New components should be simple to create by following a \ntemplate. \n\n\n\n\n\n\nPython\n: Keep it simple. \n\n\n\n\n\n\nThese guidelines are nearly copied from \nKeras\n because they are so good\n \n\n\nInstallation\n\n\nDevelopement version\n\n\ngit clone https://github.com/wroscoe/donkey donkeycar\ncd donkeycar\ngit fetch origin dev\ngit checkout dev\npip install -e .\n\n\n\n\nNow create a fake car on your computer to see if it works. \n\n\ndonkey createcar --path sdonk --template record_square\ncd ~/sdonk\npython car.py drive\npython car.py train --tub <your_tub_name> --model <your_new_model_name>\n\n\n\n\nGetting started in 30 seconds.\n\n\nRecord images from the camera\n\n\n\nimport donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ntub = dk.parts.Tub(path='~/mydonkey/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)\n\n\n\n\nMore examples\n\n\nYou can find more examples in the examples folder.",
+            "text": "About Donkey\n\n\nDonkey is a high level self driving library written in Python and capable of \ncontrolling ackerman or differential drive vehicles. It was developed with a \nfocus on enabling fast experimentation and easy contribution.\n\n\nWhat can you do with Donkey?\n\n\n\n\nBuild your own small scale self driving car.\n\n\nImplement computer vision or neural network based auto-pilots.\n\n\nExperiement with different sensors on your car. \n\n\n\n\nGet started.\n\n\n\n\nBuild a car.\n\n\nInstall the donkeycar libary. \npip install donkeycar\n\n\nCreate the drive script for your car from a template.  \ndonkey createcar ~/d2\n\n\nStart driving your car. \npython ~/d2/car.py drive\n\n\nControl your car in a browser at \n<your pi's ip address>:8887\n \n\n\n\n\nHello World.\n\n\nHere's a drive script that will record images from a camera and \nsave them to disk. \n\n\n\nimport donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ntub = dk.parts.Tub(path='~/mydonkey/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)",
             "title": "Home"
         },
         {
@@ -11,124 +11,134 @@
             "title": "About Donkey"
         },
         {
-            "location": "/#use-donkey-if-you-want-to",
-            "text": "Build your own small scale self driving car.  Implement computer vision or neural network based auto-pilots.  Use an arbitrary number of sensors on your car.",
-            "title": "Use Donkey if you want to..."
+            "location": "/#what-can-you-do-with-donkey",
+            "text": "Build your own small scale self driving car.  Implement computer vision or neural network based auto-pilots.  Experiement with different sensors on your car.",
+            "title": "What can you do with Donkey?"
         },
         {
-            "location": "/#guiding-developement-principles",
-            "text": "Modularity : A self driving system is composed of standalone, \nindependently configurable modules that can be connected modules.    Minimalism : Each component should be kept short (<100 lines of code). \nEach peice of code should be transparent apon first reading. No black magic, it slows the speed of innovation.     Extensiblity : New components should be simple to create by following a \ntemplate.     Python : Keep it simple.     These guidelines are nearly copied from  Keras  because they are so good",
-            "title": "Guiding Developement Principles"
+            "location": "/#get-started",
+            "text": "Build a car.  Install the donkeycar libary.  pip install donkeycar  Create the drive script for your car from a template.   donkey createcar ~/d2  Start driving your car.  python ~/d2/car.py drive  Control your car in a browser at  <your pi's ip address>:8887",
+            "title": "Get started."
         },
         {
-            "location": "/#installation",
-            "text": "",
-            "title": "Installation"
+            "location": "/#hello-world",
+            "text": "Here's a drive script that will record images from a camera and \nsave them to disk.   \nimport donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ntub = dk.parts.Tub(path='~/mydonkey/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)",
+            "title": "Hello World."
         },
         {
-            "location": "/#developement-version",
-            "text": "git clone https://github.com/wroscoe/donkey donkeycar\ncd donkeycar\ngit fetch origin dev\ngit checkout dev\npip install -e .  Now create a fake car on your computer to see if it works.   donkey createcar --path sdonk --template record_square\ncd ~/sdonk\npython car.py drive\npython car.py train --tub <your_tub_name> --model <your_new_model_name>",
-            "title": "Developement version"
+            "location": "/guide/build_hardware/",
+            "text": "Instructions to build a Donkey Car\n\n\nThe standard hardware build instructions can be found in this \n\ngoogle doc\n.\n\n\nOnce you have the car built and the Raspbery Pi running with the given\ndisk image follow these steps to start running the latest version of Donkey.",
+            "title": "Build a car."
         },
         {
-            "location": "/#getting-started-in-30-seconds",
-            "text": "",
-            "title": "Getting started in 30 seconds."
-        },
-        {
-            "location": "/#record-images-from-the-camera",
-            "text": "import donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ntub = dk.parts.Tub(path='~/mydonkey/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)",
-            "title": "Record images from the camera"
-        },
-        {
-            "location": "/#more-examples",
-            "text": "You can find more examples in the examples folder.",
-            "title": "More examples"
-        },
-        {
-            "location": "/build_instructions/",
-            "text": "Instructions to build a Donkey Car\n\n\nBuild\n\n\nThe standard hardware build instructions can be found in this \n\ngoogle doc\n.\n\n\nOnce you have the car built and the Raspbery Pi running with the given\ndisk image follow these steps to start running the latest version of Donkey. \n\n\nOn the Pi pull the most recent version.  \n\n\ngit fetch origin dev\nget checkout dev\n\n\n\n\nCalibrate\n\n\nThe goal of calibrating your vehicle is to make it run the same as other vehicles\nwhen given the same \nangle\n and \nthrottle\n values. For example if you give the\ncar an angle=0 and throttle=0 the wheels should point straight and the \nvehicle should not move.\n\n\nAssuming you've built the Donkey2 or your car uses the same motor controller \nyou can run \npython scripts/calibrate.py\n to find the right PWM settings for \nyour car. \n\n\nEnter the PWM values determined during your calibration into the \n\n\nDrive\n\n\n put your car in a box or on blocks to avoid it running away \n\n\nAfter you've updated the script you use to drive your car with the correct \nPWM settings then you can run the script that will start your vehicles \ndrive loop. \n\n\npython examples/donkey2.py\n\n\n\n\nExplore\n\n\nNow that you have a working car you can modify it with different sensors\n or autopilots. See other parts of this documentation to see what you can do.",
-            "title": "Build a Car"
-        },
-        {
-            "location": "/build_instructions/#instructions-to-build-a-donkey-car",
-            "text": "",
+            "location": "/guide/build_hardware/#instructions-to-build-a-donkey-car",
+            "text": "The standard hardware build instructions can be found in this  google doc .  Once you have the car built and the Raspbery Pi running with the given\ndisk image follow these steps to start running the latest version of Donkey.",
             "title": "Instructions to build a Donkey Car"
         },
         {
-            "location": "/build_instructions/#build",
-            "text": "The standard hardware build instructions can be found in this  google doc .  Once you have the car built and the Raspbery Pi running with the given\ndisk image follow these steps to start running the latest version of Donkey.   On the Pi pull the most recent version.    git fetch origin dev\nget checkout dev",
-            "title": "Build"
+            "location": "/guide/install_software/",
+            "text": "Installation\n\n\nAfter you've built your car you'll need to  can install \n\n\nStable Version:\n\n\npip install -U donkeycar\n\n\n\n\nLatest Version: Use this if you plan to contribute code back to master. \n\n\ngit clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar",
+            "title": "Install the software."
         },
         {
-            "location": "/build_instructions/#calibrate",
-            "text": "The goal of calibrating your vehicle is to make it run the same as other vehicles\nwhen given the same  angle  and  throttle  values. For example if you give the\ncar an angle=0 and throttle=0 the wheels should point straight and the \nvehicle should not move.  Assuming you've built the Donkey2 or your car uses the same motor controller \nyou can run  python scripts/calibrate.py  to find the right PWM settings for \nyour car.   Enter the PWM values determined during your calibration into the",
-            "title": "Calibrate"
+            "location": "/guide/install_software/#installation",
+            "text": "After you've built your car you'll need to  can install   Stable Version:  pip install -U donkeycar  Latest Version: Use this if you plan to contribute code back to master.   git clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar",
+            "title": "Installation"
         },
         {
-            "location": "/build_instructions/#drive",
-            "text": "put your car in a box or on blocks to avoid it running away   After you've updated the script you use to drive your car with the correct \nPWM settings then you can run the script that will start your vehicles \ndrive loop.   python examples/donkey2.py",
-            "title": "Drive"
+            "location": "/guide/get_driving/",
+            "text": "Connect to your car via ssh.\n\n\nAll these instructions assume your working on a unix based OS (Linux/iOS)\n\n\nOn a terminal in your computer install donkeycar:\n\n\npip install -U donkeycar\n\n\n\n\nFind the ipaddress if your car.\n\ndonkey findcar\n\n\nThen SSH into your car's Raspberry Pi.\n\n\nssh pi@<your pi's ip address>\n\n\n\n\nCreate a drive script on your car.\n\n\nUgrade the install of donkeycar. \n\n\npip install -U donkeycar\n\n\n\n\nUse a template to create a car folder structure.\n\n\ndonkey createcar --path ~/d2 --template donkey2\n\n\n\n\nThis created a new folder whith a script to start your car and folders to save\ndata and models.\n\n\nStart your car.\n\n\n\n\n Put your car in a safe place where the wheels are off the ground \n This\nis the step were the car can take off. \n\n\n\n\nOpen your car's folder and start our car. \n\n\ncd ~/d2\npython manage.py drive\n\n\n\n\nThis script will start the drive loop in your car which includes a part that \nis a webserver for you to control your car. You can now controll your car\nfrom a web browser at the url: \n<your car's ip's address>:8887",
+            "title": "Get driving."
         },
         {
-            "location": "/build_instructions/#explore",
-            "text": "Now that you have a working car you can modify it with different sensors\n or autopilots. See other parts of this documentation to see what you can do.",
-            "title": "Explore"
+            "location": "/guide/get_driving/#connect-to-your-car-via-ssh",
+            "text": "All these instructions assume your working on a unix based OS (Linux/iOS)  On a terminal in your computer install donkeycar:  pip install -U donkeycar  Find the ipaddress if your car. donkey findcar  Then SSH into your car's Raspberry Pi.  ssh pi@<your pi's ip address>",
+            "title": "Connect to your car via ssh."
         },
         {
-            "location": "/about-parts/",
+            "location": "/guide/get_driving/#create-a-drive-script-on-your-car",
+            "text": "Ugrade the install of donkeycar.   pip install -U donkeycar  Use a template to create a car folder structure.  donkey createcar --path ~/d2 --template donkey2  This created a new folder whith a script to start your car and folders to save\ndata and models.",
+            "title": "Create a drive script on your car."
+        },
+        {
+            "location": "/guide/get_driving/#start-your-car",
+            "text": "Put your car in a safe place where the wheels are off the ground   This\nis the step were the car can take off.    Open your car's folder and start our car.   cd ~/d2\npython manage.py drive  This script will start the drive loop in your car which includes a part that \nis a webserver for you to control your car. You can now controll your car\nfrom a web browser at the url:  <your car's ip's address>:8887",
+            "title": "Start your car."
+        },
+        {
+            "location": "/guide/calibrate/",
+            "text": "",
+            "title": "Calibrate steering and throttle."
+        },
+        {
+            "location": "/guide/train_autopilot/",
+            "text": "Train an Machine Learning Autopilot with Keras\n\n\nAfter you have built a car you want to make it drive it's self. One way that's \nshow to work well is by training a neural network to replicate your actions\nbased on the images it sees. \n\n\n\n\nStart your car.\n\n\nWhile driving your car around a track, press the record button in the \nweb controller. This will start recording images and steering and throttle \nvallues. \n\n\nAfter you've driving the track 20-30 times, stop the car with Ctr-c in\nthe ssh session. \n\n\nIn a new terminal session on your comptuer use rsync to copy your cars \nfolder. \n\n\n\n\nrsync pi@<your_pi_ip_address>:~/d2  ~/d2\n\n\n\n\n\n\nIn the same terminal you can now run the training script on the latest tub.\n\n\n\n\n python ~/d2/manage.py train --model mypilot\n\n\n\n\n\n\nNow you can use rsync again to move your pilot back to your car. \n\n\n\n\nrsync ~/d2 pi@<your_ip_address>:~/d2\n\n\n\n\n\n\nNow you can start your car again and pass it your model to drive.\n```\npython ~/d2/manage.py drive --model mypilot",
+            "title": "Train an autopilot."
+        },
+        {
+            "location": "/guide/train_autopilot/#train-an-machine-learning-autopilot-with-keras",
+            "text": "After you have built a car you want to make it drive it's self. One way that's \nshow to work well is by training a neural network to replicate your actions\nbased on the images it sees.    Start your car.  While driving your car around a track, press the record button in the \nweb controller. This will start recording images and steering and throttle \nvallues.   After you've driving the track 20-30 times, stop the car with Ctr-c in\nthe ssh session.   In a new terminal session on your comptuer use rsync to copy your cars \nfolder.    rsync pi@<your_pi_ip_address>:~/d2  ~/d2   In the same terminal you can now run the training script on the latest tub.    python ~/d2/manage.py train --model mypilot   Now you can use rsync again to move your pilot back to your car.    rsync ~/d2 pi@<your_ip_address>:~/d2   Now you can start your car again and pass it your model to drive.\n```\npython ~/d2/manage.py drive --model mypilot",
+            "title": "Train an Machine Learning Autopilot with Keras"
+        },
+        {
+            "location": "/parts/about/",
             "text": "What is a Part\n\n\nA part python class that wraps a functional component of a vehicle. \nThese include: \n\n Sensors - Cameras, Lidar, Odometers, GPS ...\n\n Actuators - Motor Controllers\n\n Pilots - Lane Detectors, Behavioral Cloning models, ...\n\n Controllers - Web based or bluetooth.\n* Stores - Tub, or a way to save data. \n\n\nHere is an example how to use the PiCamera part to publish an image in the\n'cam/img' channel on every drive loop.\n\n\nV = dk.Vehicle()\n\n#initialize the camera part\ncam = dk.parts.PiCamera()\n\n#add the part to the vehicle.\nV.add(cam, outputs=['cam/img'])\n\nV.start()\n\n\n\n\nAnatomy of a Part\n\n\nAll parts share a common structure so that they can all be run by the vehicles\ndrive loop. Here is an example of a part that will accept a number, multiply \nit by a random number and return the result.\n\n\nimport random \n\nclass RandPercent:\n    def run(self, x):\n        return x * random.random()\n\n\n\n\nNow to add this to a vehicle:\n\n\nV = dk.Vehicle()\n\n#initialize the channel value\nV.mem['const'] = 4\n\n#add the part to read and write to the same channel.\nV.add(RandPercent, inputs=['const'], outputs=['cost'])\n\nV.start(max_loops=5)\n\n\n\n\nThreaded Parts\n\n\nFor a vehicle to perform well the drive loop must execute 10-30 times per\nsecond so slow parts should be threaded to avoid holding up the drive loop.\n\n\nA threaded part needs to define the function that runs in the separate thread\nand the function to call that will return the most recent values quickly. \n\n\nHere's an example how to make the RandPercent part threaded if the run\nfunction too a second to complete. \n\n\nimport random \nimport time\n\nclass RandPercent:\n    self.in = 0.\n    self.out = 0.\n    def run(self, x):\n        return x * random.random()\n        time.sleep(1)\n\n    def update(self):\n        #the funtion run in it's own thread\n        while True:\n            self.out = self.run(self.in)\n\n    def run_threaded(self, x):\n        self.in = x\n        return self.out\n\n\n\n\n\n\n\npart.run\n : function used to run the part\n\n\npart.run_threaded\n : drive loop function run if part is threaded.\n\n\npart.update\n : threaded function  \n\n\npart.shutdown",
-            "title": "Parts Overview"
+            "title": "About"
         },
         {
-            "location": "/about-parts/#what-is-a-part",
+            "location": "/parts/about/#what-is-a-part",
             "text": "A part python class that wraps a functional component of a vehicle. \nThese include:   Sensors - Cameras, Lidar, Odometers, GPS ...  Actuators - Motor Controllers  Pilots - Lane Detectors, Behavioral Cloning models, ...  Controllers - Web based or bluetooth.\n* Stores - Tub, or a way to save data.   Here is an example how to use the PiCamera part to publish an image in the\n'cam/img' channel on every drive loop.  V = dk.Vehicle()\n\n#initialize the camera part\ncam = dk.parts.PiCamera()\n\n#add the part to the vehicle.\nV.add(cam, outputs=['cam/img'])\n\nV.start()",
             "title": "What is a Part"
         },
         {
-            "location": "/about-parts/#anatomy-of-a-part",
+            "location": "/parts/about/#anatomy-of-a-part",
             "text": "All parts share a common structure so that they can all be run by the vehicles\ndrive loop. Here is an example of a part that will accept a number, multiply \nit by a random number and return the result.  import random \n\nclass RandPercent:\n    def run(self, x):\n        return x * random.random()  Now to add this to a vehicle:  V = dk.Vehicle()\n\n#initialize the channel value\nV.mem['const'] = 4\n\n#add the part to read and write to the same channel.\nV.add(RandPercent, inputs=['const'], outputs=['cost'])\n\nV.start(max_loops=5)",
             "title": "Anatomy of a Part"
         },
         {
-            "location": "/about-parts/#threaded-parts",
+            "location": "/parts/about/#threaded-parts",
             "text": "For a vehicle to perform well the drive loop must execute 10-30 times per\nsecond so slow parts should be threaded to avoid holding up the drive loop.  A threaded part needs to define the function that runs in the separate thread\nand the function to call that will return the most recent values quickly.   Here's an example how to make the RandPercent part threaded if the run\nfunction too a second to complete.   import random \nimport time\n\nclass RandPercent:\n    self.in = 0.\n    self.out = 0.\n    def run(self, x):\n        return x * random.random()\n        time.sleep(1)\n\n    def update(self):\n        #the funtion run in it's own thread\n        while True:\n            self.out = self.run(self.in)\n\n    def run_threaded(self, x):\n        self.in = x\n        return self.out   part.run  : function used to run the part  part.run_threaded  : drive loop function run if part is threaded.  part.update  : threaded function    part.shutdown",
             "title": "Threaded Parts"
         },
         {
-            "location": "/actuators/",
+            "location": "/parts/actuators/",
             "text": "",
             "title": "Actuators"
         },
         {
-            "location": "/stores/",
+            "location": "/parts/stores/",
             "text": "Stores\n\n\nStores are parts that record and replay vehicle data produced by other parts. \n\n\nTub\n\n\nThis is the standard donkey data store and it is modeled after the ROSBAG.\n\n\n\n\nTODO: The structure of the Tub part is not ideal and should be changed.\n\n\n\n\ntypes should not need to be specified and could be inspected and saved \non the first loop.\n\n\n\n\n\n\nExample creation \n\n\nimport donkey as dk\n\nT = dk.parts.Tub(path, inputs, types)\n\n\n\n\n\nAccepted Types\n\n\n\n\nfloat\n - saved as record\n\n\nint\n - saved as record",
             "title": "Stores"
         },
         {
-            "location": "/stores/#stores",
+            "location": "/parts/stores/#stores",
             "text": "Stores are parts that record and replay vehicle data produced by other parts.",
             "title": "Stores"
         },
         {
-            "location": "/stores/#tub",
+            "location": "/parts/stores/#tub",
             "text": "This is the standard donkey data store and it is modeled after the ROSBAG.   TODO: The structure of the Tub part is not ideal and should be changed.   types should not need to be specified and could be inspected and saved \non the first loop.    Example creation   import donkey as dk\n\nT = dk.parts.Tub(path, inputs, types)",
             "title": "Tub"
         },
         {
-            "location": "/stores/#accepted-types",
+            "location": "/parts/stores/#accepted-types",
             "text": "float  - saved as record  int  - saved as record",
             "title": "Accepted Types"
         },
         {
             "location": "/contribute/",
-            "text": "Contribute to Donkey\n\n\nDonkey is an opensource project to help accelerate the developement of \nself driving autos. See below how you can contribute. \n\n\nAdd a part.\n\n\nAre you a hardware specialist that can write a donkey part wrapper for a\nGPS unit or a data scientist that can write an recursive neural net autopilot?\nIf so please write a part so other people driving donkeys can use the part.\n\n\nFix or report a bug.\n\n\nIf you find a problem with the code and you know how to fix it then please\nclone the repo, make your fix, and submit your pull request.\n\n\nReply to issues.\n\n\nHelping close or triage the issues is a good way to help.\n\n\nNeed Inspiration?\n\n\nSearch the code or docs for \nTODO\n to find places where you might be able \nto find a better solution. \n\n\nImprove the documentation.\n\n\nYou can fix grammar or provide clarity by clicking the the \nEdit on GitHub\n \nlink in the top right corner.",
+            "text": "Contribute to Donkey\n\n\nDonkey is an opensource project to help accelerate the developement of \nself driving autos. \n\n\nGuiding Developement Principles\n\n\n\n\nModularity\n: A self driving system is composed of standalone, \nindependently configurable components that can be combined to make a car.\n\n\nMinimalism\n: Each component should be kept short (<100 lines of code). \nEach peice of code should be transparent apon first reading. No black magic, \nit slows the speed of innovation. \n\n\nExtensiblity\n: New components should be simple to create by following a \ntemplate. \n\n\nPython\n: Keep it simple. \n\n\n\n\nThese guidelines are nearly copied from \nKeras\n because they are so good\n \n\n\nAdd a part.\n\n\nAre you a hardware specialist that can write a donkey part wrapper for a\nGPS unit or a data scientist that can write an recursive neural net autopilot?\nIf so please write a part so other people driving donkeys can use the part.\n\n\nFix or report a bug.\n\n\nIf you find a problem with the code and you know how to fix it then please\nclone the repo, make your fix, and submit your pull request.\n\n\nReply to issues.\n\n\nHelping close or triage the issues is a good way to help.\n\n\nNeed Inspiration?\n\n\nSearch the code or docs for \nTODO\n to find places where you might be able \nto find a better solution. \n\n\nImprove the documentation.\n\n\nYou can fix grammar or provide clarity by clicking the the \nEdit on GitHub\n \nlink in the top right corner.",
             "title": "Contribute"
         },
         {
             "location": "/contribute/#contribute-to-donkey",
-            "text": "Donkey is an opensource project to help accelerate the developement of \nself driving autos. See below how you can contribute.",
+            "text": "Donkey is an opensource project to help accelerate the developement of \nself driving autos.",
             "title": "Contribute to Donkey"
+        },
+        {
+            "location": "/contribute/#guiding-developement-principles",
+            "text": "Modularity : A self driving system is composed of standalone, \nindependently configurable components that can be combined to make a car.  Minimalism : Each component should be kept short (<100 lines of code). \nEach peice of code should be transparent apon first reading. No black magic, \nit slows the speed of innovation.   Extensiblity : New components should be simple to create by following a \ntemplate.   Python : Keep it simple.    These guidelines are nearly copied from  Keras  because they are so good",
+            "title": "Guiding Developement Principles"
         },
         {
             "location": "/contribute/#add-a-part",
@@ -174,6 +184,21 @@
             "location": "/tests/#organization",
             "text": "The test code is in  tests  foders in the same folder as the code. This is to\nhelp keep the test code linked to the code its self. If you change the code, \nchange the tests. :)   TODO: Skip tests that require specific hardware.",
             "title": "Organization"
+        },
+        {
+            "location": "/faq/",
+            "text": "How do I create my own Raspberry Pi Disk?\n\n\nIf you don't want to use the disk image for the Raspberry Pi you can \ninstall the packages like this.\n\n\n\n\nSetup OS on Raspberry Pi\nFollow \nthese instructions\n\nto install the Raspbian Jessie operating system using the NOOBS method \non your SD card.\nP\n\n\nut the SD card into your Raspberry Pi.\n\n\nPower up your Raspberry Pi using the USB cable.\n\n\nConnect to a wifi internet connection. \n\n\n\n\nInstall Basic Libraries\n\n\nSince the Raspberry Pi is not as fast as larger computers, it can take a long time to install python packages (ie. numpy & PIL) using pip. Luckily Adafruit has precompiled these libraries into packages that can be installed via \napt-get\n.\n\n\n\n\nOpen a terminal (Ctrl-Alt-t) and upgrade your system packages.\n\n\n\n\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\n\n\n\nInstall necessary libraries \n\n\n\n\nsudo apt-get install xsel xclip libxml2-dev libxslt-dev libzmq-dev libspatialindex-dev virtualenv\n\n\n\n\n\n\nPandas & Jupyter Requirements\n\n\n\n\nsudo apt-get install python3-lxml python3-h5py python3-numexpr python3-dateutil python3-tz python3-bs4 python3-xlrd python3-tables python3-sqlalchemy python3-xlsxwriter python3-httplib2 python3-zmq \n\n\n\n\n\n\nScientific Python\n\n\n\n\nsudo apt-get install python3-numpy python3-matplotlib python3-scipy python3-pandas",
+            "title": "FAQ"
+        },
+        {
+            "location": "/faq/#how-do-i-create-my-own-raspberry-pi-disk",
+            "text": "If you don't want to use the disk image for the Raspberry Pi you can \ninstall the packages like this.   Setup OS on Raspberry Pi\nFollow  these instructions \nto install the Raspbian Jessie operating system using the NOOBS method \non your SD card.\nP  ut the SD card into your Raspberry Pi.  Power up your Raspberry Pi using the USB cable.  Connect to a wifi internet connection.",
+            "title": "How do I create my own Raspberry Pi Disk?"
+        },
+        {
+            "location": "/faq/#install-basic-libraries",
+            "text": "Since the Raspberry Pi is not as fast as larger computers, it can take a long time to install python packages (ie. numpy & PIL) using pip. Luckily Adafruit has precompiled these libraries into packages that can be installed via  apt-get .   Open a terminal (Ctrl-Alt-t) and upgrade your system packages.   sudo apt-get update\nsudo apt-get upgrade   Install necessary libraries    sudo apt-get install xsel xclip libxml2-dev libxslt-dev libzmq-dev libspatialindex-dev virtualenv   Pandas & Jupyter Requirements   sudo apt-get install python3-lxml python3-h5py python3-numexpr python3-dateutil python3-tz python3-bs4 python3-xlrd python3-tables python3-sqlalchemy python3-xlsxwriter python3-httplib2 python3-zmq    Scientific Python   sudo apt-get install python3-numpy python3-matplotlib python3-scipy python3-pandas",
+            "title": "Install Basic Libraries"
         }
     ]
 }

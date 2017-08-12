@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Build a Car - Donkey Car</title>
+  <title>FAQ - Donkey Car</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Build a Car";
-    var mkdocs_page_input_path = "build_instructions.md";
-    var mkdocs_page_url = "/build_instructions/";
+    var mkdocs_page_name = "FAQ";
+    var mkdocs_page_input_path = "faq.md";
+    var mkdocs_page_url = "/faq/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -63,26 +63,30 @@
     <a class="" href="..">Home</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Build a Car</a>
+    <span class="caption-text">User Guide</span>
     <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#instructions-to-build-a-donkey-car">Instructions to build a Donkey Car</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#build">Build</a></li>
-        
-            <li><a class="toctree-l3" href="#calibrate">Calibrate</a></li>
-        
-            <li><a class="toctree-l3" href="#drive">Drive</a></li>
-        
-            <li><a class="toctree-l3" href="#explore">Explore</a></li>
-        
-        </ul>
-    
-
+                <li class="">
+                    
+    <a class="" href="../guide/build_hardware/">Build a car.</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guide/install_software/">Install the software.</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guide/get_driving/">Get driving.</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guide/calibrate/">Calibrate steering and throttle.</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../guide/train_autopilot/">Train an autopilot.</a>
+                </li>
     </ul>
 	    </li>
           
@@ -92,15 +96,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../about-parts/">Parts Overview</a>
+    <a class="" href="../parts/about/">About</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../actuators/">Actuators</a>
+    <a class="" href="../parts/actuators/">Actuators</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../stores/">Stores</a>
+    <a class="" href="../parts/stores/">Stores</a>
                 </li>
     </ul>
 	    </li>
@@ -113,6 +117,23 @@
             <li class="toctree-l1">
 		
     <a class="" href="../tests/">Tests</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">FAQ</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#install-basic-libraries">Install Basic Libraries</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
         </ul>
@@ -137,10 +158,10 @@
     
       
     
-    <li>Build a Car</li>
+    <li>FAQ</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/wroscoe/donkey/edit/master/docs/build_instructions.md"
+        <a href="https://github.com/wroscoe/donkey/edit/master/docs/faq.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -150,37 +171,45 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="instructions-to-build-a-donkey-car">Instructions to build a Donkey Car</h1>
-<h3 id="build">Build</h3>
-<p>The standard hardware build instructions can be found in this 
-<a href="https://docs.google.com/document/d/11IPqZcDcLTd2mtYaR5ONpDxFgL9Y1nMNTDvEarST8Wk/edit#heading=h.ayg28mpf8hvb">google doc</a>.</p>
-<p>Once you have the car built and the Raspbery Pi running with the given
-disk image follow these steps to start running the latest version of Donkey. </p>
-<p>On the Pi pull the most recent version.  </p>
-<pre><code>git fetch origin dev
-get checkout dev
+                <h1 id="how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</h1>
+<p>If you don't want to use the disk image for the Raspberry Pi you can 
+install the packages like this.</p>
+<ol>
+<li>Setup OS on Raspberry Pi
+Follow <a href="https://www.raspberrypi.org/learning/software-guide/quickstart/">these instructions</a>
+to install the Raspbian Jessie operating system using the NOOBS method 
+on your SD card.
+P</li>
+<li>ut the SD card into your Raspberry Pi.</li>
+<li>Power up your Raspberry Pi using the USB cable.</li>
+<li>Connect to a wifi internet connection. </li>
+</ol>
+<h5 id="install-basic-libraries">Install Basic Libraries</h5>
+<p>Since the Raspberry Pi is not as fast as larger computers, it can take a long time to install python packages (ie. numpy &amp; PIL) using pip. Luckily Adafruit has precompiled these libraries into packages that can be installed via <code>apt-get</code>.</p>
+<ol>
+<li>Open a terminal (Ctrl-Alt-t) and upgrade your system packages.</li>
+</ol>
+<pre><code>sudo apt-get update
+sudo apt-get upgrade
 </code></pre>
 
-<h3 id="calibrate">Calibrate</h3>
-<p>The goal of calibrating your vehicle is to make it run the same as other vehicles
-when given the same <code>angle</code> and <code>throttle</code> values. For example if you give the
-car an angle=0 and throttle=0 the wheels should point straight and the 
-vehicle should not move.</p>
-<p>Assuming you've built the Donkey2 or your car uses the same motor controller 
-you can run <code>python scripts/calibrate.py</code> to find the right PWM settings for 
-your car. </p>
-<p>Enter the PWM values determined during your calibration into the </p>
-<h3 id="drive">Drive</h3>
-<p><strong> put your car in a box or on blocks to avoid it running away </strong></p>
-<p>After you've updated the script you use to drive your car with the correct 
-PWM settings then you can run the script that will start your vehicles 
-drive loop. </p>
-<pre><code>python examples/donkey2.py
+<ol>
+<li>Install necessary libraries </li>
+</ol>
+<pre><code>sudo apt-get install xsel xclip libxml2-dev libxslt-dev libzmq-dev libspatialindex-dev virtualenv
 </code></pre>
 
-<h3 id="explore">Explore</h3>
-<p>Now that you have a working car you can modify it with different sensors
- or autopilots. See other parts of this documentation to see what you can do.</p>
+<ol>
+<li>Pandas &amp; Jupyter Requirements</li>
+</ol>
+<pre><code>sudo apt-get install python3-lxml python3-h5py python3-numexpr python3-dateutil python3-tz python3-bs4 python3-xlrd python3-tables python3-sqlalchemy python3-xlsxwriter python3-httplib2 python3-zmq 
+</code></pre>
+
+<ol>
+<li>Scientific Python</li>
+</ol>
+<pre><code>sudo apt-get install python3-numpy python3-matplotlib python3-scipy python3-pandas 
+</code></pre>
               
             </div>
           </div>
@@ -188,10 +217,8 @@ drive loop. </p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../about-parts/" class="btn btn-neutral float-right" title="Parts Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tests/" class="btn btn-neutral" title="Tests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -219,10 +246,8 @@ drive loop. </p>
           <a href="https://github.com/wroscoe/donkey" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../tests/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../about-parts/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

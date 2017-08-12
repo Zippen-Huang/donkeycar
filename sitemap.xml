@@ -4,15 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-08-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/build_instructions/</loc>
-     <lastmod>2017-08-07</lastmod>
+     <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,20 +12,54 @@
     
         
     <url>
-     <loc>/about-parts/</loc>
-     <lastmod>2017-08-07</lastmod>
+     <loc>/guide/build_hardware/</loc>
+     <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/actuators/</loc>
-     <lastmod>2017-08-07</lastmod>
+     <loc>/guide/install_software/</loc>
+     <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/stores/</loc>
-     <lastmod>2017-08-07</lastmod>
+     <loc>/guide/get_driving/</loc>
+     <lastmod>2017-08-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/guide/calibrate/</loc>
+     <lastmod>2017-08-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/guide/train_autopilot/</loc>
+     <lastmod>2017-08-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/parts/about/</loc>
+     <lastmod>2017-08-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/parts/actuators/</loc>
+     <lastmod>2017-08-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/parts/stores/</loc>
+     <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -42,7 +68,7 @@
     
     <url>
      <loc>/contribute/</loc>
-     <lastmod>2017-08-07</lastmod>
+     <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -50,7 +76,15 @@
     
     <url>
      <loc>/tests/</loc>
-     <lastmod>2017-08-07</lastmod>
+     <lastmod>2017-08-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/faq/</loc>
+     <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
