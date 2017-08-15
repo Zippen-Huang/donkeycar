@@ -76,7 +76,17 @@
     <a class="current" href="./">Install the software.</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#installation">Installation</a></li>
+    <li class="toctree-l3"><a href="#install-software">Install Software</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#get-the-raspberry-pi-working">Get the Raspberry Pi working.</a></li>
+        
+            <li><a class="toctree-l4" href="#connecting-to-the-pi">Connecting to the Pi</a></li>
+        
+            <li><a class="toctree-l4" href="#create-your-car-app">Create your car app</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -169,15 +179,63 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="installation">Installation</h1>
-<p>After you've built your car you'll need to  can install </p>
-<p>Stable Version:</p>
-<pre><code class="bash">pip install -U donkeycar
+                <h1 id="install-software">Install Software</h1>
+<h3 id="get-the-raspberry-pi-working">Get the Raspberry Pi working.</h3>
+<p>Before we can do anything we have to get our car's computer connected to the 
+internet. The fastest way is to use the disk image created for donkey cars. </p>
+<p>The method for using a disk image to create a bootable SD card varies between
+operating systems. These instructions are for Ubuntu but you can see more 
+instructions <a href="https://www.raspberrypi.org/documentation/installation/installing-images/">here</a>.</p>
+<ol>
+<li>Download <a href="https://www.dropbox.com/s/pn3czsbgy4t9n8y/donkey_2.img.zip?dl=0">zipped disk image</a> (900MB). </li>
+<li>Unzip the disk image.</li>
+<li>Plug your SD card into your computer.</li>
+<li>Open the "Startup Disk Creator" application.</li>
+<li>Select your source disk image as the one you unzipped earlier.</li>
+<li>Select your SD card as the disk to use. </li>
+<li>Click "Make startup disk".</li>
+</ol>
+<p>Since our pi doesn't have a monitor/keyboard/mouse let's setup the pi's wifi
+now.</p>
+<ol>
+<li>start a text editor with root privelidges ie. <code>sudo gedit</code></li>
+<li>Open the file <code>/etc/wpa_supplicant/wpa_supplicant.conf</code> in the text editor
+and edit the wifi credentials to your wifi settings.</li>
+</ol>
+<p>Now you're SD card is ready. Eject it from your computer, put it in the Pi 
+and plug in the Pi. </p>
+<h3 id="connecting-to-the-pi">Connecting to the Pi</h3>
+<p>If you followed the above instructions to add wifi access you're Pi should
+now be connected to your wifi network. Now you need to find it's IP address
+so you can connect to it via SSH. </p>
+<blockquote>
+<p>Note: If you didn't setup the wifi earlier you'll need to attach a monitor,
+keyboard and mouse so you can log setup the wifi via the command line. </p>
+</blockquote>
+<p>The easiest way (on Ubuntu) is to use the <code>findcar</code> donkey command. Regardless 
+you will wand donkeycar installed on your computer for training so lets install
+donkeycar now. </p>
+<pre><code>virtualenv env -p python3
+source env/bin/activate
+pip install donkeycar
+donkeycar findcar
 </code></pre>
 
-<p>Latest Version: Use this if you plan to contribute code back to master. </p>
-<pre><code class="bash">git clone https://github.com/wroscoe/donkey donkeycar
-pip install -e donkeycar
+<p>This will show your ip address, promt for your password, and then search 
+for your cars ip address. </p>
+<blockquote>
+<p>If your car's ip address is not shown then:
+1. find another way to scan your local network for your raspbery pi 
+2. connect a monitor to your pi to connect to the the same wifi as your computer. </p>
+</blockquote>
+<p>Assuming that you did find your pi on the network. You can now connect to it
+remotely via ssh. </p>
+<pre><code>ssh pi@&lt;your_pi_ip_address&gt;
+</code></pre>
+
+<p>The default username is 'pi' and the password is 'raspberry'</p>
+<h3 id="create-your-car-app">Create your car app</h3>
+<pre><code>donkey createcar --path ~/d2
 </code></pre>
               
             </div>
