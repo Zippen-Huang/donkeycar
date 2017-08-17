@@ -67,7 +67,7 @@
         },
         {
             "location": "/guide/get_driving/",
-            "text": "Connect to your car via ssh.\n\n\nAll these instructions assume your working on a unix based OS (Linux/iOS)\n\n\nOn a terminal in your computer install donkeycar:\n\n\npip install -U donkeycar\n\n\n\n\nFind the ipaddress if your car.\n\ndonkey findcar\n\n\nThen SSH into your car's Raspberry Pi.\n\n\nssh pi@<your pi's ip address>\n\n\n\n\nCreate a drive script on your car.\n\n\nUgrade the install of donkeycar. \n\n\npip install -U donkeycar\n\n\n\n\nUse a template to create a car folder structure.\n\n\ndonkey createcar --path ~/d2 --template donkey2\n\n\n\n\nThis created a new folder whith a script to start your car and folders to save\ndata and models.\n\n\nStart your car.\n\n\n\n\n Put your car in a safe place where the wheels are off the ground \n This\nis the step were the car can take off. \n\n\n\n\nOpen your car's folder and start our car. \n\n\ncd ~/d2\npython manage.py drive\n\n\n\n\nThis script will start the drive loop in your car which includes a part that \nis a webserver for you to control your car. You can now controll your car\nfrom a web browser at the url: \n<your car's ip's address>:8887",
+            "text": "Connect to your car via ssh.\n\n\nAll these instructions assume your working on a unix based OS (Linux/iOS)\n\n\nOn a terminal in your computer install donkeycar:\n\n\npip install -U donkeycar\n\n\n\n\nFind the ipaddress if your car.\n\ndonkey findcar\n\n\nThen SSH into your car's Raspberry Pi.\n\n\nssh pi@<your pi's ip address>\n\n\n\n\nCreate a drive script on your car.\n\n\nUgrade the install of donkeycar. \n\n\npip uninstall donkeycar\npip install donkeycar\n\n\n\n\nUse a template to create a car folder structure.\n\n\ndonkey createcar --path ~/d2 --template donkey2\n\n\n\n\nThis created a new folder whith a script to start your car and folders to save\ndata and models.\n\n\nStart your car.\n\n\n\n\n Put your car in a safe place where the wheels are off the ground \n This\nis the step were the car can take off. \n\n\n\n\nOpen your car's folder and start our car. \n\n\ncd ~/d2\npython manage.py drive\n\n\n\n\nThis script will start the drive loop in your car which includes a part that \nis a webserver for you to control your car. You can now controll your car\nfrom a web browser at the url: \n<your car's ip's address>:8887",
             "title": "Get driving."
         },
         {
@@ -77,7 +77,7 @@
         },
         {
             "location": "/guide/get_driving/#create-a-drive-script-on-your-car",
-            "text": "Ugrade the install of donkeycar.   pip install -U donkeycar  Use a template to create a car folder structure.  donkey createcar --path ~/d2 --template donkey2  This created a new folder whith a script to start your car and folders to save\ndata and models.",
+            "text": "Ugrade the install of donkeycar.   pip uninstall donkeycar\npip install donkeycar  Use a template to create a car folder structure.  donkey createcar --path ~/d2 --template donkey2  This created a new folder whith a script to start your car and folders to save\ndata and models.",
             "title": "Create a drive script on your car."
         },
         {
