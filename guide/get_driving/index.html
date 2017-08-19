@@ -80,13 +80,15 @@
     <a class="current" href="./">Get driving.</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#connect-to-your-car-via-ssh">Connect to your car via ssh.</a></li>
+    <li class="toctree-l3"><a href="#drive-your-car">Drive your car.</a></li>
     
-
-    <li class="toctree-l3"><a href="#create-a-drive-script-on-your-car">Create a drive script on your car.</a></li>
-    
-
-    <li class="toctree-l3"><a href="#start-your-car">Start your car.</a></li>
+        <ul>
+        
+            <li><a class="toctree-l4" href="#start-your-car">Start your car.</a></li>
+        
+            <li><a class="toctree-l4" href="#driving">Driving</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -175,30 +177,8 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="connect-to-your-car-via-ssh">Connect to your car via ssh.</h3>
-<p>All these instructions assume your working on a unix based OS (Linux/iOS)</p>
-<p>On a terminal in your computer install donkeycar:</p>
-<pre><code>pip install -U donkeycar
-</code></pre>
-
-<p>Find the ipaddress if your car.
-<code>donkey findcar</code></p>
-<p>Then SSH into your car's Raspberry Pi.</p>
-<pre><code>ssh pi@&lt;your pi's ip address&gt;
-</code></pre>
-
-<h3 id="create-a-drive-script-on-your-car">Create a drive script on your car.</h3>
-<p>Ugrade the install of donkeycar. </p>
-<pre><code>pip uninstall donkeycar
-pip install donkeycar
-</code></pre>
-
-<p>Use a template to create a car folder structure.</p>
-<pre><code>donkey createcar --path ~/d2 --template donkey2
-</code></pre>
-
-<p>This created a new folder whith a script to start your car and folders to save
-data and models.</p>
+                <h1 id="drive-your-car">Drive your car.</h1>
+<p>After you've calibrated your car you can start driving it. </p>
 <h3 id="start-your-car">Start your car.</h3>
 <blockquote>
 <p><strong><em> Put your car in a safe place where the wheels are off the ground </em></strong> This
@@ -212,6 +192,28 @@ python manage.py drive
 <p>This script will start the drive loop in your car which includes a part that 
 is a webserver for you to control your car. You can now controll your car
 from a web browser at the url: <code>&lt;your car's ip's address&gt;:8887</code></p>
+<p><img alt="drive UI" src="../../assets/drive_UI.png" /></p>
+<h2 id="driving">Driving</h2>
+<p>On your phone you can now press start to set your phones current tilt to be
+zero throttle and steering. Now tilting your phone forward will increase throttle
+and tilting it side to side will turn the steering. </p>
+<h3 id="features">Features</h3>
+<ul>
+<li>Recording - Press record data to start recording images, steering angels and throttle values. </li>
+<li>Throttle mode - Option to set the throttle as constant. This is used in 
+races if you have a pilot that will steer but doesn't control throttle. </li>
+<li>Pilot mode - Choose if the pilot should control the angle and/or throttle.</li>
+<li>Max throttle - Select the maximum throttle.</li>
+</ul>
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+<ul>
+<li><code>space</code> : stop car and stop recording</li>
+<li><code>r</code> : toggle recording</li>
+<li><code>i</code> : increase throttle</li>
+<li><code>k</code> : decrease throttle</li>
+<li><code>j</code> : turn left </li>
+<li><code>l</code> : turn right </li>
+</ul>
               
             </div>
           </div>
