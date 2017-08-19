@@ -32,13 +32,13 @@
         },
         {
             "location": "/guide/build_hardware/",
-            "text": "Instructions to build a Donkey Car\n\n\nThe standard hardware build instructions can be found in this \n\ngoogle doc\n.\n\n\nOnce you have the car built follow the \nsoftware instructions\n.",
+            "text": "Instructions to build a Donkey2 Car\n\n\nThe standard hardware build instructions can be found in this \n\ngoogle doc\n.\n\n\nOnce you have the car built follow the \nsoftware instructions\n.",
             "title": "Build a car."
         },
         {
-            "location": "/guide/build_hardware/#instructions-to-build-a-donkey-car",
+            "location": "/guide/build_hardware/#instructions-to-build-a-donkey2-car",
             "text": "The standard hardware build instructions can be found in this  google doc .  Once you have the car built follow the  software instructions .",
-            "title": "Instructions to build a Donkey Car"
+            "title": "Instructions to build a Donkey2 Car"
         },
         {
             "location": "/guide/install_software/",
@@ -87,8 +87,33 @@
         },
         {
             "location": "/guide/calibrate/",
-            "text": "",
+            "text": "Calibrate your Car\n\n\nThe point of calibrating your car is to make it drive consitently with\nother vehicles. These instructions \n\n\nHow to adjust your car's settings.\n\n\nAll of the car's settings are in the \nmanage.py\n script generated when \nyou ran the \ndonkey createcar --path ~/d2\n command. You can edit\nthis file on your car by running:\n\n\nnano ~/d2/manage.py\n\n\n\n\nOur goal is to edit these settings so your car will drive like every\nother calibrated Donkey2. This way you'll be able to share pilots and \ndatasets between each car. \n\n\nSteering Calibration\n\n\n\n\nMake sure your car is off the ground to prevent a runaway situation.\n\n\n\n\n\n\nTurn on your car.\n\n\nFind the servo cable on your car and see what channel it's plugged into the\nPCA board. It should be 1 or 0.\n\n\nRun \ndonkey calibrate --channel <your_steering_channel>\n\n\nEnter \n360' and you should see the wheels on your car move slightly. If not \nenter\n400\nor\n300`.\n\n\nNext enter values +/- 10 from your starting value to find the PWM setting\nthat makes your car turn all the way left and all the way right. Remember \nthese values. \n\n\nEnter these values in your \nmanage.py\n script as inputs into your \nsteering_controller part as the \nleft_pulse\n and \nright_pulse\n. \n\n\n\n\nThrottle Calibration\n\n\n\n\nFind the cable coming from your ESC and see what channel it goes into the\nPCA board. This is your throttle channel.\n\n\nrun \ndonkey calibrate --channel <your_throttle_channel>\n\n\nEnter \n370\n when prompted for a PWM value.\n\n\nYou should hear your ESC beep indicating that it's calibrated. \n\n\nEnter \n400\n and you should see yoru cars wheels start to go forward. If not,\nits likely that this is reverse, try entering \n330\n instead.\n\n\nKeep trying different values until you've found a reasonable max speed and\nremember this PWM value.\n\n\n\n\nReverse on RC cars is a little trickey because the ESC needs to recieve a\nreverse pulse, zero pulse, reverse pulse to start to go backwards. To calibrate\na reverse PWM setting...\n\n\n\n\nUse the same technique as above set the PWM setting to your zero throttle. \n\n\nEnter the reverse value, then the zero throttle value, then the reverse \nvalue again. \n\n\nEnter values +/- 10 of the reverse value to find a reasonable reverse speed.\nRember this reverse PWM value. \n\n\n\n\nNow open your \nmanage.py\n script and enter the PWM values for your car into\nthe throttle_controller part. \n\n \nmax_puse\n = PWM value for full throttle forward\n\n \nzero_pulse\n = PWM value for zero throttle\n* \nmin_pulse\n = PWM value at full reverse throttle\n\n\nFine tuning your calibration.\n\n\nNow that you have your care roughly calibrated you can try driving it to \nverify that it drives as expected. Here's how to fine tune your car's calibration. \n\n\n\n\nStart your car by running \npython manage.py drive\n.\n\n\nGo to \n<your_cars_ip_address>:8887\n in a browser. \n\n\nPress \nj\n until the cars steering is all the way right. \n\n\nPress \ni\n a couple times to get the car to go forward.\n\n\nMeasure the diameter of the turn and record on it in a spreadsheet. \n\n\nRepeat this measurement for different steering values for turning each \ndirection. \n\n\nChart these so you can see if your car turns the same in each direction. \n\n\n\n\nCorrections\n\n If your car turns the same amount at an 80% turn and a 100% turn change the\nPWM setting for that turn direction to be the PWM value at 80%. \n\n If your car is biased to turn on direction, change the PWM values of your turns\nin the opisite direction of the bias.\n\n\nAfter you've fine tuned your car the steering chart should look something like\nthis.",
             "title": "Calibrate steering and throttle."
+        },
+        {
+            "location": "/guide/calibrate/#calibrate-your-car",
+            "text": "The point of calibrating your car is to make it drive consitently with\nother vehicles. These instructions",
+            "title": "Calibrate your Car"
+        },
+        {
+            "location": "/guide/calibrate/#how-to-adjust-your-cars-settings",
+            "text": "All of the car's settings are in the  manage.py  script generated when \nyou ran the  donkey createcar --path ~/d2  command. You can edit\nthis file on your car by running:  nano ~/d2/manage.py  Our goal is to edit these settings so your car will drive like every\nother calibrated Donkey2. This way you'll be able to share pilots and \ndatasets between each car.",
+            "title": "How to adjust your car's settings."
+        },
+        {
+            "location": "/guide/calibrate/#steering-calibration",
+            "text": "Make sure your car is off the ground to prevent a runaway situation.    Turn on your car.  Find the servo cable on your car and see what channel it's plugged into the\nPCA board. It should be 1 or 0.  Run  donkey calibrate --channel <your_steering_channel>  Enter  360' and you should see the wheels on your car move slightly. If not \nenter 400 or 300`.  Next enter values +/- 10 from your starting value to find the PWM setting\nthat makes your car turn all the way left and all the way right. Remember \nthese values.   Enter these values in your  manage.py  script as inputs into your \nsteering_controller part as the  left_pulse  and  right_pulse .",
+            "title": "Steering Calibration"
+        },
+        {
+            "location": "/guide/calibrate/#throttle-calibration",
+            "text": "Find the cable coming from your ESC and see what channel it goes into the\nPCA board. This is your throttle channel.  run  donkey calibrate --channel <your_throttle_channel>  Enter  370  when prompted for a PWM value.  You should hear your ESC beep indicating that it's calibrated.   Enter  400  and you should see yoru cars wheels start to go forward. If not,\nits likely that this is reverse, try entering  330  instead.  Keep trying different values until you've found a reasonable max speed and\nremember this PWM value.   Reverse on RC cars is a little trickey because the ESC needs to recieve a\nreverse pulse, zero pulse, reverse pulse to start to go backwards. To calibrate\na reverse PWM setting...   Use the same technique as above set the PWM setting to your zero throttle.   Enter the reverse value, then the zero throttle value, then the reverse \nvalue again.   Enter values +/- 10 of the reverse value to find a reasonable reverse speed.\nRember this reverse PWM value.    Now open your  manage.py  script and enter the PWM values for your car into\nthe throttle_controller part.    max_puse  = PWM value for full throttle forward   zero_pulse  = PWM value for zero throttle\n*  min_pulse  = PWM value at full reverse throttle",
+            "title": "Throttle Calibration"
+        },
+        {
+            "location": "/guide/calibrate/#fine-tuning-your-calibration",
+            "text": "Now that you have your care roughly calibrated you can try driving it to \nverify that it drives as expected. Here's how to fine tune your car's calibration.    Start your car by running  python manage.py drive .  Go to  <your_cars_ip_address>:8887  in a browser.   Press  j  until the cars steering is all the way right.   Press  i  a couple times to get the car to go forward.  Measure the diameter of the turn and record on it in a spreadsheet.   Repeat this measurement for different steering values for turning each \ndirection.   Chart these so you can see if your car turns the same in each direction.    Corrections  If your car turns the same amount at an 80% turn and a 100% turn change the\nPWM setting for that turn direction to be the PWM value at 80%.   If your car is biased to turn on direction, change the PWM values of your turns\nin the opisite direction of the bias.  After you've fine tuned your car the steering chart should look something like\nthis.",
+            "title": "Fine tuning your calibration."
         },
         {
             "location": "/guide/train_autopilot/",
