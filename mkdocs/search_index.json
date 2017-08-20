@@ -127,13 +127,28 @@
         },
         {
             "location": "/guide/train_autopilot/",
-            "text": "Train an Machine Learning Autopilot with Keras\n\n\nAfter you have built a car you want to make it drive it's self. One way that's \nshow to work well is by training a neural network to replicate your actions\nbased on the images it sees. \n\n\n\n\nStart your car.\n\n\nWhile driving your car around a track, press the record button in the \nweb controller. This will start recording images and steering and throttle \nvallues. \n\n\nAfter you've driving the track 20-30 times, stop the car with Ctr-c in\nthe ssh session. \n\n\nIn a new terminal session on your comptuer use rsync to copy your cars \nfolder. \n\n\n\n\nrsync pi@<your_pi_ip_address>:~/d2  ~/d2\n\n\n\n\n\n\nIn the same terminal you can now run the training script on the latest tub.\n\n\n\n\n python ~/d2/manage.py train --model mypilot\n\n\n\n\n\n\nNow you can use rsync again to move your pilot back to your car. \n\n\n\n\nrsync ~/d2 pi@<your_ip_address>:~/d2\n\n\n\n\n\n\nNow you can start your car again and pass it your model to drive.\n```\npython ~/d2/manage.py drive --model mypilot",
+            "text": "Train an autopilot with Keras\n\n\nNow that you're able to drive your car reliably you can use Keras to train a\nneural network to drive like you. Here are the steps.\n\n\nCollect Data\n\n\nMake sure you collect good data. \n\n\n\n\nPractice driving around the track a couple times without recording data.\n\n\nWhen you're confident you can drive 10 laps without mistake press \nStart Recording\n\n\nIf you crash or run off the track press Stop Car imediatly to stop recording. \nA little bad data won't affect your autopilot. \n\n\nAfter you've collected 10-20 laps of good data (5-20k images) you can stop \nyour car with \nCtrl-c\n in the ssh session for your car.\n\n\nThe data you've collected is in the data folder in the most recent tub folder.\n\n\n\n\nTransfer data from your car to you computer.\n\n\nSince the Raspberry Pi is not very powerful we need to transfer the data\nto our computer to train. \n\n\nIn a new terminal session on your comptuer use rsync to copy your cars \nfolder. \n\n\nrsync pi@<your_pi_ip_address>:~/d2  ~/d2\n\n\n\n\nTrain a model.\n\n\n\n\nIn the same terminal you can now run the training script on the latest tub.\n\n\n\n\n python ~/d2/manage.py train --model mypilot\n\n\n\n\n\n\nNow you can use rsync again to move your pilot back to your car. \n\n\n\n\nrsync ~/d2 pi@<your_ip_address>:~/d2\n\n\n\n\n\n\nNow you can start your car again and pass it your model to drive.\n```\npython ~/d2/manage.py drive --model mypilot",
             "title": "Train an autopilot."
         },
         {
-            "location": "/guide/train_autopilot/#train-an-machine-learning-autopilot-with-keras",
-            "text": "After you have built a car you want to make it drive it's self. One way that's \nshow to work well is by training a neural network to replicate your actions\nbased on the images it sees.    Start your car.  While driving your car around a track, press the record button in the \nweb controller. This will start recording images and steering and throttle \nvallues.   After you've driving the track 20-30 times, stop the car with Ctr-c in\nthe ssh session.   In a new terminal session on your comptuer use rsync to copy your cars \nfolder.    rsync pi@<your_pi_ip_address>:~/d2  ~/d2   In the same terminal you can now run the training script on the latest tub.    python ~/d2/manage.py train --model mypilot   Now you can use rsync again to move your pilot back to your car.    rsync ~/d2 pi@<your_ip_address>:~/d2   Now you can start your car again and pass it your model to drive.\n```\npython ~/d2/manage.py drive --model mypilot",
-            "title": "Train an Machine Learning Autopilot with Keras"
+            "location": "/guide/train_autopilot/#train-an-autopilot-with-keras",
+            "text": "Now that you're able to drive your car reliably you can use Keras to train a\nneural network to drive like you. Here are the steps.",
+            "title": "Train an autopilot with Keras"
+        },
+        {
+            "location": "/guide/train_autopilot/#collect-data",
+            "text": "Make sure you collect good data.    Practice driving around the track a couple times without recording data.  When you're confident you can drive 10 laps without mistake press  Start Recording  If you crash or run off the track press Stop Car imediatly to stop recording. \nA little bad data won't affect your autopilot.   After you've collected 10-20 laps of good data (5-20k images) you can stop \nyour car with  Ctrl-c  in the ssh session for your car.  The data you've collected is in the data folder in the most recent tub folder.",
+            "title": "Collect Data"
+        },
+        {
+            "location": "/guide/train_autopilot/#transfer-data-from-your-car-to-you-computer",
+            "text": "Since the Raspberry Pi is not very powerful we need to transfer the data\nto our computer to train.   In a new terminal session on your comptuer use rsync to copy your cars \nfolder.   rsync pi@<your_pi_ip_address>:~/d2  ~/d2",
+            "title": "Transfer data from your car to you computer."
+        },
+        {
+            "location": "/guide/train_autopilot/#train-a-model",
+            "text": "In the same terminal you can now run the training script on the latest tub.    python ~/d2/manage.py train --model mypilot   Now you can use rsync again to move your pilot back to your car.    rsync ~/d2 pi@<your_ip_address>:~/d2   Now you can start your car again and pass it your model to drive.\n```\npython ~/d2/manage.py drive --model mypilot",
+            "title": "Train a model."
         },
         {
             "location": "/parts/about/",

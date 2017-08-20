@@ -88,7 +88,17 @@
     <a class="current" href="./">Train an autopilot.</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#train-an-machine-learning-autopilot-with-keras">Train an Machine Learning Autopilot with Keras</a></li>
+    <li class="toctree-l3"><a href="#train-an-autopilot-with-keras">Train an autopilot with Keras</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#collect-data">Collect Data</a></li>
+        
+            <li><a class="toctree-l4" href="#transfer-data-from-your-car-to-you-computer">Transfer data from your car to you computer.</a></li>
+        
+            <li><a class="toctree-l4" href="#train-a-model">Train a model.</a></li>
+        
+        </ul>
     
 
     </ul>
@@ -169,23 +179,29 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="train-an-machine-learning-autopilot-with-keras">Train an Machine Learning Autopilot with Keras</h1>
-<p>After you have built a car you want to make it drive it's self. One way that's 
-show to work well is by training a neural network to replicate your actions
-based on the images it sees. </p>
+                <h1 id="train-an-autopilot-with-keras">Train an autopilot with Keras</h1>
+<p>Now that you're able to drive your car reliably you can use Keras to train a
+neural network to drive like you. Here are the steps.</p>
+<h2 id="collect-data">Collect Data</h2>
+<p>Make sure you collect good data. </p>
 <ol>
-<li>Start your car.</li>
-<li>While driving your car around a track, press the record button in the 
-web controller. This will start recording images and steering and throttle 
-vallues. </li>
-<li>After you've driving the track 20-30 times, stop the car with Ctr-c in
-the ssh session. </li>
-<li>In a new terminal session on your comptuer use rsync to copy your cars 
-folder. </li>
+<li>Practice driving around the track a couple times without recording data.</li>
+<li>When you're confident you can drive 10 laps without mistake press <code>Start Recording</code></li>
+<li>If you crash or run off the track press Stop Car imediatly to stop recording. 
+A little bad data won't affect your autopilot. </li>
+<li>After you've collected 10-20 laps of good data (5-20k images) you can stop 
+your car with <code>Ctrl-c</code> in the ssh session for your car.</li>
+<li>The data you've collected is in the data folder in the most recent tub folder.</li>
 </ol>
+<h2 id="transfer-data-from-your-car-to-you-computer">Transfer data from your car to you computer.</h2>
+<p>Since the Raspberry Pi is not very powerful we need to transfer the data
+to our computer to train. </p>
+<p>In a new terminal session on your comptuer use rsync to copy your cars 
+folder. </p>
 <pre><code>rsync pi@&lt;your_pi_ip_address&gt;:~/d2  ~/d2
 </code></pre>
 
+<h2 id="train-a-model">Train a model.</h2>
 <ol>
 <li>In the same terminal you can now run the training script on the latest tub.</li>
 </ol>
