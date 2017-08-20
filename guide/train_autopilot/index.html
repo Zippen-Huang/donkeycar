@@ -198,7 +198,7 @@ your car with <code>Ctrl-c</code> in the ssh session for your car.</li>
 to our computer to train. </p>
 <p>In a new terminal session on your comptuer use rsync to copy your cars 
 folder. </p>
-<pre><code>rsync pi@&lt;your_pi_ip_address&gt;:~/d2  ~/d2
+<pre><code>rsync pi@&lt;your_pi_ip_address&gt;:~/d2/data  ~/d2/data
 </code></pre>
 
 <h2 id="train-a-model">Train a model.</h2>
@@ -211,7 +211,7 @@ folder. </p>
 <ol>
 <li>Now you can use rsync again to move your pilot back to your car. </li>
 </ol>
-<pre><code>rsync ~/d2 pi@&lt;your_ip_address&gt;:~/d2
+<pre><code>rsync ~/d2/models pi@&lt;your_ip_address&gt;:~/d2/models
 </code></pre>
 
 <ol>
