@@ -84,7 +84,7 @@
         
             <li><a class="toctree-l4" href="#connecting-to-the-pi">Connecting to the Pi</a></li>
         
-            <li><a class="toctree-l4" href="#create-your-car-app">Create your car app</a></li>
+            <li><a class="toctree-l4" href="#create-your-car-application">Create your car application.</a></li>
         
         </ul>
     
@@ -217,7 +217,8 @@ you will wand donkeycar installed on your computer for training so lets install
 donkeycar now. </p>
 <pre><code>virtualenv env -p python3
 source env/bin/activate
-pip install donkeycar
+git clone https://github.com/wroscoe/donkey donkeycar
+pip install -e donkeycar
 donkeycar findcar
 </code></pre>
 
@@ -234,8 +235,20 @@ remotely via ssh. </p>
 </code></pre>
 
 <p>The default username is 'pi' and the password is 'raspberry'</p>
-<h3 id="create-your-car-app">Create your car app</h3>
-<pre><code>donkey createcar --path ~/d2
+<h3 id="create-your-car-application">Create your car application.</h3>
+<h4 id="with-web-browser">with web browser.</h4>
+<pre><code>donkey createcar --template donkey2 --path ~/d2
+</code></pre>
+
+<h4 id="with-ps3-controller">with PS3 controller</h4>
+<pre><code>donkey createcar --template donkey2_with_joystick --path ~/d2_wj
+</code></pre>
+
+<h4 id="install-another-fork-of-donkeycar">Install another fork of donkeycar</h4>
+<pre><code>pip uninstall donkeycar
+git clone --depth=1 https://github.com/tawnkramer/donkey donkey_tkramer
+cd donkey_tkramer
+pip install -e .
 </code></pre>
               
             </div>
