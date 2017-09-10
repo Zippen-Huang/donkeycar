@@ -86,6 +86,15 @@
         
             <li><a class="toctree-l4" href="#start-your-car">Start your car.</a></li>
         
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#normal-usage">Normal usage</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#create-your-car-application">Create your car application.</a></li>
+        
             <li><a class="toctree-l4" href="#driving">Driving</a></li>
         
         </ul>
@@ -118,6 +127,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../../parts/controllers/">Controllers</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../../parts/stores/">Stores</a>
                 </li>
     </ul>
@@ -131,6 +144,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../../tests/">Tests</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../release/">Releases</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -184,6 +202,36 @@
 <p><strong><em> Put your car in a safe place where the wheels are off the ground </em></strong> This
 is the step were the car can take off. </p>
 </blockquote>
+<hr />
+<h1 id="normal-usage">Normal usage</h1>
+<p>in future runs, when you start a new session, you will want to:
+<em> start a new Anaconda Prompt from windows start menu
+</em> cd projects\donkey
+<em> activate donkey
+</em> cd ~/d2 or ~/d2_js on pi</p>
+<p>This will show your ip address, promt for your password, and then search 
+for your cars ip address. </p>
+<blockquote>
+<p>If your car's ip address is not shown then:
+1. find another way to scan your local network for your raspbery pi 
+2. connect a monitor to your pi to connect to the the same wifi as your computer. </p>
+</blockquote>
+<p>Assuming that you did find your pi on the network. You can now connect to it
+remotely via ssh. </p>
+<pre><code>ssh pi@&lt;your_pi_ip_address&gt;
+</code></pre>
+
+<p>The default username is 'pi' and the password is 'raspberry'</p>
+<h3 id="create-your-car-application">Create your car application.</h3>
+<p>with web browser.</p>
+<pre><code>donkey createcar --template donkey2 --path ~/d2
+</code></pre>
+
+<p>with PS3 controller</p>
+<pre><code>donkey createcar --template donkey2_with_joystick --path ~/d2_wj
+</code></pre>
+
+<h4 id="start-your-car_1">Start your car.</h4>
 <p>Open your car's folder and start our car. </p>
 <pre><code>cd ~/d2
 python manage.py drive

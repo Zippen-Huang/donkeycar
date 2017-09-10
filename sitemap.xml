@@ -58,6 +58,12 @@
     </url>
         
     <url>
+     <loc>/parts/controllers/</loc>
+     <lastmod>2017-09-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/parts/stores/</loc>
      <lastmod>2017-09-09</lastmod>
      <changefreq>daily</changefreq>
@@ -76,6 +82,14 @@
     
     <url>
      <loc>/tests/</loc>
+     <lastmod>2017-09-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/release/</loc>
      <lastmod>2017-09-09</lastmod>
      <changefreq>daily</changefreq>
     </url>

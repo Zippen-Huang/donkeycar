@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Stores - Donkey Car</title>
+  <title>Controllers - Donkey Car</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Stores";
-    var mkdocs_page_input_path = "parts/stores.md";
-    var mkdocs_page_url = "/parts/stores/";
+    var mkdocs_page_name = "Controllers";
+    var mkdocs_page_input_path = "parts/controllers.md";
+    var mkdocs_page_url = "/parts/controllers/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -102,25 +102,27 @@
                     
     <a class="" href="../actuators/">Actuators</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../controllers/">Controllers</a>
-                </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Stores</a>
+    <a class="current" href="./">Controllers</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#stores">Stores</a></li>
+    <li class="toctree-l3"><a href="#controller-parts">Controller Parts</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#tub">Tub</a></li>
+            <li><a class="toctree-l4" href="#local-web-controller">Local Web Controller</a></li>
+        
+            <li><a class="toctree-l4" href="#ps3-joystic">PS3 Joystic</a></li>
         
         </ul>
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../stores/">Stores</a>
                 </li>
     </ul>
 	    </li>
@@ -171,10 +173,10 @@
         
       
     
-    <li>Stores</li>
+    <li>Controllers</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/wroscoe/donkey/edit/master/docs/parts/stores.md"
+        <a href="https://github.com/wroscoe/donkey/edit/master/docs/parts/controllers.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -184,29 +186,67 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="stores">Stores</h1>
-<p>Stores are parts that record and replay vehicle data produced by other parts. </p>
-<h2 id="tub">Tub</h2>
-<p>This is the standard donkey data store and it is modeled after the ROSBAG.</p>
-<blockquote>
-<p>TODO: The structure of the Tub part is not ideal and should be changed.</p>
-<ul>
-<li>types should not need to be specified and could be inspected and saved 
-on the first loop.</li>
-</ul>
-</blockquote>
-<p>Example creation </p>
-<pre><code class="python">import donkey as dk
-
-T = dk.parts.Tub(path, inputs, types)
-
+                <h1 id="controller-parts">Controller Parts</h1>
+<h2 id="local-web-controller">Local Web Controller</h2>
+<p>The default controller to drive the car with your phone or browser.</p>
+<h2 id="ps3-joystic">PS3 Joystic</h2>
+<p>https://github.com/RetroPie/RetroPie-Setup/wiki/PS3-Controller</p>
+<p>https://github.com/RetroPie/RetroPie-Setup/issues/1128</p>
+<p>Install all the dependencies:</p>
+<pre><code class="bash">sudo apt-get install bluetooth blueman bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick pkg-config
 </code></pre>
 
-<h3 id="accepted-types">Accepted Types</h3>
-<ul>
-<li><code>float</code> - saved as record</li>
-<li><code>int</code> - saved as record</li>
-</ul>
+<p>Connect the PS3 remote to the RPI3 with the USB cable</p>
+<p>Check to see if we can see the PS3</p>
+<pre><code class="bash">hciconfig
+hci0: Type: BR/EDR Bus: USB
+ BD Address: 00:1F:81:00:06:20 ACL MTU: 1021:4 SCO MTU: 180:1
+UP RUNNING PSCAN
+RX bytes:1260 acl:0 sco:0 events:46 errors:0
+TX bytes:452 acl:0 sco:0 commands:45 errors:0
+</code></pre>
+
+<p>Download an application to pair the PS3 remote to the RPI3</p>
+<pre><code class="bash">wget http://www.pabr.org/sixlinux/sixpair.c
+gcc -o sixpair sixpair.c -lusb
+</code></pre>
+
+<p>Connect the PS3 remote to the RPI3 with the USB cable.</p>
+<p>Now run the pair to see pair it with the RPI3
+Run the command:</p>
+<pre><code class="bash">sudo ./sixpair
+</code></pre>
+
+<p>This should show something like:</p>
+<pre><code class="bash">Current Bluetooth master: DE:AD:BE:EF:00:00
+Setting master bd_addr to: 00:1F:81:00:06:20 
+</code></pre>
+
+<p>If you do not see this, then reboot, and try again to run the applicaiton.</p>
+<p>Now we need to install the application to use the PS3 controller through Bluetooth on /dev/input/js0</p>
+<pre><code>git clone https://github.com/supertypo/qtsixa.git
+cd QtSixA-1.5.1/sixad
+make
+sudo mkdir -p /var/lib/sixad/profiles
+sudo checkinstall
+</code></pre>
+
+<p>It will ask you for a summary.  I just put "PS3 Controller".</p>
+<pre><code class="bash">sudo sixad --start
+</code></pre>
+
+<p>When it displays its searching, press the PS Button and your golden~!)</p>
+<p>RUN THIS APPLICATION AT START TO GET THE BLUETOOTH REMOTE TO WORK.</p>
+<p>To install this application as a process that will run at startup:</p>
+<pre><code class="bash">sudo update-rc.d sixad defaults
+reboot
+</code></pre>
+
+<p>This did not work for me yet.</p>
+<p>To test that the Bluetooth PS3 remote is working, verify that /dev/input/js0 exist.</p>
+<p>You can also run this application to view the output.</p>
+<pre><code class="bash">sudo jstest /dev/input/js0
+</code></pre>
               
             </div>
           </div>
@@ -214,10 +254,10 @@ T = dk.parts.Tub(path, inputs, types)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../contribute/" class="btn btn-neutral float-right" title="Contribute">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../stores/" class="btn btn-neutral float-right" title="Stores">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../controllers/" class="btn btn-neutral" title="Controllers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../actuators/" class="btn btn-neutral" title="Actuators"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -245,10 +285,10 @@ T = dk.parts.Tub(path, inputs, types)
           <a href="https://github.com/wroscoe/donkey" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../controllers/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../actuators/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../contribute/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../stores/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

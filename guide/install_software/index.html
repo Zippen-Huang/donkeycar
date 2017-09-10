@@ -84,7 +84,16 @@
         
             <li><a class="toctree-l4" href="#connecting-to-the-pi">Connecting to the Pi</a></li>
         
-            <li><a class="toctree-l4" href="#create-your-car-application">Create your car application.</a></li>
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#windows-donkey-setup">Windows Donkey Setup</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#many-python-projects-do-not-provide-a-docker-install-its-useful-to-know-how-to-setup-the-windows-environment-to-run-donkey-andor-any-other-python-project-its-also-easier-to-modify-source">Many python projects do not provide a docker install. It's useful to know how to setup the windows environment to run Donkey and/or any other python project. Its also easier to modify source.</a></li>
+        
+            <li><a class="toctree-l4" href="#install-another-fork-of-donkeycar">Install another fork of donkeycar</a></li>
         
         </ul>
     
@@ -120,6 +129,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../../parts/controllers/">Controllers</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../../parts/stores/">Stores</a>
                 </li>
     </ul>
@@ -133,6 +146,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../../tests/">Tests</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../release/">Releases</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -215,33 +233,39 @@ keyboard and mouse so you can log setup the wifi via the command line. </p>
 <p>The easiest way (on Ubuntu) is to use the <code>findcar</code> donkey command. Regardless 
 you will wand donkeycar installed on your computer for training so lets install
 donkeycar now. </p>
+<h4 id="install-donkeycar-on-linux">Install donkeycar on Linux</h4>
 <pre><code>virtualenv env -p python3
 source env/bin/activate
 git clone https://github.com/wroscoe/donkey donkeycar
 pip install -e donkeycar
-donkeycar findcar
 </code></pre>
 
-<p>This will show your ip address, promt for your password, and then search 
-for your cars ip address. </p>
-<blockquote>
-<p>If your car's ip address is not shown then:
-1. find another way to scan your local network for your raspbery pi 
-2. connect a monitor to your pi to connect to the the same wifi as your computer. </p>
-</blockquote>
-<p>Assuming that you did find your pi on the network. You can now connect to it
-remotely via ssh. </p>
-<pre><code>ssh pi@&lt;your_pi_ip_address&gt;
+<h1 id="windows-donkey-setup">Windows Donkey Setup</h1>
+<h5 id="many-python-projects-do-not-provide-a-docker-install-its-useful-to-know-how-to-setup-the-windows-environment-to-run-donkey-andor-any-other-python-project-its-also-easier-to-modify-source">Many python projects do not provide a docker install. It's useful to know how to setup the windows environment to run Donkey and/or any other python project. Its also easier to modify source.</h5>
+<p>install miniconda:
+https://conda.io/miniconda.html</p>
+<p>install git:
+https://git-scm.com/download/win
+use the setup for your platform. probably 64bit</p>
+<p>from the start menu start the Andconda Prompt.</p>
+<p>change to a dir you would like to use as the head of your projects.</p>
+<pre><code class="bash">mkdir projects
+cd projects
 </code></pre>
 
-<p>The default username is 'pi' and the password is 'raspberry'</p>
-<h3 id="create-your-car-application">Create your car application.</h3>
-<h4 id="with-web-browser">with web browser.</h4>
-<pre><code>donkey createcar --template donkey2 --path ~/d2
+<p>get the latest donkey from my repo. This has fixes to run correctly on windows.</p>
+<pre><code class="bash">git clone https://github.com/tawnkramer/donkey
+cd donkey
 </code></pre>
 
-<h4 id="with-ps3-controller">with PS3 controller</h4>
-<pre><code>donkey createcar --template donkey2_with_joystick --path ~/d2_wj
+<p>create the python anaconda environmment</p>
+<pre><code class="bash">conda env create -f envs\windows.yml
+activate donkey
+</code></pre>
+
+<p>once to setup:</p>
+<pre><code class="bash">pip install -e .
+donkey createcar --path ~/d2
 </code></pre>
 
 <h4 id="install-another-fork-of-donkeycar">Install another fork of donkeycar</h4>

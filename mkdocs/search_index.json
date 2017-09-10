@@ -2,27 +2,27 @@
     "docs": [
         {
             "location": "/",
-            "text": "About Donkey\n\n\nDonkey is a high level self driving library written in Python and capable of \ncontrolling ackerman or differential drive vehicles. It was developed with a \nfocus on enabling fast experimentation and easy contribution.\n\n\n\n\nBuild your own Donkey2\n\n\nDonkey2 is the standard car that most people start with. The parts cost $200\nand take 2 hours to assemple. Here are the main steps to build your own car: \n\n\n\n\nBuild a car.\n.\n\n\nInstall the software.\n\n\nCalibrate your car.\n\n\nStart driving.\n \n\n\nTrain an autopilot.\n \n\n\n\n\n\n\nHello World.\n\n\nDonkeycar is designed to make it easy to customize your car by adding or \nremoving parts. Here's a simple example of a car that just captures\nimages from the camera and saves them.\n\n\n\nimport donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ntub = dk.parts.Tub(path='~/d2/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)\n\n\n\n\n\n\nInstallation\n\n\nClone the master branch to get the lastest version. Use this if you plan \nto contribute code.. \n\n\ngit clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar\n\n\n\n\n\n\nWhy the name Donkey?\n\n\nThe ultimate goal of this project is to build something useful. Donkey's were\none of the first domesticated pack animals, they're notoriously stubborn, and \nthey are kid safe. Until the car can nagigate from one side of a city to the \nother, we'll hold off naming it after some celestial being.",
+            "text": "About Donkey\n\n\nDonkey is a high level self driving library written in Python. It was \ndeveloped with a focus on enabling fast experimentation and easy contribution.\n\n\n\n\nBuild your own Donkey2\n\n\nDonkey2 is the standard car that most people build first. The parts cost $200\nand take 2 hours to assemble. Here are the main steps to build your own car: \n\n\n\n\nAssemble hardware.\n.\n\n\nInstall software.\n\n\nCalibrate your car.\n\n\nStart driving.\n \n\n\nTrain an autopilot.\n \n\n\n\n\n\n\nHello World.\n\n\nDonkeycar is designed to make adding new parts to your car easy. Here's and \nexample car application that captures images from the camera and saves them.\n\n\nimport donkey as dk\n\n#initialize the vehicle\nV = dk.Vehicle()\n\n#add a camera part\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#add tub part to record images\ntub = dk.parts.Tub(path='~/d2/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the vehicle's drive loop\nV.start(max_loop_count=100)\n\n\n\n\n\n\nInstallation\n\n\nFor linux/OS users clone the master branch to get the lastest version.\n\n\ngit clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar\n\n\n\n\nHow to install on Windows\n\n\n\n\nWhy the name Donkey?\n\n\nThe ultimate goal of this project is to build something useful. Donkey's were\none of the first domesticated pack animals, they're notoriously stubborn, and \nthey are kid safe. Until the car can nagigate from one side of a city to the \nother, we'll hold off naming it after some celestial being.",
             "title": "Home"
         },
         {
             "location": "/#about-donkey",
-            "text": "Donkey is a high level self driving library written in Python and capable of \ncontrolling ackerman or differential drive vehicles. It was developed with a \nfocus on enabling fast experimentation and easy contribution.",
+            "text": "Donkey is a high level self driving library written in Python. It was \ndeveloped with a focus on enabling fast experimentation and easy contribution.",
             "title": "About Donkey"
         },
         {
             "location": "/#build-your-own-donkey2",
-            "text": "Donkey2 is the standard car that most people start with. The parts cost $200\nand take 2 hours to assemple. Here are the main steps to build your own car:    Build a car. .  Install the software.  Calibrate your car.  Start driving.    Train an autopilot.",
+            "text": "Donkey2 is the standard car that most people build first. The parts cost $200\nand take 2 hours to assemble. Here are the main steps to build your own car:    Assemble hardware. .  Install software.  Calibrate your car.  Start driving.    Train an autopilot.",
             "title": "Build your own Donkey2"
         },
         {
             "location": "/#hello-world",
-            "text": "Donkeycar is designed to make it easy to customize your car by adding or \nremoving parts. Here's a simple example of a car that just captures\nimages from the camera and saves them.  \nimport donkey as dk\n\nV = dk.Vehicle()\n\n#add a camera\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#record the images\ntub = dk.parts.Tub(path='~/d2/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the drive loop\nV.start(max_loop_count=100)",
+            "text": "Donkeycar is designed to make adding new parts to your car easy. Here's and \nexample car application that captures images from the camera and saves them.  import donkey as dk\n\n#initialize the vehicle\nV = dk.Vehicle()\n\n#add a camera part\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#add tub part to record images\ntub = dk.parts.Tub(path='~/d2/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the vehicle's drive loop\nV.start(max_loop_count=100)",
             "title": "Hello World."
         },
         {
             "location": "/#installation",
-            "text": "Clone the master branch to get the lastest version. Use this if you plan \nto contribute code..   git clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar",
+            "text": "For linux/OS users clone the master branch to get the lastest version.  git clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar  How to install on Windows",
             "title": "Installation"
         },
         {
@@ -42,7 +42,7 @@
         },
         {
             "location": "/guide/install_software/",
-            "text": "Install Software\n\n\nGet the Raspberry Pi working.\n\n\nBefore we can do anything we have to get our car's computer connected to the \ninternet. The fastest way is to use the disk image created for donkey cars. \n\n\nThe method for using a disk image to create a bootable SD card varies between\noperating systems. These instructions are for Ubuntu but you can see more \ninstructions \nhere\n.\n\n\n\n\nDownload \nzipped disk image\n (900MB). \n\n\nUnzip the disk image.\n\n\nPlug your SD card into your computer.\n\n\nOpen the \"Startup Disk Creator\" application.\n\n\nSelect your source disk image as the one you unzipped earlier.\n\n\nSelect your SD card as the disk to use. \n\n\nClick \"Make startup disk\".\n\n\n\n\nSince our pi doesn't have a monitor/keyboard/mouse let's setup the pi's wifi\nnow.\n\n\n\n\nstart a text editor with root privelidges ie. \nsudo gedit\n\n\nOpen the file \n/etc/wpa_supplicant/wpa_supplicant.conf\n in the text editor\nand edit the wifi credentials to your wifi settings.\n\n\n\n\nNow you're SD card is ready. Eject it from your computer, put it in the Pi \nand plug in the Pi. \n\n\nConnecting to the Pi\n\n\nIf you followed the above instructions to add wifi access you're Pi should\nnow be connected to your wifi network. Now you need to find it's IP address\nso you can connect to it via SSH. \n\n\n\n\nNote: If you didn't setup the wifi earlier you'll need to attach a monitor,\nkeyboard and mouse so you can log setup the wifi via the command line. \n\n\n\n\nThe easiest way (on Ubuntu) is to use the \nfindcar\n donkey command. Regardless \nyou will wand donkeycar installed on your computer for training so lets install\ndonkeycar now. \n\n\nvirtualenv env -p python3\nsource env/bin/activate\ngit clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar\ndonkeycar findcar\n\n\n\n\nThis will show your ip address, promt for your password, and then search \nfor your cars ip address. \n\n\n\n\nIf your car's ip address is not shown then:\n1. find another way to scan your local network for your raspbery pi \n2. connect a monitor to your pi to connect to the the same wifi as your computer. \n\n\n\n\nAssuming that you did find your pi on the network. You can now connect to it\nremotely via ssh. \n\n\nssh pi@<your_pi_ip_address>\n\n\n\n\nThe default username is 'pi' and the password is 'raspberry'\n\n\nCreate your car application.\n\n\nwith web browser.\n\n\ndonkey createcar --template donkey2 --path ~/d2\n\n\n\n\nwith PS3 controller\n\n\ndonkey createcar --template donkey2_with_joystick --path ~/d2_wj\n\n\n\n\nInstall another fork of donkeycar\n\n\npip uninstall donkeycar\ngit clone --depth=1 https://github.com/tawnkramer/donkey donkey_tkramer\ncd donkey_tkramer\npip install -e .",
+            "text": "Install Software\n\n\nGet the Raspberry Pi working.\n\n\nBefore we can do anything we have to get our car's computer connected to the \ninternet. The fastest way is to use the disk image created for donkey cars. \n\n\nThe method for using a disk image to create a bootable SD card varies between\noperating systems. These instructions are for Ubuntu but you can see more \ninstructions \nhere\n.\n\n\n\n\nDownload \nzipped disk image\n (900MB). \n\n\nUnzip the disk image.\n\n\nPlug your SD card into your computer.\n\n\nOpen the \"Startup Disk Creator\" application.\n\n\nSelect your source disk image as the one you unzipped earlier.\n\n\nSelect your SD card as the disk to use. \n\n\nClick \"Make startup disk\".\n\n\n\n\nSince our pi doesn't have a monitor/keyboard/mouse let's setup the pi's wifi\nnow.\n\n\n\n\nstart a text editor with root privelidges ie. \nsudo gedit\n\n\nOpen the file \n/etc/wpa_supplicant/wpa_supplicant.conf\n in the text editor\nand edit the wifi credentials to your wifi settings.\n\n\n\n\nNow you're SD card is ready. Eject it from your computer, put it in the Pi \nand plug in the Pi. \n\n\nConnecting to the Pi\n\n\nIf you followed the above instructions to add wifi access you're Pi should\nnow be connected to your wifi network. Now you need to find it's IP address\nso you can connect to it via SSH. \n\n\n\n\nNote: If you didn't setup the wifi earlier you'll need to attach a monitor,\nkeyboard and mouse so you can log setup the wifi via the command line. \n\n\n\n\nThe easiest way (on Ubuntu) is to use the \nfindcar\n donkey command. Regardless \nyou will wand donkeycar installed on your computer for training so lets install\ndonkeycar now. \n\n\nInstall donkeycar on Linux\n\n\nvirtualenv env -p python3\nsource env/bin/activate\ngit clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar\n\n\n\n\nWindows Donkey Setup\n\n\nMany python projects do not provide a docker install. It's useful to know how to setup the windows environment to run Donkey and/or any other python project. Its also easier to modify source.\n\n\ninstall miniconda:\nhttps://conda.io/miniconda.html\n\n\ninstall git:\nhttps://git-scm.com/download/win\nuse the setup for your platform. probably 64bit\n\n\nfrom the start menu start the Andconda Prompt.\n\n\nchange to a dir you would like to use as the head of your projects.\n\n\nmkdir projects\ncd projects\n\n\n\n\nget the latest donkey from my repo. This has fixes to run correctly on windows.\n\n\ngit clone https://github.com/tawnkramer/donkey\ncd donkey\n\n\n\n\ncreate the python anaconda environmment\n\n\nconda env create -f envs\\windows.yml\nactivate donkey\n\n\n\n\nonce to setup:\n\n\npip install -e .\ndonkey createcar --path ~/d2\n\n\n\n\nInstall another fork of donkeycar\n\n\npip uninstall donkeycar\ngit clone --depth=1 https://github.com/tawnkramer/donkey donkey_tkramer\ncd donkey_tkramer\npip install -e .",
             "title": "Install the software."
         },
         {
@@ -57,23 +57,23 @@
         },
         {
             "location": "/guide/install_software/#connecting-to-the-pi",
-            "text": "If you followed the above instructions to add wifi access you're Pi should\nnow be connected to your wifi network. Now you need to find it's IP address\nso you can connect to it via SSH.    Note: If you didn't setup the wifi earlier you'll need to attach a monitor,\nkeyboard and mouse so you can log setup the wifi via the command line.    The easiest way (on Ubuntu) is to use the  findcar  donkey command. Regardless \nyou will wand donkeycar installed on your computer for training so lets install\ndonkeycar now.   virtualenv env -p python3\nsource env/bin/activate\ngit clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar\ndonkeycar findcar  This will show your ip address, promt for your password, and then search \nfor your cars ip address.    If your car's ip address is not shown then:\n1. find another way to scan your local network for your raspbery pi \n2. connect a monitor to your pi to connect to the the same wifi as your computer.    Assuming that you did find your pi on the network. You can now connect to it\nremotely via ssh.   ssh pi@<your_pi_ip_address>  The default username is 'pi' and the password is 'raspberry'",
+            "text": "If you followed the above instructions to add wifi access you're Pi should\nnow be connected to your wifi network. Now you need to find it's IP address\nso you can connect to it via SSH.    Note: If you didn't setup the wifi earlier you'll need to attach a monitor,\nkeyboard and mouse so you can log setup the wifi via the command line.    The easiest way (on Ubuntu) is to use the  findcar  donkey command. Regardless \nyou will wand donkeycar installed on your computer for training so lets install\ndonkeycar now.",
             "title": "Connecting to the Pi"
         },
         {
-            "location": "/guide/install_software/#create-your-car-application",
+            "location": "/guide/install_software/#install-donkeycar-on-linux",
+            "text": "virtualenv env -p python3\nsource env/bin/activate\ngit clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar",
+            "title": "Install donkeycar on Linux"
+        },
+        {
+            "location": "/guide/install_software/#windows-donkey-setup",
             "text": "",
-            "title": "Create your car application."
+            "title": "Windows Donkey Setup"
         },
         {
-            "location": "/guide/install_software/#with-web-browser",
-            "text": "donkey createcar --template donkey2 --path ~/d2",
-            "title": "with web browser."
-        },
-        {
-            "location": "/guide/install_software/#with-ps3-controller",
-            "text": "donkey createcar --template donkey2_with_joystick --path ~/d2_wj",
-            "title": "with PS3 controller"
+            "location": "/guide/install_software/#many-python-projects-do-not-provide-a-docker-install-its-useful-to-know-how-to-setup-the-windows-environment-to-run-donkey-andor-any-other-python-project-its-also-easier-to-modify-source",
+            "text": "install miniconda:\nhttps://conda.io/miniconda.html  install git:\nhttps://git-scm.com/download/win\nuse the setup for your platform. probably 64bit  from the start menu start the Andconda Prompt.  change to a dir you would like to use as the head of your projects.  mkdir projects\ncd projects  get the latest donkey from my repo. This has fixes to run correctly on windows.  git clone https://github.com/tawnkramer/donkey\ncd donkey  create the python anaconda environmment  conda env create -f envs\\windows.yml\nactivate donkey  once to setup:  pip install -e .\ndonkey createcar --path ~/d2",
+            "title": "Many python projects do not provide a docker install. It's useful to know how to setup the windows environment to run Donkey and/or any other python project. Its also easier to modify source."
         },
         {
             "location": "/guide/install_software/#install-another-fork-of-donkeycar",
@@ -82,7 +82,7 @@
         },
         {
             "location": "/guide/get_driving/",
-            "text": "Drive your car.\n\n\nAfter you've calibrated your car you can start driving it. \n\n\nStart your car.\n\n\n\n\n Put your car in a safe place where the wheels are off the ground \n This\nis the step were the car can take off. \n\n\n\n\nOpen your car's folder and start our car. \n\n\ncd ~/d2\npython manage.py drive\n\n\n\n\nThis script will start the drive loop in your car which includes a part that \nis a webserver for you to control your car. You can now controll your car\nfrom a web browser at the url: \n<your car's ip's address>:8887\n\n\n\n\nDriving\n\n\nOn your phone you can now press start to set your phones current tilt to be\nzero throttle and steering. Now tilting your phone forward will increase throttle\nand tilting it side to side will turn the steering. \n\n\nFeatures\n\n\n\n\nRecording - Press record data to start recording images, steering angels and throttle values. \n\n\nThrottle mode - Option to set the throttle as constant. This is used in \nraces if you have a pilot that will steer but doesn't control throttle. \n\n\nPilot mode - Choose if the pilot should control the angle and/or throttle.\n\n\nMax throttle - Select the maximum throttle.\n\n\n\n\nKeyboard shortcuts\n\n\n\n\nspace\n : stop car and stop recording\n\n\nr\n : toggle recording\n\n\ni\n : increase throttle\n\n\nk\n : decrease throttle\n\n\nj\n : turn left \n\n\nl\n : turn right",
+            "text": "Drive your car.\n\n\nAfter you've calibrated your car you can start driving it. \n\n\nStart your car.\n\n\n\n\n Put your car in a safe place where the wheels are off the ground \n This\nis the step were the car can take off. \n\n\n\n\n\n\nNormal usage\n\n\nin future runs, when you start a new session, you will want to:\n\n start a new Anaconda Prompt from windows start menu\n\n cd projects\\donkey\n\n activate donkey\n\n cd ~/d2 or ~/d2_js on pi\n\n\nThis will show your ip address, promt for your password, and then search \nfor your cars ip address. \n\n\n\n\nIf your car's ip address is not shown then:\n1. find another way to scan your local network for your raspbery pi \n2. connect a monitor to your pi to connect to the the same wifi as your computer. \n\n\n\n\nAssuming that you did find your pi on the network. You can now connect to it\nremotely via ssh. \n\n\nssh pi@<your_pi_ip_address>\n\n\n\n\nThe default username is 'pi' and the password is 'raspberry'\n\n\nCreate your car application.\n\n\nwith web browser.\n\n\ndonkey createcar --template donkey2 --path ~/d2\n\n\n\n\nwith PS3 controller\n\n\ndonkey createcar --template donkey2_with_joystick --path ~/d2_wj\n\n\n\n\nStart your car.\n\n\nOpen your car's folder and start our car. \n\n\ncd ~/d2\npython manage.py drive\n\n\n\n\nThis script will start the drive loop in your car which includes a part that \nis a webserver for you to control your car. You can now controll your car\nfrom a web browser at the url: \n<your car's ip's address>:8887\n\n\n\n\nDriving\n\n\nOn your phone you can now press start to set your phones current tilt to be\nzero throttle and steering. Now tilting your phone forward will increase throttle\nand tilting it side to side will turn the steering. \n\n\nFeatures\n\n\n\n\nRecording - Press record data to start recording images, steering angels and throttle values. \n\n\nThrottle mode - Option to set the throttle as constant. This is used in \nraces if you have a pilot that will steer but doesn't control throttle. \n\n\nPilot mode - Choose if the pilot should control the angle and/or throttle.\n\n\nMax throttle - Select the maximum throttle.\n\n\n\n\nKeyboard shortcuts\n\n\n\n\nspace\n : stop car and stop recording\n\n\nr\n : toggle recording\n\n\ni\n : increase throttle\n\n\nk\n : decrease throttle\n\n\nj\n : turn left \n\n\nl\n : turn right",
             "title": "Get driving."
         },
         {
@@ -92,7 +92,22 @@
         },
         {
             "location": "/guide/get_driving/#start-your-car",
-            "text": "Put your car in a safe place where the wheels are off the ground   This\nis the step were the car can take off.    Open your car's folder and start our car.   cd ~/d2\npython manage.py drive  This script will start the drive loop in your car which includes a part that \nis a webserver for you to control your car. You can now controll your car\nfrom a web browser at the url:  <your car's ip's address>:8887",
+            "text": "Put your car in a safe place where the wheels are off the ground   This\nis the step were the car can take off.",
+            "title": "Start your car."
+        },
+        {
+            "location": "/guide/get_driving/#normal-usage",
+            "text": "in future runs, when you start a new session, you will want to:  start a new Anaconda Prompt from windows start menu  cd projects\\donkey  activate donkey  cd ~/d2 or ~/d2_js on pi  This will show your ip address, promt for your password, and then search \nfor your cars ip address.    If your car's ip address is not shown then:\n1. find another way to scan your local network for your raspbery pi \n2. connect a monitor to your pi to connect to the the same wifi as your computer.    Assuming that you did find your pi on the network. You can now connect to it\nremotely via ssh.   ssh pi@<your_pi_ip_address>  The default username is 'pi' and the password is 'raspberry'",
+            "title": "Normal usage"
+        },
+        {
+            "location": "/guide/get_driving/#create-your-car-application",
+            "text": "with web browser.  donkey createcar --template donkey2 --path ~/d2  with PS3 controller  donkey createcar --template donkey2_with_joystick --path ~/d2_wj",
+            "title": "Create your car application."
+        },
+        {
+            "location": "/guide/get_driving/#start-your-car_1",
+            "text": "Open your car's folder and start our car.   cd ~/d2\npython manage.py drive  This script will start the drive loop in your car which includes a part that \nis a webserver for you to control your car. You can now controll your car\nfrom a web browser at the url:  <your car's ip's address>:8887",
             "title": "Start your car."
         },
         {
@@ -191,6 +206,26 @@
             "title": "Actuators"
         },
         {
+            "location": "/parts/controllers/",
+            "text": "Controller Parts\n\n\nLocal Web Controller\n\n\nThe default controller to drive the car with your phone or browser.\n\n\nPS3 Joystic\n\n\nhttps://github.com/RetroPie/RetroPie-Setup/wiki/PS3-Controller\n\n\nhttps://github.com/RetroPie/RetroPie-Setup/issues/1128\n\n\nInstall all the dependencies:\n\n\nsudo apt-get install bluetooth blueman bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick pkg-config\n\n\n\n\nConnect the PS3 remote to the RPI3 with the USB cable\n\n\nCheck to see if we can see the PS3\n\n\nhciconfig\nhci0: Type: BR/EDR Bus: USB\n BD Address: 00:1F:81:00:06:20 ACL MTU: 1021:4 SCO MTU: 180:1\nUP RUNNING PSCAN\nRX bytes:1260 acl:0 sco:0 events:46 errors:0\nTX bytes:452 acl:0 sco:0 commands:45 errors:0\n\n\n\n\nDownload an application to pair the PS3 remote to the RPI3\n\n\nwget http://www.pabr.org/sixlinux/sixpair.c\ngcc -o sixpair sixpair.c -lusb\n\n\n\n\nConnect the PS3 remote to the RPI3 with the USB cable.\n\n\nNow run the pair to see pair it with the RPI3\nRun the command:\n\n\nsudo ./sixpair\n\n\n\n\nThis should show something like:\n\n\nCurrent Bluetooth master: DE:AD:BE:EF:00:00\nSetting master bd_addr to: 00:1F:81:00:06:20 \n\n\n\n\nIf you do not see this, then reboot, and try again to run the applicaiton.\n\n\nNow we need to install the application to use the PS3 controller through Bluetooth on /dev/input/js0\n\n\ngit clone https://github.com/supertypo/qtsixa.git\ncd QtSixA-1.5.1/sixad\nmake\nsudo mkdir -p /var/lib/sixad/profiles\nsudo checkinstall\n\n\n\n\nIt will ask you for a summary.  I just put \"PS3 Controller\".\n\n\nsudo sixad --start\n\n\n\n\nWhen it displays its searching, press the PS Button and your golden~!)\n\n\nRUN THIS APPLICATION AT START TO GET THE BLUETOOTH REMOTE TO WORK.\n\n\nTo install this application as a process that will run at startup:\n\n\nsudo update-rc.d sixad defaults\nreboot\n\n\n\n\nThis did not work for me yet.\n\n\nTo test that the Bluetooth PS3 remote is working, verify that /dev/input/js0 exist.\n\n\nYou can also run this application to view the output.\n\n\nsudo jstest /dev/input/js0",
+            "title": "Controllers"
+        },
+        {
+            "location": "/parts/controllers/#controller-parts",
+            "text": "",
+            "title": "Controller Parts"
+        },
+        {
+            "location": "/parts/controllers/#local-web-controller",
+            "text": "The default controller to drive the car with your phone or browser.",
+            "title": "Local Web Controller"
+        },
+        {
+            "location": "/parts/controllers/#ps3-joystic",
+            "text": "https://github.com/RetroPie/RetroPie-Setup/wiki/PS3-Controller  https://github.com/RetroPie/RetroPie-Setup/issues/1128  Install all the dependencies:  sudo apt-get install bluetooth blueman bluez-hcidump checkinstall libusb-dev libbluetooth-dev joystick pkg-config  Connect the PS3 remote to the RPI3 with the USB cable  Check to see if we can see the PS3  hciconfig\nhci0: Type: BR/EDR Bus: USB\n BD Address: 00:1F:81:00:06:20 ACL MTU: 1021:4 SCO MTU: 180:1\nUP RUNNING PSCAN\nRX bytes:1260 acl:0 sco:0 events:46 errors:0\nTX bytes:452 acl:0 sco:0 commands:45 errors:0  Download an application to pair the PS3 remote to the RPI3  wget http://www.pabr.org/sixlinux/sixpair.c\ngcc -o sixpair sixpair.c -lusb  Connect the PS3 remote to the RPI3 with the USB cable.  Now run the pair to see pair it with the RPI3\nRun the command:  sudo ./sixpair  This should show something like:  Current Bluetooth master: DE:AD:BE:EF:00:00\nSetting master bd_addr to: 00:1F:81:00:06:20   If you do not see this, then reboot, and try again to run the applicaiton.  Now we need to install the application to use the PS3 controller through Bluetooth on /dev/input/js0  git clone https://github.com/supertypo/qtsixa.git\ncd QtSixA-1.5.1/sixad\nmake\nsudo mkdir -p /var/lib/sixad/profiles\nsudo checkinstall  It will ask you for a summary.  I just put \"PS3 Controller\".  sudo sixad --start  When it displays its searching, press the PS Button and your golden~!)  RUN THIS APPLICATION AT START TO GET THE BLUETOOTH REMOTE TO WORK.  To install this application as a process that will run at startup:  sudo update-rc.d sixad defaults\nreboot  This did not work for me yet.  To test that the Bluetooth PS3 remote is working, verify that /dev/input/js0 exist.  You can also run this application to view the output.  sudo jstest /dev/input/js0",
+            "title": "PS3 Joystic"
+        },
+        {
             "location": "/parts/stores/",
             "text": "Stores\n\n\nStores are parts that record and replay vehicle data produced by other parts. \n\n\nTub\n\n\nThis is the standard donkey data store and it is modeled after the ROSBAG.\n\n\n\n\nTODO: The structure of the Tub part is not ideal and should be changed.\n\n\n\n\ntypes should not need to be specified and could be inspected and saved \non the first loop.\n\n\n\n\n\n\nExample creation \n\n\nimport donkey as dk\n\nT = dk.parts.Tub(path, inputs, types)\n\n\n\n\n\nAccepted Types\n\n\n\n\nfloat\n - saved as record\n\n\nint\n - saved as record",
             "title": "Stores"
@@ -271,19 +306,44 @@
             "title": "Organization"
         },
         {
+            "location": "/release/",
+            "text": "Release notes\n\n\nNotes to remember how to release donkey.\n\n\nCreate a startup disk.\n\n\nThe general steps of creating a startup disk are. \n1. Make the disk perfect.\n2. Create startup disk.\n3. Publish image and update docs. \n\n\nOnce the SD card is ready and tested take it out of the Pi and into your \ncomputer. Run \nsudo gparted\n to see the size of the disk partitions. Then resize\nthe partitions to be as small as possible. Right click the partition and\nsee the last sector of the partition. \n\n\nThen run\n\n\ndd -if /def/sdb -of /\n\n\nCreate a release\n\n\nUpdate setup.py\n1. update the version in set",
+            "title": "Releases"
+        },
+        {
+            "location": "/release/#release-notes",
+            "text": "Notes to remember how to release donkey.",
+            "title": "Release notes"
+        },
+        {
+            "location": "/release/#create-a-startup-disk",
+            "text": "The general steps of creating a startup disk are. \n1. Make the disk perfect.\n2. Create startup disk.\n3. Publish image and update docs.   Once the SD card is ready and tested take it out of the Pi and into your \ncomputer. Run  sudo gparted  to see the size of the disk partitions. Then resize\nthe partitions to be as small as possible. Right click the partition and\nsee the last sector of the partition.   Then run  dd -if /def/sdb -of /",
+            "title": "Create a startup disk."
+        },
+        {
+            "location": "/release/#create-a-release",
+            "text": "Update setup.py\n1. update the version in set",
+            "title": "Create a release"
+        },
+        {
             "location": "/faq/",
-            "text": "How do I create my own Raspberry Pi Disk?\n\n\nIf you don't want to use the disk image for the Raspberry Pi you can \ninstall the packages like this.\n\n\n\n\nSetup OS on Raspberry Pi\nFollow \nthese instructions\n\nto install the Raspbian Jessie operating system using the NOOBS method \non your SD card.\nP\n\n\nut the SD card into your Raspberry Pi.\n\n\nPower up your Raspberry Pi using the USB cable.\n\n\nConnect to a wifi internet connection. \n\n\n\n\nInstall Basic Libraries\n\n\nSince the Raspberry Pi is not as fast as larger computers, it can take a long time to install python packages (ie. numpy & PIL) using pip. Luckily Adafruit has precompiled these libraries into packages that can be installed via \napt-get\n.\n\n\n\n\nOpen a terminal (Ctrl-Alt-t) and upgrade your system packages.\n\n\n\n\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\n\n\n\nInstall necessary libraries \n\n\n\n\nsudo apt-get install xsel xclip libxml2-dev libxslt-dev libzmq-dev libspatialindex-dev virtualenv\n\n\n\n\n\n\nPandas & Jupyter Requirements\n\n\n\n\nsudo apt-get install python3-lxml python3-h5py python3-numexpr python3-dateutil python3-tz python3-bs4 python3-xlrd python3-tables python3-sqlalchemy python3-xlsxwriter python3-httplib2 python3-zmq \n\n\n\n\n\n\nScientific Python\n\n\n\n\nsudo apt-get install python3-numpy python3-matplotlib python3-scipy python3-pandas",
+            "text": "FAQ\n\n\nHow do I create my own Raspberry Pi Disk?\n\n\n3 Manual Setup:\n\n\nThis uses minimal space on your memory card, is easy to upgrade and make changes to source\n\n\nflash 8GB+ memory card with minimal jessie:\n\n https://downloads.raspberrypi.org/raspbian_lite_latest\n\n https://sourceforge.net/projects/win32diskimager/files/latest/download\n\n\nlogin:\n\n username: pi\n\n password: raspberry\n\n\nuse rasp-config to setup some useful options\n\n\nsudo raspi-config\n\n\n\n\n\n\nchange hostname\n\n\nchange password\n\n\ninterface options: \n\n\nenable camera\n\n\nenable SSH\n\n\nenable I2C\n\n\n\n\nreboot.\n\n\ndo a package refresh and get latest:    \n\n\nsudo apt-get update\nsudo apt-get upgrade\n\n\n\n\ninstall packages from ubuntu\n\n\nsudo apt-get install git\nsudo apt-get install python3 python3-pip python3-virtualenv\nsudo apt-get install python3-pip python3-dev\n\n\n\n\nget latest donkey code\n\n\ngit clone https://github.com/tawnkramer/donkey\ncd donkey\n\n\n\n\ninstall anaconda:\n\n\nwget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh\nbash Miniconda3-latest-Linux-armv7l.sh\nsource ~/.bashrc\n\n\n\n\nsetup python environment\n\n\nconda env create -f donkey_env.yml\nsource activate donkey\n\n\n\n\nupgrade numpy. This can take a long time as it involves compiling the latest.\n\n\npip install --upgrade numpy\n\n\n\n\nsetup tensorflow\n\n\nwget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.1.0/tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl\npip install tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl\n\n\n\n\nsetup donkey\n\n\npip install -e .\n\n\n\n\nsetup initial files and dir for data\n\n\ndonkey createcar --template donkey2_with_joystick --path ~/d2_wj \n\n\n\n\nto run your donkey with a joystick control\n\n\ncd ~/d2_wj\npython manage.py drive",
+            "title": "FAQ"
+        },
+        {
+            "location": "/faq/#faq",
+            "text": "",
             "title": "FAQ"
         },
         {
             "location": "/faq/#how-do-i-create-my-own-raspberry-pi-disk",
-            "text": "If you don't want to use the disk image for the Raspberry Pi you can \ninstall the packages like this.   Setup OS on Raspberry Pi\nFollow  these instructions \nto install the Raspbian Jessie operating system using the NOOBS method \non your SD card.\nP  ut the SD card into your Raspberry Pi.  Power up your Raspberry Pi using the USB cable.  Connect to a wifi internet connection.",
+            "text": "3 Manual Setup:",
             "title": "How do I create my own Raspberry Pi Disk?"
         },
         {
-            "location": "/faq/#install-basic-libraries",
-            "text": "Since the Raspberry Pi is not as fast as larger computers, it can take a long time to install python packages (ie. numpy & PIL) using pip. Luckily Adafruit has precompiled these libraries into packages that can be installed via  apt-get .   Open a terminal (Ctrl-Alt-t) and upgrade your system packages.   sudo apt-get update\nsudo apt-get upgrade   Install necessary libraries    sudo apt-get install xsel xclip libxml2-dev libxslt-dev libzmq-dev libspatialindex-dev virtualenv   Pandas & Jupyter Requirements   sudo apt-get install python3-lxml python3-h5py python3-numexpr python3-dateutil python3-tz python3-bs4 python3-xlrd python3-tables python3-sqlalchemy python3-xlsxwriter python3-httplib2 python3-zmq    Scientific Python   sudo apt-get install python3-numpy python3-matplotlib python3-scipy python3-pandas",
-            "title": "Install Basic Libraries"
+            "location": "/faq/#this-uses-minimal-space-on-your-memory-card-is-easy-to-upgrade-and-make-changes-to-source",
+            "text": "flash 8GB+ memory card with minimal jessie:  https://downloads.raspberrypi.org/raspbian_lite_latest  https://sourceforge.net/projects/win32diskimager/files/latest/download  login:  username: pi  password: raspberry  use rasp-config to setup some useful options  sudo raspi-config   change hostname  change password  interface options:   enable camera  enable SSH  enable I2C   reboot.  do a package refresh and get latest:      sudo apt-get update\nsudo apt-get upgrade  install packages from ubuntu  sudo apt-get install git\nsudo apt-get install python3 python3-pip python3-virtualenv\nsudo apt-get install python3-pip python3-dev  get latest donkey code  git clone https://github.com/tawnkramer/donkey\ncd donkey  install anaconda:  wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh\nbash Miniconda3-latest-Linux-armv7l.sh\nsource ~/.bashrc  setup python environment  conda env create -f donkey_env.yml\nsource activate donkey  upgrade numpy. This can take a long time as it involves compiling the latest.  pip install --upgrade numpy  setup tensorflow  wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.1.0/tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl\npip install tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl  setup donkey  pip install -e .  setup initial files and dir for data  donkey createcar --template donkey2_with_joystick --path ~/d2_wj   to run your donkey with a joystick control  cd ~/d2_wj\npython manage.py drive",
+            "title": "This uses minimal space on your memory card, is easy to upgrade and make changes to source"
         }
     ]
 }

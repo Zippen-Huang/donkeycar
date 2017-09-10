@@ -104,6 +104,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="../parts/controllers/">Controllers</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../parts/stores/">Stores</a>
                 </li>
     </ul>
@@ -119,16 +123,21 @@
     <a class="" href="../tests/">Tests</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../release/">Releases</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
     <a class="current" href="./">FAQ</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</a></li>
+    <li class="toctree-l2"><a href="#faq">FAQ</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#install-basic-libraries">Install Basic Libraries</a></li>
+            <li><a class="toctree-l3" href="#how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</a></li>
         
         </ul>
     
@@ -171,45 +180,79 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</h1>
-<p>If you don't want to use the disk image for the Raspberry Pi you can 
-install the packages like this.</p>
-<ol>
-<li>Setup OS on Raspberry Pi
-Follow <a href="https://www.raspberrypi.org/learning/software-guide/quickstart/">these instructions</a>
-to install the Raspbian Jessie operating system using the NOOBS method 
-on your SD card.
-P</li>
-<li>ut the SD card into your Raspberry Pi.</li>
-<li>Power up your Raspberry Pi using the USB cable.</li>
-<li>Connect to a wifi internet connection. </li>
-</ol>
-<h5 id="install-basic-libraries">Install Basic Libraries</h5>
-<p>Since the Raspberry Pi is not as fast as larger computers, it can take a long time to install python packages (ie. numpy &amp; PIL) using pip. Luckily Adafruit has precompiled these libraries into packages that can be installed via <code>apt-get</code>.</p>
-<ol>
-<li>Open a terminal (Ctrl-Alt-t) and upgrade your system packages.</li>
-</ol>
-<pre><code>sudo apt-get update
+                <h1 id="faq">FAQ</h1>
+<h2 id="how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</h2>
+<p>3 Manual Setup:</p>
+<h5 id="this-uses-minimal-space-on-your-memory-card-is-easy-to-upgrade-and-make-changes-to-source">This uses minimal space on your memory card, is easy to upgrade and make changes to source</h5>
+<p>flash 8GB+ memory card with minimal jessie:
+<em> https://downloads.raspberrypi.org/raspbian_lite_latest
+</em> https://sourceforge.net/projects/win32diskimager/files/latest/download</p>
+<p>login:
+<em> username: pi
+</em> password: raspberry</p>
+<p>use rasp-config to setup some useful options</p>
+<pre><code class="bash">sudo raspi-config
+</code></pre>
+
+<ul>
+<li>change hostname</li>
+<li>change password</li>
+<li>interface options: </li>
+<li>enable camera</li>
+<li>enable SSH</li>
+<li>enable I2C</li>
+</ul>
+<p>reboot.</p>
+<p>do a package refresh and get latest:    </p>
+<pre><code class="bash">sudo apt-get update
 sudo apt-get upgrade
 </code></pre>
 
-<ol>
-<li>Install necessary libraries </li>
-</ol>
-<pre><code>sudo apt-get install xsel xclip libxml2-dev libxslt-dev libzmq-dev libspatialindex-dev virtualenv
+<p>install packages from ubuntu</p>
+<pre><code class="bash">sudo apt-get install git
+sudo apt-get install python3 python3-pip python3-virtualenv
+sudo apt-get install python3-pip python3-dev
 </code></pre>
 
-<ol>
-<li>Pandas &amp; Jupyter Requirements</li>
-</ol>
-<pre><code>sudo apt-get install python3-lxml python3-h5py python3-numexpr python3-dateutil python3-tz python3-bs4 python3-xlrd python3-tables python3-sqlalchemy python3-xlsxwriter python3-httplib2 python3-zmq 
+<p>get latest donkey code</p>
+<pre><code class="bash">git clone https://github.com/tawnkramer/donkey
+cd donkey
 </code></pre>
 
-<ol>
-<li>Scientific Python</li>
-</ol>
-<pre><code>sudo apt-get install python3-numpy python3-matplotlib python3-scipy python3-pandas 
+<p>install anaconda:</p>
+<pre><code class="bash">wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
+bash Miniconda3-latest-Linux-armv7l.sh
+source ~/.bashrc
 </code></pre>
+
+<p>setup python environment</p>
+<pre><code class="bash">conda env create -f donkey_env.yml
+source activate donkey
+</code></pre>
+
+<p>upgrade numpy. This can take a long time as it involves compiling the latest.</p>
+<pre><code class="bash">pip install --upgrade numpy
+</code></pre>
+
+<p>setup tensorflow</p>
+<pre><code class="bash">wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.1.0/tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
+pip install tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
+</code></pre>
+
+<p>setup donkey</p>
+<pre><code>pip install -e .
+</code></pre>
+
+<p>setup initial files and dir for data</p>
+<pre><code class="bash">donkey createcar --template donkey2_with_joystick --path ~/d2_wj 
+</code></pre>
+
+<p>to run your donkey with a joystick control</p>
+<pre><code class="bash">cd ~/d2_wj
+python manage.py drive
+</code></pre>
+
+<hr />
               
             </div>
           </div>
@@ -218,7 +261,7 @@ sudo apt-get upgrade
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../tests/" class="btn btn-neutral" title="Tests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../release/" class="btn btn-neutral" title="Releases"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -246,7 +289,7 @@ sudo apt-get upgrade
           <a href="https://github.com/wroscoe/donkey" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../tests/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../release/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>

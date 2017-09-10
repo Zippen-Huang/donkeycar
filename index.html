@@ -122,6 +122,10 @@
                 </li>
                 <li class="">
                     
+    <a class="" href="parts/controllers/">Controllers</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="parts/stores/">Stores</a>
                 </li>
     </ul>
@@ -135,6 +139,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="tests/">Tests</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="release/">Releases</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -178,52 +187,50 @@
             <div class="section">
               
                 <h1 id="about-donkey">About Donkey</h1>
-<p>Donkey is a high level self driving library written in Python and capable of 
-controlling ackerman or differential drive vehicles. It was developed with a 
-focus on enabling fast experimentation and easy contribution.</p>
+<p>Donkey is a high level self driving library written in Python. It was 
+developed with a focus on enabling fast experimentation and easy contribution.</p>
 <hr />
 <h3 id="build-your-own-donkey2">Build your own Donkey2</h3>
-<p>Donkey2 is the standard car that most people start with. The parts cost $200
-and take 2 hours to assemple. Here are the main steps to build your own car: </p>
+<p>Donkey2 is the standard car that most people build first. The parts cost $200
+and take 2 hours to assemble. Here are the main steps to build your own car: </p>
 <ol>
-<li><a href="guide/build_hardware/">Build a car.</a>.</li>
-<li><a href="guide/install_software/">Install the software.</a></li>
+<li><a href="guide/build_hardware/">Assemble hardware.</a>.</li>
+<li><a href="guide/install_software/">Install software.</a></li>
 <li><a href="guide/calibrate/">Calibrate your car.</a></li>
 <li><a href="guide/get_driving/">Start driving.</a> </li>
 <li><a href="guide/train_autopilot/">Train an autopilot.</a> </li>
 </ol>
 <hr />
 <h3 id="hello-world">Hello World.</h3>
-<p>Donkeycar is designed to make it easy to customize your car by adding or 
-removing parts. Here's a simple example of a car that just captures
-images from the camera and saves them.</p>
-<pre><code class="python">
-import donkey as dk
+<p>Donkeycar is designed to make adding new parts to your car easy. Here's and 
+example car application that captures images from the camera and saves them.</p>
+<pre><code class="python">import donkey as dk
 
+#initialize the vehicle
 V = dk.Vehicle()
 
-#add a camera
+#add a camera part
 cam = dk.parts.PiCamera()
 V.add(cam, outputs=['image'], threaded=True)
 
-#record the images
+#add tub part to record images
 tub = dk.parts.Tub(path='~/d2/gettings_started', 
                    inputs=['image'], 
                    types=['image_array'])
 V.add(tub, inputs=inputs)
 
-#start the drive loop
+#start the vehicle's drive loop
 V.start(max_loop_count=100)
 </code></pre>
 
 <hr />
 <h3 id="installation">Installation</h3>
-<p>Clone the master branch to get the lastest version. Use this if you plan 
-to contribute code.. </p>
+<p>For linux/OS users clone the master branch to get the lastest version.</p>
 <pre><code class="bash">git clone https://github.com/wroscoe/donkey donkeycar
 pip install -e donkeycar
 </code></pre>
 
+<p><a href="guide/install_software/">How to install on Windows</a></p>
 <hr />
 <h3 id="why-the-name-donkey">Why the name Donkey?</h3>
 <p>The ultimate goal of this project is to build something useful. Donkey's were
@@ -278,5 +285,5 @@ other, we'll hold off naming it after some celestial being.</p>
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2017-09-09 23:46:38
+Build Date UTC : 2017-09-10 00:57:10
 -->
