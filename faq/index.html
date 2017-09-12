@@ -139,6 +139,12 @@
         
             <li><a class="toctree-l3" href="#how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</a></li>
         
+            <li><a class="toctree-l3" href="#18-setup-initial-files-and-dir-for-data-refer-to-setup-instructions-for-options">18. Setup initial files and dir for data. Refer to setup instructions for options.</a></li>
+        
+            <li><a class="toctree-l3" href="#after-a-reboot-i-dont-see-the-donkey-in-front-of-the-prompt-and-i-get-python-errors-when-i-run">After a reboot, I don't see the (donkey) in front of the prompt, and I get python errors when I run.</a></li>
+        
+            <li><a class="toctree-l3" href="#how-to-get-latest-donkey-source">How to get latest Donkey source</a></li>
+        
         </ul>
     
 
@@ -181,77 +187,103 @@
             <div class="section">
               
                 <h1 id="faq">FAQ</h1>
-<h2 id="how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</h2>
-<p>3 Manual Setup:</p>
+<hr />
+<h3 id="how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</h3>
 <h5 id="this-uses-minimal-space-on-your-memory-card-is-easy-to-upgrade-and-make-changes-to-source">This uses minimal space on your memory card, is easy to upgrade and make changes to source</h5>
-<p>flash 8GB+ memory card with minimal jessie:
-<em> https://downloads.raspberrypi.org/raspbian_lite_latest
-</em> https://sourceforge.net/projects/win32diskimager/files/latest/download</p>
-<p>login:
-<em> username: pi
-</em> password: raspberry</p>
-<p>use rasp-config to setup some useful options</p>
-<pre><code class="bash">sudo raspi-config
-</code></pre>
-
-<ul>
+<ol>
+<li><a href="https://downloads.raspberrypi.org/raspbian_lite_latest">Download raspian lite</a></li>
+<li>On Windows, <a href="https://sourceforge.net/projects/win32diskimager/files/latest/download">download disk imager</a></li>
+<li>On Mac or Linux, <a href="https://etcher.io">download Etcher</a></li>
+<li>Follow instructions to burn image to memory card.:<ul>
+<li>Win32DiskImager <a href="https://www.youtube.com/watch?v=SdWr-aolCSA">video</a> </li>
+<li>Win32DiskImager <a href="https://codeyarns.com/2013/06/21/how-to-write-a-disk-image-using-win32-disk-imager/">writeup</a></li>
+<li>Etcher <a href="https://www.youtube.com/watch?v=I6F2HoTeiFc">video</a></li>
+<li>Etcher <a href="https://www.raspberrypi.org/magpi/pi-sd-etcher/">writeup</a></li>
+<li>Multiple methods <a href="http://elinux.org/RPi_Easy_SD_Card_Setup">writeup</a></li>
+</ul>
+</li>
+<li>Place memory card in Pi and boot</li>
+<li>After booting, you will see a prompt. Login. type <code>pi</code> for username.</li>
+<li>Type <code>raspberry</code> for password.</li>
+<li>use raspi-config to setup some useful options:
+    <code>sudo raspi-config</code><ul>
 <li>change hostname</li>
 <li>change password</li>
-<li>interface options: </li>
+<li>interface options: <ul>
 <li>enable camera</li>
 <li>enable SSH</li>
 <li>enable I2C</li>
 </ul>
-<p>reboot.</p>
-<p>do a package refresh and get latest:    </p>
-<pre><code class="bash">sudo apt-get update
-sudo apt-get upgrade
-</code></pre>
-
-<p>install packages from ubuntu</p>
-<pre><code class="bash">sudo apt-get install git
-sudo apt-get install python3 python3-pip python3-virtualenv
-sudo apt-get install python3-pip python3-dev
-</code></pre>
-
-<p>get latest donkey code</p>
-<pre><code class="bash">git clone https://github.com/tawnkramer/donkey
-cd donkey
-</code></pre>
-
-<p>install anaconda:</p>
-<pre><code class="bash">wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
-bash Miniconda3-latest-Linux-armv7l.sh
-source ~/.bashrc
-</code></pre>
-
-<p>setup python environment</p>
-<pre><code class="bash">conda env create -f donkey_env.yml
-source activate donkey
-</code></pre>
-
-<p>upgrade numpy. This can take a long time as it involves compiling the latest.</p>
-<pre><code class="bash">pip install --upgrade numpy
-</code></pre>
-
-<p>setup tensorflow</p>
-<pre><code class="bash">wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.1.0/tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
-pip install tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
-</code></pre>
-
-<p>setup donkey</p>
-<pre><code>pip install -e .
-</code></pre>
-
-<p>setup initial files and dir for data</p>
-<pre><code class="bash">donkey createcar --template donkey2_with_joystick --path ~/d2_wj 
-</code></pre>
-
-<p>to run your donkey with a joystick control</p>
-<pre><code class="bash">cd ~/d2_wj
-python manage.py drive
-</code></pre>
-
+</li>
+</ul>
+</li>
+<li>Reboot.</li>
+<li>Do a package refresh and get latest:
+    <code>bash
+    sudo apt-get update
+    sudo apt-get upgrade</code></li>
+<li>
+<p>install packages:
+    <code>bash
+    sudo apt-get install git
+    sudo apt-get install python3 python3-pip python3-virtualenv
+    sudo apt-get install python3-pip python3-dev</code></p>
+</li>
+<li>
+<p>Get latest donkey code:
+    <code>bash
+    git clone https://github.com/wroscoe/donkey
+    cd donkey</code></p>
+</li>
+<li>
+<p>Install anaconda:
+    <code>bash
+    wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
+    bash Miniconda3-latest-Linux-armv7l.sh
+    source ~/.bashrc</code></p>
+</li>
+<li>
+<p>Setup python environment:
+    <code>bash
+    conda env create -f envs/rpi.yml
+    source activate donkey</code></p>
+</li>
+<li>
+<p>Upgrade numpy. This can take a long time as it involves compiling the latest.
+    <code>bash
+    pip install --upgrade numpy</code></p>
+</li>
+<li>
+<p>Setup tensorflow:
+    <code>bash
+    wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.1.0/tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
+    pip install tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl</code></p>
+</li>
+<li>
+<p>Setup donkey
+    <code>pip install -e .</code></p>
+</li>
+</ol>
+<h2 id="18-setup-initial-files-and-dir-for-data-refer-to-setup-instructions-for-options">18. Setup initial files and dir for data. Refer to <a href="../guide/install_software/">setup instructions</a> for options.</h2>
+<h2 id="after-a-reboot-i-dont-see-the-donkey-in-front-of-the-prompt-and-i-get-python-errors-when-i-run">After a reboot, I don't see the (donkey) in front of the prompt, and I get python errors when I run.</h2>
+<ol>
+<li>If you used this disc setup guide above, you used conda to manage your virtual environment. You need to activate the donkey conda environment with:
+    <code>source activate donkey</code></li>
+<li>optionally you can add that line to the last line of your ~/.bashrc to have it active each time you login.</li>
+</ol>
+<hr />
+<h2 id="how-to-get-latest-donkey-source">How to get latest Donkey source</h2>
+<ol>
+<li>
+<p>When donkey has changed you can get the latest source. You've installed it directly from the github repo, so getting latest is easy:
+     <code>cd donkey
+    git pull origin master</code></p>
+</li>
+<li>
+<p>Occasionally also the template files have changed with fixes that affect manage.py. You can create a new user directory to test. Use the same options you used to create it <a href="../guide/install_software/">from setup instructs</a> but a new path. For instance:
+    <code>donkey createcar --path ~/d2_new</code></p>
+</li>
+</ol>
 <hr />
               
             </div>

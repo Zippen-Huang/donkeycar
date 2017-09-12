@@ -233,47 +233,71 @@ keyboard and mouse so you can log setup the wifi via the command line. </p>
 <p>The easiest way (on Ubuntu) is to use the <code>findcar</code> donkey command. Regardless 
 you will wand donkeycar installed on your computer for training so lets install
 donkeycar now. </p>
+<hr />
 <h4 id="install-donkeycar-on-linux">Install donkeycar on Linux</h4>
-<pre><code>virtualenv env -p python3
+<pre><code>```
+virtualenv env -p python3
 source env/bin/activate
 git clone https://github.com/wroscoe/donkey donkeycar
 pip install -e donkeycar
+```
 </code></pre>
-
+<hr />
 <h1 id="windows-donkey-setup">Windows Donkey Setup</h1>
 <h5 id="many-python-projects-do-not-provide-a-docker-install-its-useful-to-know-how-to-setup-the-windows-environment-to-run-donkey-andor-any-other-python-project-its-also-easier-to-modify-source">Many python projects do not provide a docker install. It's useful to know how to setup the windows environment to run Donkey and/or any other python project. Its also easier to modify source.</h5>
-<p>install miniconda:
-https://conda.io/miniconda.html</p>
-<p>install git:
-https://git-scm.com/download/win
-use the setup for your platform. probably 64bit</p>
-<p>from the start menu start the Andconda Prompt.</p>
-<p>change to a dir you would like to use as the head of your projects.</p>
-<pre><code class="bash">mkdir projects
-cd projects
-</code></pre>
-
-<p>get the latest donkey from my repo. This has fixes to run correctly on windows.</p>
-<pre><code class="bash">git clone https://github.com/tawnkramer/donkey
-cd donkey
-</code></pre>
-
-<p>create the python anaconda environmment</p>
-<pre><code class="bash">conda env create -f envs\windows.yml
-activate donkey
-</code></pre>
-
-<p>once to setup:</p>
-<pre><code class="bash">pip install -e .
-donkey createcar --path ~/d2
-</code></pre>
-
+<ol>
+<li>
+<p>Install <a href="https://conda.io/miniconda.html">miniconda</a></p>
+</li>
+<li>
+<p>Install <a href="https://git-scm.com/download/win">git</a> Use the setup for your platform. Probably 64bit</p>
+</li>
+<li>
+<p>From the start menu start the Andconda Prompt.</p>
+</li>
+<li>
+<p>Change to a dir you would like to use as the head of your projects.
+    <code>bash
+    mkdir projects
+    cd projects</code></p>
+</li>
+<li>
+<p>Get the latest donkey.
+    <code>bash
+    git clone https://github.com/wroscoe/donkey
+    cd donkey</code></p>
+</li>
+<li>
+<p>Create the python anaconda environmment
+    <code>bash
+    conda env create -f envs\windows.yml
+    activate donkey</code></p>
+</li>
+<li>
+<p>once to setup:
+    <code>bash
+    pip install -e .
+    donkey createcar --path ~/d2</code></p>
+</li>
+</ol>
+<hr />
 <h4 id="install-another-fork-of-donkeycar">Install another fork of donkeycar</h4>
-<pre><code>pip uninstall donkeycar
-git clone --depth=1 https://github.com/tawnkramer/donkey donkey_tkramer
-cd donkey_tkramer
-pip install -e .
-</code></pre>
+<ol>
+<li>
+<p>Occasionally you may want to run with changes from a separate fork of donkey. You may uninstall one and install another. That's fastest, but leaves you with only the forked version installed:
+    <code>pip uninstall donkeycar
+    git clone --depth=1 https://github.com/&lt;username&gt;/donkey donkey_&lt;username&gt;
+    cd donkey_&lt;username&gt;
+    pip install -e .</code></p>
+</li>
+<li>
+<p>To get back to stock donkey install:
+    <code>pip uninstall donkeycar
+    git clone --depth=1 https://github.com/wroscoe/donkey donkey
+    cd donkey
+    pip install -e .</code></p>
+</li>
+</ol>
               
             </div>
           </div>
