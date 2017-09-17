@@ -194,10 +194,10 @@
 <p>The point of calibrating your car is to make it drive consitently with
 other vehicles. These instructions </p>
 <h2 id="how-to-adjust-your-cars-settings">How to adjust your car's settings.</h2>
-<p>All of the car's settings are in the <code>manage.py</code> script generated when 
+<p>All of the car's settings are in the <code>config.py</code> script generated when 
 you ran the <code>donkey createcar --path ~/d2</code> command. You can edit
 this file on your car by running:</p>
-<pre><code class="bash">nano ~/d2/manage.py
+<pre><code class="bash">nano ~/d2/config.py
 </code></pre>
 
 <p>Our goal is to edit these settings so your car will drive like every
@@ -217,8 +217,8 @@ enter</code>400<code>or</code>300`.</li>
 <li>Next enter values +/- 10 from your starting value to find the PWM setting
 that makes your car turn all the way left and all the way right. Remember 
 these values. </li>
-<li>Enter these values in your <code>manage.py</code> script as inputs into your 
-steering_controller part as the <code>left_pulse</code> and <code>right_pulse</code>. </li>
+<li>Enter these values in <code>config.py</code> script as <code>STEERING_RIGHT_PWM</code> and 
+<code>STEERING_LEFT_PWM</code>. </li>
 </ol>
 <h2 id="throttle-calibration">Throttle Calibration</h2>
 <ol>
@@ -242,11 +242,11 @@ value again. </li>
 <li>Enter values +/- 10 of the reverse value to find a reasonable reverse speed.
 Remember this reverse PWM value. </li>
 </ol>
-<p>Now open your <code>manage.py</code> script and enter the PWM values for your car into
+<p>Now open your <code>config.py</code> script and enter the PWM values for your car into
 the throttle_controller part. 
-<em> <code>max_puse</code> = PWM value for full throttle forward
-</em> <code>zero_pulse</code> = PWM value for zero throttle
-* <code>min_pulse</code> = PWM value at full reverse throttle</p>
+<em> <code>THROTTLE_FORWARD_PWM</code> = PWM value for full throttle forward
+</em> <code>THROTTLE_STOPPED_PWM</code> = PWM value for zero throttle
+* <code>THROTTLE_REVERSE_PWM</code> = PWM value at full reverse throttle</p>
 <h2 id="fine-tuning-your-calibration">Fine tuning your calibration.</h2>
 <p><img alt="fine calibration" src="../../assets/fine_calibration.gif" /></p>
 <p>Now that you have your care roughly calibrated you can try driving it to 

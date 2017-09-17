@@ -207,14 +207,14 @@ your car with <code>Ctrl-c</code> in the ssh session for your car.</li>
 to our computer to train. </p>
 <p>In a new terminal session on your comptuer use rsync to copy your cars 
 folder. </p>
-<pre><code>rsync pi@&lt;your_pi_ip_address&gt;:~/d2/data  ~/d2/data
+<pre><code>rsync -r pi@&lt;your_pi_ip_address&gt;:~/d2/data  ~/d2/data
 </code></pre>
 
 <h2 id="train-a-model">Train a model.</h2>
 <ol>
 <li>In the same terminal you can now run the training script on the latest tub.</li>
 </ol>
-<pre><code> python ~/d2/manage.py train --model mypilot
+<pre><code> python ~/d2/manage.py train --tub &lt;tub folder names comma separated&gt; --model mypilot
 </code></pre>
 
 <ol>
@@ -224,10 +224,10 @@ folder. </p>
 </code></pre>
 
 <ol>
-<li>Now you can start your car again and pass it your model to drive.
-```
-python ~/d2/manage.py drive --model mypilot</li>
+<li>Now you can start your car again and pass it your model to drive.</li>
 </ol>
+<pre><code>python manage.py drive --model ~/d2/models/mypilot
+</code></pre>
               
             </div>
           </div>
