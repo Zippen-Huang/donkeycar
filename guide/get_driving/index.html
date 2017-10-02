@@ -230,12 +230,7 @@ remotely via ssh. </p>
 
 <p>The default username is 'pi' and the password is 'raspberry'</p>
 <h3 id="create-your-car-application">Create your car application.</h3>
-<p>with web browser.</p>
 <pre><code>donkey createcar --template donkey2 --path ~/d2
-</code></pre>
-
-<p>with PS3 controller</p>
-<pre><code>donkey createcar --template donkey2_with_joystick --path ~/d2_wj
 </code></pre>
 
 <h4 id="start-your-car_1">Start your car.</h4>
@@ -271,8 +266,16 @@ races if you have a pilot that will steer but doesn't control throttle. </li>
 </ul>
 <hr />
 <h2 id="driving-with-physical-joystick-controller">Driving with Physical Joystick Controller</h2>
+<p>You may find that it helps to use a physical joystick device to control your vehicle.</p>
+<h3 id="setup-bluetooth-and-pair-joystick">Setup Bluetooth and pair joystick</h3>
+<p>Check the <a href="../../parts/controllers/#physical-joystick-controller">Controllers</a> section to read about setting up the bluetooth connection.</p>
+<h3 id="enable-joystick-support">Enable joystick support</h3>
+<p>edit ~/d2/manage.py following commented instructions there.</p>
+<pre><code>nano ~/d2/manage.py
+</code></pre>
+
 <h3 id="start-car">Start car</h3>
-<pre><code>cd ~/d2_wj
+<pre><code>cd ~/d2
 python manage.py drive
 </code></pre>
 
@@ -286,7 +289,7 @@ python manage.py drive
 <p>Whenever the throttle is not zero, driving data will be recorded.</p>
 </blockquote>
 <h3 id="start-car-for-self-driving">Start car for self-driving</h3>
-<pre><code>cd ~/d2_wj
+<pre><code>cd ~/d2
 python manage.py drive --model &lt;path/to/model&gt;
 </code></pre>
 

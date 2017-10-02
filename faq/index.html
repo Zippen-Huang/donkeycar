@@ -139,8 +139,6 @@
         
             <li><a class="toctree-l3" href="#how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</a></li>
         
-            <li><a class="toctree-l3" href="#18-setup-initial-files-and-dir-for-data-refer-to-setup-instructions-for-options">18. Setup initial files and dir for data. Refer to setup instructions for options.</a></li>
-        
             <li><a class="toctree-l3" href="#after-a-reboot-i-dont-see-the-donkey-in-front-of-the-prompt-and-i-get-python-errors-when-i-run">After a reboot, I don't see the (donkey) in front of the prompt, and I get python errors when I run.</a></li>
         
             <li><a class="toctree-l3" href="#how-to-get-latest-donkey-source">How to get latest Donkey source</a></li>
@@ -190,7 +188,7 @@
 <hr />
 <h3 id="how-do-i-create-my-own-raspberry-pi-disk">How do I create my own Raspberry Pi Disk?</h3>
 <h5 id="this-uses-minimal-space-on-your-memory-card-is-easy-to-upgrade-and-make-changes-to-source">This uses minimal space on your memory card, is easy to upgrade and make changes to source</h5>
-<ol>
+<ul>
 <li><a href="https://downloads.raspberrypi.org/raspbian_lite_latest">Download raspian lite</a></li>
 <li>On Windows, <a href="https://sourceforge.net/projects/win32diskimager/files/latest/download">download disk imager</a></li>
 <li>On Mac or Linux, <a href="https://etcher.io">download Etcher</a></li>
@@ -202,11 +200,19 @@
 <li>Multiple methods <a href="http://elinux.org/RPi_Easy_SD_Card_Setup">writeup</a></li>
 </ul>
 </li>
-<li>Place memory card in Pi and boot</li>
-<li>After booting, you will see a prompt. Login. type <code>pi</code> for username.</li>
-<li>Type <code>raspberry</code> for password.</li>
-<li>use raspi-config to setup some useful options:
-    <code>sudo raspi-config</code><ul>
+<li>
+<p>Place memory card in Pi and boot</p>
+</li>
+<li>
+<p>After booting, you will see a prompt. Login. type <code>pi</code> for username.</p>
+</li>
+<li>
+<p>Type <code>raspberry</code> for password.</p>
+</li>
+<li>
+<p>Use raspi-config to setup some useful options:
+    <code>sudo raspi-config</code></p>
+<ul>
 <li>change hostname</li>
 <li>change password</li>
 <li>interface options: <ul>
@@ -217,54 +223,70 @@
 </li>
 </ul>
 </li>
-<li>Reboot.</li>
-<li>Do a package refresh and get latest:
-    <code>bash
-    sudo apt-get update
-    sudo apt-get upgrade</code></li>
 <li>
-<p>install packages:
-    <code>bash
-    sudo apt-get install git
-    sudo apt-get install python3 python3-pip python3-virtualenv
-    sudo apt-get install python3-pip python3-dev</code></p>
+<p>Reboot.</p>
 </li>
 <li>
-<p>Get latest donkey code:
-    <code>bash
-    git clone https://github.com/wroscoe/donkey
-    cd donkey</code></p>
+<p>Do a package refresh and get latest:</p>
 </li>
-<li>
-<p>Install anaconda:
-    <code>bash
-    wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
-    bash Miniconda3-latest-Linux-armv7l.sh
-    source ~/.bashrc</code></p>
-</li>
-<li>
-<p>Setup python environment:
-    <code>bash
-    conda env create -f envs/rpi.yml
-    source activate donkey</code></p>
-</li>
-<li>
-<p>Upgrade numpy. This can take a long time as it involves compiling the latest.
-    <code>bash
-    pip install --upgrade numpy</code></p>
-</li>
-<li>
-<p>Setup tensorflow:
-    <code>bash
-    wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.1.0/tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
-    pip install tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl</code></p>
-</li>
-<li>
-<p>Setup donkey
-    <code>pip install -e .</code></p>
-</li>
-</ol>
-<h2 id="18-setup-initial-files-and-dir-for-data-refer-to-setup-instructions-for-options">18. Setup initial files and dir for data. Refer to <a href="../guide/install_software/">setup instructions</a> for options.</h2>
+</ul>
+<pre><code class="bash">sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+
+<ul>
+<li>Install packages:</li>
+</ul>
+<pre><code class="bash">sudo apt-get install git
+sudo apt-get install python3 python3-pip python3-virtualenv python3-dev virtualenv
+sudo apt-get install build-essential gfortran libhdf5-dev
+</code></pre>
+
+<ul>
+<li>Get latest donkey code:</li>
+</ul>
+<pre><code class="bash">git clone https://github.com/wroscoe/donkey
+cd donkey
+</code></pre>
+
+<ul>
+<li>Install anaconda:</li>
+</ul>
+<pre><code class="bash">wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-armv7l.sh
+bash Miniconda3-latest-Linux-armv7l.sh
+source ~/.bashrc
+</code></pre>
+
+<ul>
+<li>Setup python environment</li>
+</ul>
+<pre><code class="bash">conda env create -f envs/rpi.yml
+source activate donkey
+</code></pre>
+
+<ul>
+<li>Upgrade numpy. This can take a long time as it involves compiling the latest.</li>
+</ul>
+<pre><code class="bash">pip install --upgrade numpy
+</code></pre>
+
+<ul>
+<li>Setup tensorflow:</li>
+</ul>
+<pre><code class="bash">wget https://github.com/samjabrahams/tensorflow-on-raspberry-pi/releases/download/v1.1.0/tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
+pip install tensorflow-1.1.0-cp34-cp34m-linux_armv7l.whl
+</code></pre>
+
+<ul>
+<li>Setup donkey</li>
+</ul>
+<pre><code class="bash">pip install -e .
+</code></pre>
+
+<ul>
+<li>Setup initial files and dir for data. Refer to <a href="../guide/get_driving/">Get Driving</a> for options.</li>
+</ul>
+<hr />
 <h2 id="after-a-reboot-i-dont-see-the-donkey-in-front-of-the-prompt-and-i-get-python-errors-when-i-run">After a reboot, I don't see the (donkey) in front of the prompt, and I get python errors when I run.</h2>
 <ol>
 <li>If you used this disc setup guide above, you used conda to manage your virtual environment. You need to activate the donkey conda environment with:
@@ -280,7 +302,7 @@
     git pull origin master</code></p>
 </li>
 <li>
-<p>Occasionally also the template files have changed with fixes that affect manage.py. You can create a new user directory to test. Use the same options you used to create it <a href="../guide/install_software/">from setup instructs</a> but a new path. For instance:
+<p>Occasionally also the template files have changed with fixes that affect manage.py. You can create a new user directory to test. Use the same options you used to create it <a href="../guide/install_software/">from setup instructions</a> but a new path. For instance:
     <code>donkey createcar --path ~/d2_new</code></p>
 </li>
 </ol>

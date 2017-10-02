@@ -195,6 +195,14 @@
             <div class="section">
               
                 <h1 id="install-software">Install Software</h1>
+<p>This guide will help you to setup the software to run Donkey on your Raspberry Pi, as well as the host PC operating system of your choice.</p>
+<ul>
+<li>Setup <a href="#get-the-raspberry-pi-working">RaspberryPi</a></li>
+<li>Setup <a href="#install-donkeycar-on-linux">Linux Host PC</a></li>
+<li>Setup <a href="#install-donkeycar-on-windows">Windows Host PC</a></li>
+<li>Setup <a href="#install-donkeycar-on-mac">Mac Host PC</a></li>
+</ul>
+<hr />
 <h3 id="get-the-raspberry-pi-working">Get the Raspberry Pi working.</h3>
 <p>Before we can do anything we have to get our car's computer connected to the 
 internet. The fastest way is to use the disk image created for donkey cars. </p>
@@ -222,8 +230,8 @@ ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 
 network={
-    ssid=”&lt;your network name&gt;”
-    psk=”&lt;your password&gt;”
+    ssid=&quot;&lt;your network name&gt;&quot;
+    psk=&quot;&lt;your password&gt;&quot;
 }
 
 </code></pre>
@@ -250,12 +258,12 @@ and plug in the Pi.</p>
 <p>If you followed the above instructions to add wifi access you're Pi should
 now be connected to your wifi network. Now you need to find it's IP address
 so you can connect to it via SSH. </p>
-<p>The easiest way (on Ubuntu) is to use the <code>findcar</code> donkey command. You can try <code>ping raspberrypi.local</code>. If you've modified the hostname, then you should try: <code>ping &lt;your hostname&gt;.local</code>. I've sometimes had this fail on a windows machine.</p>
+<p>The easiest way (on Ubuntu) is to use the <code>findcar</code> donkey command. You can try <code>ping raspberrypi.local</code>. If you've modified the hostname, then you should try: <code>ping &lt;your hostname&gt;.local</code>. This will fail on a windows machine. Windows users will need the full ip address (unless using cygwin). </p>
 <p>If you are having troubles locating your Pi on the network, you will want to plug in an HDMI monitor and USB keyboard into the Pi. Boot it. Login with username: <strong>pi</strong>, password: <strong>raspberry</strong>. Then try the command:</p>
-<pre><code>ifconfig
+<pre><code>ifconfig wlan0
 </code></pre>
 
-<p>Look for a section called wlan0. If this has a valid ip V4 address, 4 numbers separated with a dot, then you can try that with your ssh command. If you don't see anything like that, then your wifi config might have a mistake. You can try to fix with</p>
+<p>If this has a valid ip V4 address, 4 numbers separated with a dot, then you can try that with your ssh command. If you don't see anything like that, then your wifi config might have a mistake. You can try to fix with</p>
 <pre><code>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 </code></pre>
 
@@ -275,17 +283,18 @@ so you can connect to it via SSH. </p>
 <p>or via Putty - username: <strong>pi</strong>, password: <strong>raspberry</strong> hostname:<code>&lt;your pi ip address&gt;</code></p>
 <p>If you are using the prebuilt image specified above, then your Pi is ready to go. You should see a d2 and donkey directory. </p>
 <blockquote>
-<p>Note: For a short time there was a bug in manage.py that used different settings for the PWM channel for steering and throttle. Open manage.py <code>nano ~/d2/manage.py</code> and make sure that you see the lines:</p>
+<p>Note: Check config.py to make sure it uses the correct settings for the PWM channel for steering and throttle. Open config.py <code>nano ~/d2/config.py</code> and make sure that you see the lines:</p>
 <ul>
-<li>steering_controller = dk.parts.PCA9685(1)</li>
-<li>throttle_controller = dk.parts.PCA9685(0)</li>
+<li>STEERING_CHANNEL = 1</li>
+<li>THROTTLE_CHANNEL = 0</li>
 </ul>
-<p>The (1) and (0) for the parts arguments should match whichever channel you used to plug your servo/ESC leads in to your 9685 board. Usually this ranges from 0-15 and it numbered on the board.</p>
+<p>The 1 and 0 for the parts arguments should match whichever channel you used to plug your servo/ESC leads in to your 9685 board. Usually this ranges from 0-15 and it numbered on the board.</p>
 </blockquote>
 <hr />
 <p>Now let's setup things on your PC. Install varies depending on platform.</p>
 <h2 id="install-donkeycar-on-linux">Install donkeycar on Linux</h2>
-<pre><code>virtualenv env -p python3
+<pre><code class="bash">sudo apt-get install virtualenv build-essential python3-dev gfortran libhdf5-dev
+virtualenv env -p python3
 source env/bin/activate
 git clone https://github.com/wroscoe/donkey donkeycar
 pip install -e donkeycar
@@ -295,7 +304,7 @@ pip install -e donkeycar
 <h2 id="install-donkeycar-on-windows">Install donkeycar on Windows</h2>
 <ul>
 <li>
-<p>Install <a href="https://conda.io/miniconda.html">miniconda Python 3.6 64 bit</a></p>
+<p>Install <a href="https://conda.io/miniconda.html">miniconda Python 3.6 64 bit</a>. Be sure to check the box to allow it to modify your system path variable to add conda.</p>
 </li>
 <li>
 <p>Install <a href="https://git-scm.com/download/win">git 64 bit</a></p>
