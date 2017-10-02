@@ -269,14 +269,13 @@ races if you have a pilot that will steer but doesn't control throttle. </li>
 <p>You may find that it helps to use a physical joystick device to control your vehicle.</p>
 <h3 id="setup-bluetooth-and-pair-joystick">Setup Bluetooth and pair joystick</h3>
 <p>Check the <a href="../../parts/controllers/#physical-joystick-controller">Controllers</a> section to read about setting up the bluetooth connection.</p>
-<h3 id="enable-joystick-support">Enable joystick support</h3>
-<p>edit ~/d2/manage.py following commented instructions there.</p>
-<pre><code>nano ~/d2/manage.py
-</code></pre>
-
 <h3 id="start-car">Start car</h3>
 <pre><code>cd ~/d2
-python manage.py drive
+python manage.py drive --js
+</code></pre>
+
+<p>Optionally, if you want joystick use to be sticky and don't want to add the --js each time, modify your config.py so that USE_JOYSTICK_AS_DEFAULT = True</p>
+<pre><code>nano config.py
 </code></pre>
 
 <h3 id="joystick-controls">Joystick Controls</h3>
@@ -286,19 +285,31 @@ python manage.py drive
 <li>pull back twice on right analog to reverse</li>
 </ul>
 <blockquote>
-<p>Whenever the throttle is not zero, driving data will be recorded.</p>
+<p>Whenever the throttle is not zero, driving data will be recorded - as long as you are in User mode!</p>
 </blockquote>
+<ul>
+<li>select button switches modes - "User, Local Angle, Local(angle and throttle)"</li>
+<li>Triangle - increase max throtlle</li>
+<li>X  - decrease max thottle</li>
+<li>Circle - toggle recording(disabled by default. auto record on throttle is enabled by default)</li>
+<li>dpad up - increase throttle scale</li>
+<li>dpad down - decrease throttle scale</li>
+<li>dpad left - increase steering scale</li>
+<li>dpad right - decrease steering scale</li>
+<li>start - toggle constant throttle. Sets to max throttle ( modified by X and Triangle ).</li>
+</ul>
 <h3 id="start-car-for-self-driving">Start car for self-driving</h3>
 <pre><code>cd ~/d2
-python manage.py drive --model &lt;path/to/model&gt;
+python manage.py drive --model &lt;path/to/model&gt; --js
 </code></pre>
 
-<p>Hit Triangle button to toggle between three modes - User, Local Angle, and Local Throttle &amp; Angle.</p>
+<p>Hit Select button to toggle between three modes - User, Local Angle, and Local Throttle &amp; Angle.</p>
 <ul>
 <li>User - User controls both steering and throttle with joystick</li>
 <li>Local Angle - Ai controls steering. User controls throttle.</li>
 <li>Local Throttle &amp; Angle - Ai controls both steering and throttle</li>
 </ul>
+<p>When the car is in Local Angle mode, the NN will steer. You must provide throttle.</p>
               
             </div>
           </div>

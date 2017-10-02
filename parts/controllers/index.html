@@ -197,19 +197,35 @@
 <h2 id="physical-joystick-controller">Physical Joystick Controller</h2>
 <p>The default web controller may be replaced with a one line change to use a physical joystick part for input. This uses the os device /dev/input/js0 by default. In theory, any joystick device that the os mounts like this can be used. In practice, the behavior will change depending on the model of joystick ( Sony, or knockoff ), or XBox controller and the bluetooth driver used to support it. The default code has been written and tested with a <a href="https://www.amazon.com/Dualshock-Wireless-Controller-Charcoal-playstation-3">Sony brand PS3 Sixaxis controller</a>. Other controllers may work, but will require alternative bluetooth installs, and tweaks to the software for correct axis and buttons.</p>
 <p>These can be used plugged in with a usb cable - but the default code and os driver has a bug polling this configuration. It's been much more stable, and convenient, to setup bluetooth for a wireless, responsive control.</p>
-<h3 id="change-to-managepy">Change to manage.py</h3>
-<p>comment out the line:</p>
-<pre><code>#ctr = dk.parts.LocalWebController()
+<h3 id="change-to-configpy-or-run-with-js">Change to config.py or run with --js</h3>
+<pre><code>python manage.py drive --js
 </code></pre>
 
-<p>and enable the line:</p>
-<pre><code>ctr = dk.parts.JoystickPilot()
-</code></pre>
-
-<p>This disables the live preview of the camera and the web page features.</p>
+<p>Will enable driving with the joystick. This disables the live preview of the camera and the web page features. If you modify config.py to make USE_JOYSTICK_AS_DEFAULT = True, then you do not need to run with the --js.</p>
 <h3 id="bluetooth-setup">Bluetooth Setup</h3>
-<p>Follow <a href="https://pythonhosted.org/triangula/sixaxis.html">this guide</a>. You can ignore steps past the 'Accessing the SixAxis from Python' section.</p>
-<p>Be sure to reboot after changing user group.</p>
+<p>Follow <a href="https://pythonhosted.org/triangula/sixaxis.html">this guide</a>. You can ignore steps past the 'Accessing the SixAxis from Python' section. I will include steps here in case the link becomes stale.</p>
+<pre><code class="bash">sudo apt-get install bluetooth libbluetooth3 libusb-dev
+sudo systemctl enable bluetooth.service
+sudo usermod -G bluetooth -a pi
+</code></pre>
+
+<p>Reboot after changing user group.</p>
+<p>Plug in the PS3 with usb cable. Hit center PS logo button. Get and build the command line pairing tool. Run it:</p>
+<pre><code class="bash">wget http://www.pabr.org/sixlinux/sixpair.c
+gcc -o sixpair sixpair.c -lusb
+sudo ./sixpair
+</code></pre>
+
+<p>Use bluetoothctl to pair</p>
+<pre><code class="bash">bluetoothctl
+agent on
+devices
+trust &lt;MAC ADDRESS&gt;
+default-agent
+quit
+</code></pre>
+
+<p>Unplug USB cable. Hit center PS logo button.</p>
 <p>To test that the Bluetooth PS3 remote is working, verify that /dev/input/js0 exists.</p>
 <pre><code class="bash">ls /dev/input/js0
 </code></pre>
