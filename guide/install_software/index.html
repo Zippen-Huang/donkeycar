@@ -86,6 +86,8 @@
         
             <li><a class="toctree-l4" href="#connecting-to-the-pi">Connecting to the Pi</a></li>
         
+            <li><a class="toctree-l4" href="#update-donkeycar-python-code-and-install">Update Donkeycar python code and install</a></li>
+        
             <li><a class="toctree-l4" href="#install-donkeycar-on-linux">Install donkeycar on Linux</a></li>
         
             <li><a class="toctree-l4" href="#install-donkeycar-on-windows">Install donkeycar on Windows</a></li>
@@ -108,6 +110,10 @@
                 <li class="">
                     
     <a class="" href="../train_autopilot/">Train an autopilot.</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../simulator/">Donkey Simulator.</a>
                 </li>
     </ul>
 	    </li>
@@ -301,6 +307,13 @@ so you can connect to it via SSH. </p>
 </ul>
 <p>The 1 and 0 for the parts arguments should match whichever channel you used to plug your servo/ESC leads in to your 9685 board. Usually this ranges from 0-15 and it numbered on the board.</p>
 </blockquote>
+<h3 id="update-donkeycar-python-code-and-install">Update Donkeycar python code and install</h3>
+<p>The donkeycar python code on the memory card image is likely older than the that on the github repo. So update things once you have the Pi running.</p>
+<pre><code class="bash">cd ~/donkeycar
+git pull
+pip install -e .
+</code></pre>
+
 <hr />
 <p>Now let's setup things on your PC. Install varies depending on platform.</p>
 <h2 id="install-donkeycar-on-linux">Install donkeycar on Linux</h2>
