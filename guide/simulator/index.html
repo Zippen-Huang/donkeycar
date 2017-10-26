@@ -201,7 +201,7 @@
     <li>Donkey Simulator.</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/wroscoe/donkey/edit/master/docs/guide/simulator.md"
+        <a href="https://github.com/edit/master/docs/guide/simulator.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -221,6 +221,8 @@
 <li>Windows 7+ <a href="https://drive.google.com/open?id=0BxSsaxmEV-5YRC1ZWHZ4Y1dZTkE">download</a></li>
 </ul>
 <p>Extract this compressed file. It will create a folder with executable. Double click that executable to launch the simulator.</p>
+<h4 id="extra-mac-steps">Extra Mac Steps</h4>
+<p>If logs are not being generated you are probably running a version of OS X that sandboxes untrusted applications. This prevents the simulator writing to disk. To resolve this move the executable within the Applications folder.</p>
 <h3 id="recorded-data">Recorded Data</h3>
 <p>This simulator can create log data in the donkey tub format. This is stored in the <code>log</code> dir at the root of the folder next to the executable. On the mac you will need to browse the package contents to see this folder. If this folder is missing, no data will be recorded.</p>
 <p>You can choose two different scenes.</p>
@@ -354,12 +356,12 @@ https://github.com/gabomdq/SDL_GameControllerDB/blob/master/gamecontrollerdb.txt
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
@@ -375,7 +377,10 @@ https://github.com/gabomdq/SDL_GameControllerDB/blob/master/gamecontrollerdb.txt
       
     </span>
 </div>
+    <script>var base_url = '../..';</script>
     <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
 
 </body>
 </html>
