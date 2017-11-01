@@ -136,6 +136,8 @@
         
             <li><a class="toctree-l4" href="#calibrate-car">Calibrate Car</a></li>
         
+            <li><a class="toctree-l4" href="#clean-data-in-tub">Clean data in Tub</a></li>
+        
             <li><a class="toctree-l4" href="#make-movie-from-tub">Make Movie from Tub</a></li>
         
             <li><a class="toctree-l4" href="#check-tub">Check Tub</a></li>
@@ -234,7 +236,6 @@
 </code></pre>
 
 <ul>
-<li>This command may be run from any dir</li>
 <li>Run on the host computer</li>
 <li>Prints the host computer ip address and the car ip address if found</li>
 <li>Requires the nmap utlity:</li>
@@ -250,20 +251,29 @@ See also <a href="../../guide/calibrate/">more information.</a></p>
 </code></pre>
 
 <ul>
-<li>This command may be run from any dir</li>
 <li>Run on the host computer</li>
 <li>Opens the PWM chanel specified by --channel</li>
 <li>Type integer values to specify PWM values and hit enter</li>
 <li>Hit <code>Ctrl + C</code> to exit</li>
 </ul>
-<h2 id="make-movie-from-tub">Make Movie from Tub</h2>
-<p>This command allows you to create a movie file from the images in a Tub.</p>
+<h2 id="clean-data-in-tub">Clean data in Tub</h2>
+<p>Opens a web server to delete bad data from a tub.</p>
 <p>Usage:</p>
-<pre><code class="bash">donkey makemovie --tub=&lt;dir&gt; [--out=&lt;tub_movie.mp4&gt;] [--config=&lt;config.py&gt;]
+<pre><code class="bash">donkey tubclean &lt;folder containing tubs&gt;
 </code></pre>
 
 <ul>
-<li>This command may be run from ~/d2 dir</li>
+<li>Run on pi or host computer.</li>
+<li>Opens the web server to delete bad data.</li>
+<li>Hit <code>Ctrl + C</code> to exit</li>
+</ul>
+<h2 id="make-movie-from-tub">Make Movie from Tub</h2>
+<p>This command allows you to create a movie file from the images in a Tub.</p>
+<p>Usage:</p>
+<pre><code class="bash">donkey makemovie &lt;tub_path&gt; [--out=&lt;tub_movie.mp4&gt;] [--config=&lt;config.py&gt;]
+</code></pre>
+
+<ul>
 <li>Run on the host computer or the robot</li>
 <li>Uses the image records from --tub dir path given</li>
 <li>Creates a movie given by --out. Codec is infered from file extension. Default: tub_movie.mp4</li>
@@ -275,13 +285,11 @@ See also <a href="../../guide/calibrate/">more information.</a></p>
 <p>Note: This should be moved from manage.py to donkey command</p>
 </blockquote>
 <p>Usage:</p>
-<pre><code class="bash">python manage.py check [--tub &lt;tubdir&gt;] [--fix]
+<pre><code class="bash">donkey tubcheck &lt;tub_path&gt; [--fix]
 </code></pre>
 
 <ul>
-<li>This command may be run from ~/d2 dir</li>
 <li>Run on the host computer or the robot</li>
-<li>When the --tub is ommited, it will check all tubs in the default data dir</li>
 <li>It will print summary of record count and channels recorded for each tub</li>
 <li>It will print the records that throw an exception while reading</li>
 <li>The optional --fix will delte records that have problems</li>
@@ -292,11 +300,10 @@ See also <a href="../../guide/calibrate/">more information.</a></p>
 <p>Note: This should be moved from manage.py to donkey command</p>
 </blockquote>
 <p>Usage:</p>
-<pre><code class="bash">python manage.py histogram [--tub &lt;tubdir&gt;] --rec=&lt;&quot;user/angle&quot;&gt;
+<pre><code class="bash">donkey tubhist &lt;tub_path&gt; --rec=&lt;&quot;user/angle&quot;&gt;
 </code></pre>
 
 <ul>
-<li>This command may be run from ~/d2 dir</li>
 <li>
 <p>Run on the host computer</p>
 </li>
@@ -310,7 +317,7 @@ See also <a href="../../guide/calibrate/">more information.</a></p>
 <p>Note: This should be moved from manage.py to donkey command</p>
 </blockquote>
 <p>Usage:</p>
-<pre><code class="bash">python manage.py plot_predictions [--tub=&lt;tub_path&gt;] [--model=&lt;model_path&gt;] 
+<pre><code class="bash">donkey tubplot &lt;tub_path&gt; [--model=&lt;model_path&gt;]
 </code></pre>
 
 <ul>
