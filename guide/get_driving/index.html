@@ -224,51 +224,49 @@ is the step were the car can take off. </p>
 <p>In future runs, when you start a new session, you will want to:</p>
 <p>On Windows:</p>
 <ul>
-<li>start a new Anaconda Prompt from windows start menu</li>
-<li>Activate mappings to donkey python setup with: <code>activate donkey</code></li>
+<li>start a new Anaconda Prompt from Windows start menu</li>
+<li>Activate mappings to donkey Python setup with: <code>activate donkey</code></li>
 <li>Change to your local dir for managing donkey: <code>cd ~/d2</code></li>
 <li>Find your pi</li>
 </ul>
-<p>This will show your ip address, promt for your password, and then search 
-for your cars ip address. </p>
+<p>This will show your IP address, prompt for your password, and then search 
+for your cars IP address. </p>
 <blockquote>
-<p>If your car's ip address is not shown then:</p>
+<p>If your car's IP address is not shown:</p>
 <ol>
-<li>find another way to scan your local network for your raspbery pi </li>
-<li>connect a monitor to your pi to connect to the the same wifi as your computer. </li>
+<li>Find another way to scan your local network for your raspberry pi </li>
+<li>Connect a monitor/keyboard and ensure your pi is connected to the the same wifi network as your computer. </li>
 </ol>
 </blockquote>
-<p>Assuming that you did find your pi on the network. You can now connect to it
-remotely via ssh. </p>
+<p>Assuming that you did find your pi on the network, you can now connect to it via SSH. </p>
 <pre><code>ssh pi@&lt;your_pi_ip_address&gt;
 </code></pre>
 
-<p>The default username is 'pi' and the password is 'raspberry'</p>
+<p>The default user name is 'pi' and the password is 'raspberry'.  If you are using the pre-built Donkey image, the password is 'asdfasdf'.</p>
 <h3 id="create-your-car-application">Create your car application.</h3>
 <pre><code>donkey createcar --template donkey2 --path ~/d2
 </code></pre>
 
 <p>See also <a href="../../utility/donkey/#create-car">more information.</a></p>
 <h4 id="start-your-car_1">Start your car.</h4>
-<p>Open your car's folder and start our car. </p>
+<p>Open your car's folder and start your car. </p>
 <pre><code>cd ~/d2
 python manage.py drive
 </code></pre>
 
 <p>This script will start the drive loop in your car which includes a part that 
-is a webserver for you to control your car. You can now controll your car
-from a web browser at the url: <code>&lt;your car's ip's address&gt;:8887</code></p>
+is a web server for you to control your car. You can now control your car
+from a web browser at the URL: <code>&lt;your car's IP's address&gt;:8887</code></p>
 <p><img alt="drive UI" src="../../assets/drive_UI.png" /></p>
 <h2 id="driving-with-web-controller">Driving with Web Controller</h2>
 <p>On your phone you can now press start to set your phones current tilt to be
-zero throttle and steering. Now tilting your phone forward will increase throttle
-and tilting it side to side will turn the steering. </p>
+zero throttle and steering. Now tilting your phone forward will increase throttle and tilting it side to side will turn the steering. </p>
 <h3 id="features">Features</h3>
 <ul>
 <li>Recording - Press record data to start recording images, steering angels and throttle values. </li>
 <li>Throttle mode - Option to set the throttle as constant. This is used in 
 races if you have a pilot that will steer but doesn't control throttle. </li>
-<li>Pilot mode - Choose if the pilot should control the angle and/or throttle.</li>
+<li>Pilot mode - Choose this if the pilot should control the angle and/or throttle.</li>
 <li>Max throttle - Select the maximum throttle.</li>
 </ul>
 <h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
@@ -296,33 +294,33 @@ python manage.py drive --js
 
 <h3 id="joystick-controls">Joystick Controls</h3>
 <ul>
-<li>left analog stick left and right to adjust steering</li>
-<li>right analog stick forward to increase forward throttle</li>
-<li>pull back twice on right analog to reverse</li>
+<li>Left analog stick - Left and right to adjust steering</li>
+<li>Right analog stick - Forward to increase forward throttle</li>
+<li>Pull back twice on right analog to reverse</li>
 </ul>
 <blockquote>
 <p>Whenever the throttle is not zero, driving data will be recorded - as long as you are in User mode!</p>
 </blockquote>
 <ul>
-<li>select button switches modes - "User, Local Angle, Local(angle and throttle)"</li>
-<li>Triangle - increase max throtlle</li>
-<li>X  - decrease max thottle</li>
-<li>Circle - toggle recording(disabled by default. auto record on throttle is enabled by default)</li>
-<li>dpad up - increase throttle scale</li>
-<li>dpad down - decrease throttle scale</li>
-<li>dpad left - increase steering scale</li>
-<li>dpad right - decrease steering scale</li>
-<li>start - toggle constant throttle. Sets to max throttle ( modified by X and Triangle ).</li>
+<li>Select button switches modes - "User, Local Angle, Local(angle and throttle)"</li>
+<li>Triangle - Increase max throttle</li>
+<li>X  - Decrease max throttle</li>
+<li>Circle - Toggle recording (disabled by default. auto record on throttle is enabled by default)</li>
+<li>dpad up - Increase throttle scale</li>
+<li>dpad down - Decrease throttle scale</li>
+<li>dpad left - Increase steering scale</li>
+<li>dpad right - Decrease steering scale</li>
+<li>Start - Toggle constant throttle. Sets to max throttle (modified by X and Triangle).</li>
 </ul>
 <h3 id="start-car-for-self-driving">Start car for self-driving</h3>
 <pre><code>cd ~/d2
 python manage.py drive --model &lt;path/to/model&gt; --js
 </code></pre>
 
-<p>Hit Select button to toggle between three modes - User, Local Angle, and Local Throttle &amp; Angle.</p>
+<p>Hit the Select button to toggle between three modes - User, Local Angle, and Local Throttle &amp; Angle.</p>
 <ul>
 <li>User - User controls both steering and throttle with joystick</li>
-<li>Local Angle - Ai controls steering. User controls throttle.</li>
+<li>Local Angle - Ai controls steering, user controls throttle</li>
 <li>Local Throttle &amp; Angle - Ai controls both steering and throttle</li>
 </ul>
 <p>When the car is in Local Angle mode, the NN will steer. You must provide throttle.</p>

@@ -247,7 +247,7 @@ its likely that this is reverse, try entering <code>330</code> instead.</li>
 <li>Keep trying different values until you've found a reasonable max speed and
 remember this PWM value.</li>
 </ol>
-<p>Reverse on RC cars is a little trickey because the ESC needs to recieve a
+<p>Reverse on RC cars is a little tricky because the ESC must receive a
 reverse pulse, zero pulse, reverse pulse to start to go backwards. To calibrate
 a reverse PWM setting...</p>
 <ol>
@@ -271,16 +271,16 @@ verify that it drives as expected. Here's how to fine tune your car's calibratio
 <li>Go to <code>&lt;your_cars_ip_address&gt;:8887</code> in a browser. </li>
 <li>Press <code>j</code> until the cars steering is all the way right. </li>
 <li>Press <code>i</code> a couple times to get the car to go forward.</li>
-<li>Measure the diameter of the turn and record on it in a spreadsheet. </li>
+<li>Measure the diameter of the turn and record it on a spreadsheet. </li>
 <li>Repeat this measurement for different steering values for turning each 
 direction. </li>
 <li>Chart these so you can see if your car turns the same in each direction. </li>
 </ol>
 <p>Corrections
-<em> If your car turns the same amount at an 80% turn and a 100% turn change the
+<em> If your car turns the same amount at an 80% turn and a 100% turn, change the
 PWM setting for that turn direction to be the PWM value at 80%. 
-</em> If your car is biased to turn on direction, change the PWM values of your turns
-in the opisite direction of the bias.</p>
+</em> If your car is biased to turn one direction, change the PWM values of your turns
+in the opposite direction of the bias.</p>
 <p>After you've fine tuned your car the steering chart should look something like
 this.</p>
 <p><img alt="calibration graph" src="../../assets/calibration_graph.png" /></p>
