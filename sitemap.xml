@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,37 +13,37 @@
         
     <url>
      <loc>/guide/build_hardware/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/guide/install_software/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/guide/get_driving/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/guide/calibrate/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/guide/train_autopilot/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/guide/simulator/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -53,31 +53,31 @@
         
     <url>
      <loc>/parts/about/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/parts/actuators/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/parts/controllers/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/parts/stores/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/parts/imu/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -87,7 +87,7 @@
         
     <url>
      <loc>/utility/donkey/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -96,7 +96,7 @@
     
     <url>
      <loc>/contribute/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -104,7 +104,7 @@
     
     <url>
      <loc>/tests/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -112,7 +112,7 @@
     
     <url>
      <loc>/release/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -120,7 +120,7 @@
     
     <url>
      <loc>/faq/</loc>
-     <lastmod>2017-11-13</lastmod>
+     <lastmod>2017-11-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
