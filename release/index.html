@@ -202,21 +202,31 @@
             <div class="section">
               
                 <h1 id="release-notes">Release notes</h1>
-<p>Notes to remember how to release donkey.</p>
+<p>Notes on how to release donkey.</p>
 <h3 id="create-a-startup-disk">Create a startup disk.</h3>
-<p>The general steps of creating a startup disk are. 
-1. Make the disk perfect.
-2. Create startup disk.
-3. Publish image and update docs. </p>
-<p>Once the SD card is ready and tested take it out of the Pi and into your 
-computer. Run <code>sudo gparted</code> to see the size of the disk partitions. Then resize
-the partitions to be as small as possible. Right click the partition and
-see the last sector of the partition. </p>
-<p>Then run</p>
-<p><code>dd -if /def/sdb -of /</code></p>
+<ol>
+<li>Download the previous disk image and create the starr tup disk.</li>
+<li>Move disk to you pi. </li>
+<li>Pull the lastest donkeycar code. </li>
+<li>Make your changes.  </li>
+<li>Move the disk back to your computer.</li>
+<li>Remove your wi fi password and change the host name to d2.</li>
+<li>
+<p>Create the disk image from the SD card</p>
+<p>Run <code>sudo gparted</code> to see the size of the disk partitions.Resize the partitions
+to be as small as possible. Right click the partition to see the last sector of the partition. </p>
+<p>Run <code>sudo dd if=/dev/sda of=~/donkey_2-2-1.img bs=512 count=&lt;last_sector&gt;</code> </p>
+</li>
+<li>
+<p>Zip the .img file and upload to Dropbox. </p>
+</li>
+<li>Update the link in the instructions.</li>
+</ol>
 <h3 id="create-a-release">Create a release</h3>
-<p>Update <code>setup.py</code>
-1. update the version in set </p>
+<ol>
+<li>Run the tests on computer and pi. <code>pytest</code></li>
+<li>Update versions in <code>__init__</code> and <code>setup.py</code></li>
+</ol>
               
             </div>
           </div>
