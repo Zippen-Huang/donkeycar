@@ -231,7 +231,7 @@ internet. The fastest way is to use the disk image created for donkey cars. </p>
 operating systems. These instructions are for Ubuntu but you can see more 
 instructions <a href="https://www.raspberrypi.org/documentation/installation/installing-images/">here</a>.</p>
 <ol>
-<li>Download <a href="https://www.dropbox.com/s/wiudnm2dcsvoquu/donkey_v22.img.zip?dl=0">zipped disk image</a> (1.1GB). </li>
+<li>Download prebuilt <a href="https://www.dropbox.com/s/wiudnm2dcsvoquu/donkey_v22.img.zip?dl=0">zipped disk image</a> (1.1GB). </li>
 <li>Unzip the disk image.</li>
 <li>Plug your SD card into your computer.</li>
 <li>Open the "Startup Disk Creator" application.</li>
@@ -265,7 +265,7 @@ If it bothers you to leave your password unencrypted, you may change the <a href
 </ul>
 <h5 id="setup-pis-hostname">Setup Pi's Hostname</h5>
 <p>We can also setup the hostname so that your Pi easier to find once on the network. If yours is the only Pi on the network, then you can find it with </p>
-<pre><code>ping raspberrypi.local
+<pre><code>ping d2.local
 </code></pre>
 
 <p>once it's booted. If there are many other Pi's on the network, then this will have problems. If you are on a Linux machine, or are able to edit the UUID partition, then you can edit the <code>/etc/hostname</code> and <code>/etc/hosts</code> files now to make finding your pi on the network easier after boot. Edit those to replace <code>raspberrypi</code> with a name of your choosing. Use all lower case, no special characters, no hyphens, yes underscores <code>_</code>. </p>
@@ -283,8 +283,8 @@ so you can connect to it via SSH. </p>
 <p>If you are having troubles locating your Pi on the network, you will want to plug in an HDMI monitor and USB keyboard into the Pi. Boot it. Login with:</p>
 <ul>
 <li>Username: <strong>pi</strong></li>
-<li>Password: <strong>raspberry</strong></li>
-<li>The new disk image has the password <code>asdfasdf</code></li>
+<li>Password: <strong>asdfasdf</strong></li>
+<li>The older disk images use the password <code>raspberry</code></li>
 </ul>
 <p>Then try the command:</p>
 <pre><code>ifconfig wlan0
@@ -295,12 +295,12 @@ so you can connect to it via SSH. </p>
 </code></pre>
 
 <p>If you don't have a HDMI monitor and keyboard, you can plug-in the Pi with a CAT5 cable to a router with DHCP. If that router is on the same network as your PC, you can try:</p>
-<pre><code>ping raspberrypi.local
+<pre><code>ping d2.local
 </code></pre>
 
 <p>Hopefully, one of those methods worked and you are now ready to SSH into your Pi. On Mac and Linux, you can open Terminal. On Windows you can install <a href="http://www.putty.org/">Putty</a> or <a href="https://www.htpcbeginner.com/best-ssh-clients-windows-putty-alternatives/2/">one of the alternatives</a>.</p>
 <p>If you have a command prompt, you can try:</p>
-<pre><code>ssh pi@raspberrypi.local
+<pre><code>ssh pi@d2.local
 </code></pre>
 
 <p>or</p>
@@ -309,8 +309,9 @@ so you can connect to it via SSH. </p>
 
 <p>or via Putty:
 <em> Username: <strong>pi</strong>
-</em> Password: <strong>raspberry</strong>
-  * <strong>asdfasdf</strong> on the prebuilt image
+</em> Password: <strong>asdfasdf</strong>
+  * <strong>asdfasdf</strong> on the current v22 prebuilt image linked above.
+  * <strong>raspberry</strong> on older images/manual installs
 * Hostname:<code>&lt;your pi IP address&gt;</code></p>
 <p>If you are using the prebuilt image specified above, then your Pi is ready to go. You should see a d2 and donkey directory. </p>
 <blockquote>
