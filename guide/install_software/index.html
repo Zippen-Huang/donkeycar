@@ -330,7 +330,8 @@ pip install -e .
 </code></pre>
 
 <hr />
-<p>Now let's setup things on your PC. Install varies depending on platform.</p>
+<p>Now let's setup the same donkey library on your laptop or server so you can test and train autopilots. Install varies 
+depending on platform.</p>
 <h2 id="install-donkeycar-on-linux">Install donkeycar on Linux</h2>
 <p>Install dependencies, setup virtualenv</p>
 <pre><code class="bash">sudo apt-get install virtualenv build-essential python3-dev gfortran libhdf5-dev
@@ -340,11 +341,14 @@ pip install keras==2.0.6
 pip install tensorflow==1.3.0
 </code></pre>
 
-<p>Install donkeycar</p>
+<ul>
+<li>Install donkey source and create your local working dir:</li>
+</ul>
 <pre><code class="bash">git clone https://github.com/wroscoe/donkey donkeycar
 pip install -e donkeycar
 </code></pre>
 
+<p><a href="../(guide/get_driving.md)">Next: Get Driving</a></p>
 <hr />
 <h2 id="install-donkeycar-on-windows">Install donkeycar on Windows</h2>
 <ul>
@@ -383,7 +387,6 @@ activate donkey
 <li>Install donkey source and create your local working dir:</li>
 </ul>
 <pre><code>pip install -e .
-donkey createcar --path ~/d2
 </code></pre>
 
 <blockquote>
@@ -391,6 +394,7 @@ donkey createcar --path ~/d2
 type <code>activate donkey</code> to re-enable the mappings to donkey specific 
 Python libraries</p>
 </blockquote>
+<p><a href="../(guide/get_driving.md)">Next: Get Driving</a></p>
 <hr />
 <h2 id="install-donkeycar-on-mac">Install donkeycar on Mac</h2>
 <ul>
@@ -435,9 +439,9 @@ source activate donkey
 <li>Install donkey source and create your local working dir:</li>
 </ul>
 <pre><code>pip install -e .
-donkey createcar --path ~/d2
 </code></pre>
 
+<p><a href="../(guide/get_driving.md)">Next: Get Driving</a></p>
 <blockquote>
 <p>Note: After closing the Terminal, when you open it again, you will need to 
 type <code>source activate donkey</code> to re-enable the mappings to donkey specific 
