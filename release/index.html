@@ -205,15 +205,15 @@
 <p>Notes on how to release donkey.</p>
 <h3 id="create-a-startup-disk">Create a startup disk.</h3>
 <ol>
-<li>Download the previous disk image and create the starr tup disk.</li>
+<li>Download the previous disk image and create the startup disk.</li>
 <li>Move disk to you pi. </li>
 <li>Pull the lastest donkeycar code. </li>
 <li>Make your changes.  </li>
 <li>Move the disk back to your computer.</li>
-<li>Remove your wi fi password and change the host name to d2.</li>
+<li>Remove your wi-fi password and change the host name to d2.</li>
 <li>
 <p>Create the disk image from the SD card</p>
-<p>Run <code>sudo gparted</code> to see the size of the disk partitions.Resize the partitions
+<p>Run <code>sudo gparted</code> to see the size of the disk partitions. Resize the partitions
 to be as small as possible. Right click the partition to see the last sector of the partition. </p>
 <p>Run <code>sudo dd if=/dev/sda of=~/donkey_2-2-1.img bs=512 count=&lt;last_sector&gt;</code> </p>
 </li>
