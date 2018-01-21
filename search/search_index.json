@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "About Donkey\n\n\nDonkey is a high level self driving library written in Python. It was \ndeveloped with a focus on enabling fast experimentation and easy contribution.\n\n\n\n\nBuild your own Donkey2\n\n\nDonkey2 is the standard car that most people build first. The parts cost $200\nand take 2 hours to assemble. Here are the main steps to build your own car: \n\n\n\n\nAssemble hardware.\n\n\nInstall software.\n\n\nCalibrate your car.\n\n\nStart driving.\n \n\n\nTrain an autopilot.\n \n\n\nExperiment with simulator.\n \n\n\n\n\n\n\nHello World.\n\n\nDonkeycar is designed to make adding new parts to your car easy. Here's and \nexample car application that captures images from the camera and saves them.\n\n\nimport donkey as dk\n\n#initialize the vehicle\nV = dk.Vehicle()\n\n#add a camera part\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#add tub part to record images\ntub = dk.parts.Tub(path='~/d2/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the vehicle's drive loop\nV.start(max_loop_count=100)\n\n\n\n\n\n\nInstallation\n\n\nFor linux/OS users clone the master branch to get the lastest version.\n\n\ngit clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar\n\n\n\n\nHow to install on Windows\n\n\n\n\nWhy the name Donkey?\n\n\nThe ultimate goal of this project is to build something useful. Donkey's were\none of the first domesticated pack animals, they're notoriously stubborn, and \nthey are kid safe. Until the car can nagigate from one side of a city to the \nother, we'll hold off naming it after some celestial being.",
+            "text": "About Donkey\n\n\nDonkey is a high level self driving library written in Python. It was \ndeveloped with a focus on enabling fast experimentation and easy contribution.\n\n\n\n\nBuild your own Donkey2\n\n\nDonkey2 is the standard car that most people build first. The parts cost $200\nand take 2 hours to assemble. Here are the main steps to build your own car: \n\n\n\n\nAssemble hardware.\n\n\nInstall software.\n\n\nCalibrate your car.\n\n\nStart driving.\n \n\n\nTrain an autopilot.\n \n\n\nExperiment with simulator.\n \n\n\n\n\n\n\nHello World.\n\n\nDonkeycar is designed to make adding new parts to your car easy. Here's and \nexample car application that captures images from the camera and saves them.\n\n\nimport donkey as dk\n\n#initialize the vehicle\nV = dk.Vehicle()\n\n#add a camera part\ncam = dk.parts.PiCamera()\nV.add(cam, outputs=['image'], threaded=True)\n\n#add tub part to record images\ntub = dk.parts.Tub(path='~/d2/gettings_started', \n                   inputs=['image'], \n                   types=['image_array'])\nV.add(tub, inputs=inputs)\n\n#start the vehicle's drive loop\nV.start(max_loop_count=100)\n\n\n\n\n\n\nInstallation\n\n\nFor linux/OS users clone the master branch to get the latest version.\n\n\ngit clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar\n\n\n\n\nHow to install on Windows\n\n\n\n\nWhy the name Donkey?\n\n\nThe ultimate goal of this project is to build something useful. Donkey's were\none of the first domesticated pack animals, they're notoriously stubborn, and \nthey are kid safe. Until the car can navigate from one side of a city to the \nother, we'll hold off naming it after some celestial being.",
             "title": "Home"
         },
         {
@@ -22,12 +22,12 @@
         },
         {
             "location": "/#installation",
-            "text": "For linux/OS users clone the master branch to get the lastest version.  git clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar  How to install on Windows",
+            "text": "For linux/OS users clone the master branch to get the latest version.  git clone https://github.com/wroscoe/donkey donkeycar\npip install -e donkeycar  How to install on Windows",
             "title": "Installation"
         },
         {
             "location": "/#why-the-name-donkey",
-            "text": "The ultimate goal of this project is to build something useful. Donkey's were\none of the first domesticated pack animals, they're notoriously stubborn, and \nthey are kid safe. Until the car can nagigate from one side of a city to the \nother, we'll hold off naming it after some celestial being.",
+            "text": "The ultimate goal of this project is to build something useful. Donkey's were\none of the first domesticated pack animals, they're notoriously stubborn, and \nthey are kid safe. Until the car can navigate from one side of a city to the \nother, we'll hold off naming it after some celestial being.",
             "title": "Why the name Donkey?"
         },
         {
@@ -617,7 +617,7 @@
         },
         {
             "location": "/release/",
-            "text": "Release notes\n\n\nNotes on how to release donkey.\n\n\nCreate a startup disk.\n\n\n\n\nDownload the previous disk image and create the startup disk.\n\n\nMove disk to you pi. \n\n\nPull the lastest donkeycar code. \n\n\nMake your changes.  \n\n\nMove the disk back to your computer.\n\n\nRemove your wi-fi password and change the host name to d2.\n\n\n\n\nCreate the disk image from the SD card\n\n\nRun \nsudo gparted\n to see the size of the disk partitions. Resize the partitions\nto be as small as possible. Right click the partition to see the last sector of the partition. \n\n\nRun \nsudo dd if=/dev/sda of=~/donkey_2-2-1.img bs=512 count=<last_sector>\n \n\n\n\n\n\n\nZip the .img file and upload to Dropbox. \n\n\n\n\nUpdate the link in the instructions.\n\n\n\n\nCreate a release\n\n\n\n\nRun the tests on computer and pi. \npytest\n\n\nUpdate versions in \n__init__\n and \nsetup.py",
+            "text": "Release notes\n\n\nNotes on how to release donkey.\n\n\nCreate a startup disk.\n\n\n\n\nDownload the previous disk image and create the startup disk.\n\n\nMove disk to you pi. \n\n\nPull the lastest donkeycar code. \n\n\nMake your changes.  \n\n\nMove the disk back to your computer.\n\n\nRemove your wi-fi password and change the host name to d2. Delete \n.gitconfig\n.\n\n\n\n\nCreate the disk image from the SD card\n\n\nRun \nsudo gparted\n to see the size of the disk partitions. Resize the partitions\nto be as small as possible. Right click the partition to see the last sector of the partition. \n\n\nRun \nsudo dd if=/dev/sda of=~/donkey_2-2-1.img bs=512 count=<last_sector>\n \n\n\n\n\n\n\nZip the .img file and upload to Dropbox. \n\n\n\n\nUpdate the link in the instructions.\n\n\n\n\nCreate a release\n\n\n\n\nRun the tests on computer and pi. \npytest\n\n\nUpdate versions in \n__init__\n and \nsetup.py",
             "title": "Releases"
         },
         {
@@ -627,7 +627,7 @@
         },
         {
             "location": "/release/#create-a-startup-disk",
-            "text": "Download the previous disk image and create the startup disk.  Move disk to you pi.   Pull the lastest donkeycar code.   Make your changes.    Move the disk back to your computer.  Remove your wi-fi password and change the host name to d2.   Create the disk image from the SD card  Run  sudo gparted  to see the size of the disk partitions. Resize the partitions\nto be as small as possible. Right click the partition to see the last sector of the partition.   Run  sudo dd if=/dev/sda of=~/donkey_2-2-1.img bs=512 count=<last_sector>      Zip the .img file and upload to Dropbox.    Update the link in the instructions.",
+            "text": "Download the previous disk image and create the startup disk.  Move disk to you pi.   Pull the lastest donkeycar code.   Make your changes.    Move the disk back to your computer.  Remove your wi-fi password and change the host name to d2. Delete  .gitconfig .   Create the disk image from the SD card  Run  sudo gparted  to see the size of the disk partitions. Resize the partitions\nto be as small as possible. Right click the partition to see the last sector of the partition.   Run  sudo dd if=/dev/sda of=~/donkey_2-2-1.img bs=512 count=<last_sector>      Zip the .img file and upload to Dropbox.    Update the link in the instructions.",
             "title": "Create a startup disk."
         },
         {
