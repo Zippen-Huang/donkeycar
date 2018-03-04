@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Tests - Donkey Car</title>
+  <title>Supported Cars - Donkey Car</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Tests";
-    var mkdocs_page_input_path = "tests.md";
-    var mkdocs_page_url = "/tests/";
+    var mkdocs_page_name = "Supported Cars";
+    var mkdocs_page_input_path = "supported_cars.md";
+    var mkdocs_page_url = "/supported_cars/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -132,9 +132,25 @@
     </ul>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../supported_cars/">Supported Cars</a>
+    <a class="current" href="./">Supported Cars</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#supported-cars">Supported cars</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#magnet">Magnet</a></li>
+        
+            <li><a class="toctree-l3" href="#hsp-94186">HSP 94186</a></li>
+        
+            <li><a class="toctree-l3" href="#tamaya-tt-01">Tamaya TT-01</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -142,23 +158,9 @@
     <a class="" href="../contribute/">Contribute</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Tests</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#tests">Tests</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#run-all-the-tests">Run all the tests</a></li>
-        
-            <li><a class="toctree-l3" href="#organization">Organization</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../tests/">Tests</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -193,10 +195,10 @@
     
       
     
-    <li>Tests</li>
+    <li>Supported Cars</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/wroscoe/donkey/edit/master/docs/tests.md"
+        <a href="https://github.com/wroscoe/donkey/edit/master/docs/supported_cars.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -206,18 +208,73 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="tests">Tests</h1>
-<p>There is a limited test suite to ensure that the your changes to the code
-don't break something unintended. </p>
-<h3 id="run-all-the-tests">Run all the tests</h3>
-<p><code>python -m unittest</code></p>
-<h3 id="organization">Organization</h3>
-<p>The test code is in <code>tests</code> foders in the same folder as the code. This is to
-help keep the test code linked to the code its self. If you change the code, 
-change the tests. :)</p>
-<blockquote>
-<p>TODO: Skip tests that require specific hardware.</p>
-</blockquote>
+                <h1 id="supported-cars">Supported cars</h1>
+<h2 id="magnet">Magnet</h2>
+<p>The magnet chassis is the standard Donkey build.  However in many cases it may not be available.<br />
+<img alt="donkey" src="../assets/build_hardware/donkey2.PNG" /></p>
+<h2 id="hsp-94186">HSP 94186</h2>
+<p>The HSP 94186 is a Magnet clone and will work.  Unfortunately it is only available on Taobao.</p>
+<p>https://item.taobao.com/item.htm?spm=a230r.1.14.1.478a6da8CUjrQQ&amp;id=6004880592&amp;ns=1&amp;abbucket=12#detail</p>
+<h2 id="tamaya-tt-01">Tamaya TT-01</h2>
+<p><img alt="donkey" src="../assets/build_hardware/TT01.PNG" /></p>
+<p>The TT-01 is a new build that we expect to be a higher end version of the Donkey.  For first time builders we recommend the Magnet.  That said, it has some pros and cons that people should be aware of:
+Pros:
+<em> Better kinematics and traction on smooth surfaces - basically this means it will handle Better
+</em> Larger build area for adding other sensors.<br />
+* Globally available with several clones.</p>
+<p>Cons:
+<em> Usually comes as a kit - you will need to supply your own ESC, battery, servo, pinion gear and motor.
+</em> Needs to run on a smooth surface like a driveway or parking lot. <br />
+<em> Larger size requires a larger 3D printer to print chassis, otherwise purchase at the Donkeystore.
+</em> More expensive</p>
+<p>In addition to the standard donkey parts, Raspberry Pi etc, you will need to buy the following components.</p>
+<table>
+<thead>
+<tr>
+<th>Part Description</th>
+<th>Link</th>
+<th>Approximate Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TT-01 Clone Chassis</td>
+<td><a href="https://www.ebay.com/itm/Alloy-Carbon-TT01-TT01E-Shaft-Drive-1-10-4WD-Racing-Car-Chassis-Frame-Kit/261607459461?_trkparms=aid%3D555019%26algo%3DPL.BANDIT%26ao%3D1%26asc%3D20150817211623%26meid%3Da9b0995835f04dc2ae610bb9de46099b%26pid%3D100505%26rk%3D1%26rkt%3D1%26%26itm%3D261607459461&amp;_trksid=p2045573.c100505.m3226">eBay</a> other TT01s may be used</td>
+<td>$130</td>
+</tr>
+<tr>
+<td>ESC</td>
+<td>https://hobbyking.com/en_us/hobbyking-x-car-45a-brushed-car-esc.html</td>
+<td>10.60</td>
+</tr>
+<tr>
+<td>Brushed Motor</td>
+<td>https://hobbyking.com/en_us/mabuchi-rs-540sh-6527-brushed-motor-90w.html</td>
+<td>$5</td>
+</tr>
+<tr>
+<td>Steering Servo</td>
+<td>https://hobbyking.com/en_us/hobbykingtm-hk15138-standard-analog-servo-4-3kg-0-17sec-38g.html</td>
+<td>$5</td>
+</tr>
+<tr>
+<td>Battery</td>
+<td>https://hobbyking.com/en_us/turnigy-5000mah-2s1p-20c-hardcase-pack-roar-approved-de-warehouse.html or similar 2S 5000 mAh battery</td>
+<td>$21</td>
+</tr>
+<tr>
+<td>Pinion Gear</td>
+<td>https://www.amazon.com/gp/product/B001BHGIBG/ref=oh_aui_detailpage_o08_s00?ie=UTF8&amp;psc=1</td>
+<td>$7</td>
+</tr>
+<tr>
+<td>TT01 Plastics</td>
+<td>Thingiverse: https://www.thingiverse.com/thing:2805287 or Donkeystore: https://squareup.com/store/donkeycar</td>
+<td>$50</td>
+</tr>
+</tbody>
+</table>
+<p>Note: purchasing from Hobbyking is tricky.  They can ship from multiple warehouses and it can be expensive and time consuming if shipping from one overseas.  You may need to buy an alternate component if one of the items above are not available in your local warehouse.</p>
               
             </div>
           </div>
@@ -225,10 +282,10 @@ change the tests. :)</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../release/" class="btn btn-neutral float-right" title="Releases">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../contribute/" class="btn btn-neutral float-right" title="Contribute">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../contribute/" class="btn btn-neutral" title="Contribute"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../utility/donkey/" class="btn btn-neutral" title="donkey"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -256,10 +313,10 @@ change the tests. :)</p>
           <a href="https://github.com/wroscoe/donkey/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../contribute/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../utility/donkey/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../release/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../contribute/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
