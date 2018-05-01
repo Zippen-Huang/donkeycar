@@ -331,6 +331,7 @@ so you can connect to it via SSH. </p>
 <li>THROTTLE_CHANNEL = 0</li>
 </ul>
 <p>The 1 and 0 for the parts arguments should match whichever channel you used to plug your servo/ESC leads in to your 9685 board. Usually this ranges from 0-15 and it numbered on the board.</p>
+<p>Note: If you are using the prebuilt image specified above, your Pi is not using the full capacity of the SD card. To make the full capacity accessible, SSH into the Pi and run <code>sudo raspi-config</code> to go into the configuration tool. Select <code>7 Advanced Options</code> and <code>A1 Expand Filesystem</code>. And then select <code>&lt;Finish&gt;</code> to exit the configuration tool and reboot. The Pi can access the full capacity of the SD card now.</p>
 </blockquote>
 <h3 id="update-donkeycar-python-code-and-install">Update Donkeycar Python code and install</h3>
 <p>The donkeycar Python code on the memory card image is likely older than the that on the Github repo, so update things once you have the Pi running.</p>
