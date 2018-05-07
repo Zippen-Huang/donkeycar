@@ -75,10 +75,3 @@ git clone https://github.com/wroscoe/donkey.git donkeycar
 pip install -e donkeycar/[pi]
 
 
-#remove dev libraries...  Is there a better way to do this?
-sudo apt-get purge lib*-dev
-
-#reinstal only needed libs
-#sudo apt-get install libatlas-base-dev libtiff5 libopenjp2-7-dev
-
-
