@@ -223,45 +223,45 @@
 <p>Now that you're able to drive your car reliably you can use Keras to train a
 neural network to drive like you. Here are the steps.</p>
 <h2 id="collect-data">Collect Data</h2>
-<p>Make sure you collect good data. </p>
+<p>Make sure you collect good data.</p>
 <ol>
 <li>Practice driving around the track a couple times without recording data.</li>
 <li>When you're confident you can drive 10 laps without mistake press <code>Start Recording</code></li>
-<li>If you crash or run off the track press Stop Car immediately to stop recording. 
-A little bad data won't affect your autopilot. </li>
-<li>After you've collected 10-20 laps of good data (5-20k images) you can stop 
+<li>If you crash or run off the track press Stop Car immediately to stop recording.
+A little bad data won't affect your autopilot.</li>
+<li>After you've collected 10-20 laps of good data (5-20k images) you can stop
 your car with <code>Ctrl-c</code> in the ssh session for your car.</li>
 <li>The data you've collected is in the data folder in the most recent tub folder.</li>
 </ol>
 <h2 id="transfer-data-from-your-car-to-your-computer">Transfer data from your car to your computer.</h2>
 <p>Since the Raspberry Pi is not very powerful, we need to transfer the data
 to a PC computer to train.</p>
-<p>In a new terminal session on your host PC use rsync to copy your cars 
+<p>In a new terminal session on your host PC use rsync to copy your cars
 folder from the raspberry pi.</p>
-<pre><code class="bash">rsync -r pi@&lt;your_pi_ip_address&gt;:~/d2/data/  ~/d2/data/
+<pre><code class="bash">rsync -r pi@&lt;your_pi_ip_address&gt;:~/mycar/data/  ~/mycar/data/
 </code></pre>
 
 <h2 id="train-a-model">Train a model</h2>
 <ul>
 <li>In the same terminal you can now run the training script on the latest tub by passing the path to that tub as an argument. You can optionally pass path masks, such as <code>./data/*</code> or <code>./data/tub_?_17-08-28</code> to gather multiple tubs. For example:</li>
 </ul>
-<pre><code class="bash"> python ~/d2/manage.py train --tub &lt;tub folder names comma separated&gt; --model ./models/mypilot
+<pre><code class="bash"> python ~/mycar/manage.py train --tub &lt;tub folder names comma separated&gt; --model ./models/mypilot
 </code></pre>
 
 <p>Optionally you can pass no arguments for the tub, and then all tubs will be used in the default data dir.</p>
-<pre><code class="bash"> python ~/d2/manage.py train --model ~/d2/models/mypilot
+<pre><code class="bash"> python ~/mycar/manage.py train --model ~/mycar/models/mypilot
 </code></pre>
 
 <ul>
-<li>Now you can use rsync again to move your pilot back to your car. </li>
+<li>Now you can use rsync again to move your pilot back to your car.</li>
 </ul>
-<pre><code class="bash">rsync -r ~/d2/models/ pi@&lt;your_ip_address&gt;:~/d2/models/
+<pre><code class="bash">rsync -r ~/mycar/models/ pi@&lt;your_ip_address&gt;:~/mycar/models/
 </code></pre>
 
 <ul>
 <li>Now you can start your car again and pass it your model to drive.</li>
 </ul>
-<pre><code class="bash">python manage.py drive --model ~/d2/models/mypilot
+<pre><code class="bash">python manage.py drive --model ~/mycar/models/mypilot
 </code></pre>
 
 <h2 id="training-tips">Training Tips:</h2>
@@ -271,7 +271,7 @@ folder from the raspberry pi.</p>
 <p>a. <strong>User</strong> : As you guessed, this is where you are in control of both the steering and throttle control.</p>
 <p>b. <strong>Local Angle</strong> : Not too obvious, but this is where the trained model (mypilot from above) controls the steering. The <em>Local</em> refers to the trained model which is locally hosted on the raspberry-pi.</p>
 <p>c. <strong>Local Pilot</strong> : This is where the trained model (mypilot) assumes control of both the steering and the throttle. As of now, it's purportedly not very reliable.</p>
-<p>Be sure to also check out the <strong>Max Throttle</strong> and <strong>Throttle Mode</strong> options, and play around with a few settings. Can help with training quite a lot. </p>
+<p>Be sure to also check out the <strong>Max Throttle</strong> and <strong>Throttle Mode</strong> options, and play around with a few settings. Can help with training quite a lot.</p>
 </li>
 <li>
 <p><strong>Build a Simple Track</strong> : This isn't very well-documented, but the car should (theoretically) be able to train against any kind of track. To start off with, it might not be necessary to build a two-lane track with a striped center-lane. Try with a single lane with no center-line, or just a single strip that makes a circuit! At the least, you'll be able to do an end-to-end testing and verify that the software pipeline is all properly functional. Of course, as the next-step, you'll want to create a more standard track, and compete at a <a href="https://diyrobocars.com/">meetup</a> nearest to you!</p>

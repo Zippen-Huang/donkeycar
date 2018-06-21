@@ -86,13 +86,17 @@
         
             <li><a class="toctree-l4" href="#connecting-to-the-pi">Connecting to the Pi</a></li>
         
-            <li><a class="toctree-l4" href="#update-donkeycar-python-code-and-install">Update Donkeycar Python code and install</a></li>
+            <li><a class="toctree-l4" href="#install-donkeycar">Install Donkeycar</a></li>
+        
+            <li><a class="toctree-l4" href="#create-your-car-app">Create your car app.</a></li>
         
             <li><a class="toctree-l4" href="#install-donkeycar-on-linux">Install donkeycar on Linux</a></li>
         
             <li><a class="toctree-l4" href="#install-donkeycar-on-windows">Install donkeycar on Windows</a></li>
         
             <li><a class="toctree-l4" href="#install-donkeycar-on-mac">Install donkeycar on Mac</a></li>
+        
+            <li><a class="toctree-l4" href="#install-donkeycar-on-aws-sagemaker">Install donkeycar on AWS Sagemaker</a></li>
         
         </ul>
     
@@ -232,25 +236,26 @@
 <li>Setup <a href="#install-donkeycar-on-linux">Linux Host PC</a></li>
 <li>Setup <a href="#install-donkeycar-on-windows">Windows Host PC</a></li>
 <li>Setup <a href="#install-donkeycar-on-mac">Mac Host PC</a></li>
+<li>Setup <a href="#install-donkeycar-on-aws-sagemaker">AWS SageMaker</a></li>
 </ul>
 <hr />
 <h3 id="get-the-raspberry-pi-working">Get the Raspberry Pi working.</h3>
-<p>Before we can do anything we have to get our car's computer connected to the 
-internet. The fastest way is to use the disk image created for donkey cars. </p>
+<p>Before we can do anything we have to get our car's computer connected to the
+internet. The fastest way is to use the disk image created for donkey cars.</p>
 <p>The method for using a disk image to create a bootable SD card varies between
-operating systems. These instructions are for Ubuntu but you can see more 
+operating systems. These instructions are for Ubuntu but you can see more
 instructions <a href="https://www.raspberrypi.org/documentation/installation/installing-images/">here</a>.</p>
 <ol>
-<li>Download prebuilt <a href="https://www.dropbox.com/s/wiudnm2dcsvoquu/donkey_v22.img.zip?dl=0">zipped disk image</a> (1.1GB). </li>
+<li>Download prebuilt zipped disk image for <a href="https://drive.google.com/open?id=1vr4nEXLEh4xByKAXik8KhK3o-XWgo2fQ">RPi 3B and 3B+</a> (1.1GB).</li>
 <li>Unzip the disk image.</li>
 <li>Plug your SD card into your computer.</li>
 <li>Open the "Startup Disk Creator" application.</li>
 <li>Select your source disk image as the one you unzipped earlier.</li>
-<li>Select your SD card as the disk to use. </li>
+<li>Select your SD card as the disk to use.</li>
 <li>Click "Make startup disk".</li>
 </ol>
 <h3 id="setup-the-pis-wifi-for-first-boot">Setup the Pi's WiFi for first boot</h3>
-<p>We can create a special file which will be used to login to wifi on first boot. More reading <a href="https://raspberrypi.stackexchange.com/questions/10251/prepare-sd-card-for-wifi-on-headless-pi">here</a>, but we will walk you through it. </p>
+<p>We can create a special file which will be used to login to wifi on first boot. More reading <a href="https://raspberrypi.stackexchange.com/questions/10251/prepare-sd-card-for-wifi-on-headless-pi">here</a>, but we will walk you through it.</p>
 <p>On Windows, with your memory card image burned and memory disc still inserted, you should see two drives, which are actually two partitions on the mem disc. One is labeled <strong>boot</strong>. On Mac and Linux, you should also have access to the <strong>boot</strong> partition of the mem disc. This is formated with the common FAT type and is where we will edit some files to help it find and log-on to your wifi on it's first boot.</p>
 <ul>
 <li>Start a text editor: <code>gedit</code> on Linux. Notepad on Windows. TextEdit on a Mac.</li>
@@ -268,33 +273,32 @@ network={
 </code></pre>
 
 <p>Replace <code>&lt;your network name&gt;</code> with the ID of your network. Leave the quotes. I've seen problems when the network name contained an apostrophe, like "Joe's iPhone".
-Replace <code>&lt;your password&gt;</code> with your password, leaving it surrounded by quotes. 
+Replace <code>&lt;your password&gt;</code> with your password, leaving it surrounded by quotes.
 If it bothers you to leave your password unencrypted, you may change the <a href="https://unix.stackexchange.com/questions/278946/hiding-passwords-in-wpa-supplicant-conf-with-wpa-eap-and-mschap-v2">contents later</a> once you've gotten the pi to boot and log-in.</p>
 <ul>
 <li>Save this file to the root of <strong>boot</strong> partition with the filename <code>wpa_supplicant.conf</code>. On first boot, this file will be moved to <code>/etc/wpa_supplicant/wpa_supplicant.conf</code> where it may be edited later.</li>
 </ul>
 <h5 id="setup-pis-hostname">Setup Pi's Hostname</h5>
-<p>We can also setup the hostname so that your Pi easier to find once on the network. If yours is the only Pi on the network, then you can find it with </p>
-<pre><code>ping d2.local
+<p>We can also setup the hostname so that your Pi easier to find once on the network. If yours is the only Pi on the network, then you can find it with</p>
+<pre><code>ping donkeypi.local
 </code></pre>
 
-<p>once it's booted. If there are many other Pi's on the network, then this will have problems. If you are on a Linux machine, or are able to edit the UUID partition, then you can edit the <code>/etc/hostname</code> and <code>/etc/hosts</code> files now to make finding your pi on the network easier after boot. Edit those to replace <code>raspberrypi</code> with a name of your choosing. Use all lower case, no special characters, no hyphens, no underscores <code>_</code>. </p>
+<p>once it's booted. If there are many other Pi's on the network, then this will have problems. If you are on a Linux machine, or are able to edit the UUID partition, then you can edit the <code>/etc/hostname</code> and <code>/etc/hosts</code> files now to make finding your pi on the network easier after boot. Edit those to replace <code>raspberrypi</code> with a name of your choosing. Use all lower case, no special characters, no hyphens, no underscores <code>_</code>.</p>
 <pre><code>sudo vi /media/userID/UUID/etc/hostname
 sudo vi /media/userID/UUID/etc/hosts
 </code></pre>
 
-<p>Now you're SD card is ready. Eject it from your computer, put it in the Pi 
+<p>Now you're SD card is ready. Eject it from your computer, put it in the Pi
 and plug in the Pi.</p>
 <h3 id="connecting-to-the-pi">Connecting to the Pi</h3>
-<p>If you followed the above instructions to add wifi access you're Pi should
-now be connected to your wifi network. Now you need to find it's IP address
-so you can connect to it via SSH. </p>
-<p>The easiest way (on Ubuntu) is to use the <code>findcar</code> donkey command. You can try <code>ping raspberrypi.local</code>. If you've modified the hostname, then you should try: <code>ping &lt;your hostname&gt;.local</code>. This will fail on a windows machine. Windows users will need the full IP address (unless using cygwin). </p>
+<p>If you followed the above instructions to add wifi access your Pi should
+now be connected to your wifi network. Now you need to find its IP address
+so you can connect to it via SSH.</p>
+<p>The easiest way (on Ubuntu) is to use the <code>findcar</code> donkey command. You can try <code>ping donkeypi.local</code>. If you've modified the hostname, then you should try: <code>ping &lt;your hostname&gt;.local</code>. This will fail on a windows machine. Windows users will need the full IP address (unless using cygwin).</p>
 <p>If you are having troubles locating your Pi on the network, you will want to plug in an HDMI monitor and USB keyboard into the Pi. Boot it. Login with:</p>
 <ul>
 <li>Username: <strong>pi</strong></li>
-<li>Password: <strong>asdfasdf</strong></li>
-<li>The older disk images use the password <code>raspberry</code></li>
+<li>Password: <strong>raspberry</strong></li>
 </ul>
 <p>Then try the command:</p>
 <pre><code>ifconfig wlan0
@@ -305,12 +309,12 @@ so you can connect to it via SSH. </p>
 </code></pre>
 
 <p>If you don't have a HDMI monitor and keyboard, you can plug-in the Pi with a CAT5 cable to a router with DHCP. If that router is on the same network as your PC, you can try:</p>
-<pre><code>ping d2.local
+<pre><code>ping donkeypi.local
 </code></pre>
 
 <p>Hopefully, one of those methods worked and you are now ready to SSH into your Pi. On Mac and Linux, you can open Terminal. On Windows you can install <a href="http://www.putty.org/">Putty</a> or <a href="https://www.htpcbeginner.com/best-ssh-clients-windows-putty-alternatives/2/">one of the alternatives</a>.</p>
 <p>If you have a command prompt, you can try:</p>
-<pre><code>ssh pi@d2.local
+<pre><code>ssh pi@donkeypi.local
 </code></pre>
 
 <p>or</p>
@@ -319,13 +323,11 @@ so you can connect to it via SSH. </p>
 
 <p>or via Putty:
 <em> Username: <strong>pi</strong>
-</em> Password: <strong>asdfasdf</strong>
-  * <strong>asdfasdf</strong> on the current v22 prebuilt image linked above.
-  * <strong>raspberry</strong> on older images/manual installs
+</em> Password: <strong>raspberry</strong>
 * Hostname:<code>&lt;your pi IP address&gt;</code></p>
-<p>If you are using the prebuilt image specified above, then your Pi is ready to go. You should see a d2 and donkey directory. </p>
+<p>If you are using the prebuilt image specified above, then your Pi is ready to go. You should see a mycar and donkey directory.</p>
 <blockquote>
-<p>Note: Check config.py to make sure it uses the correct settings for the PWM channel for steering and throttle. Open config.py <code>nano ~/d2/config.py</code> and make sure that you see the lines:</p>
+<p>Note: Check config.py to make sure it uses the correct settings for the PWM channel for steering and throttle. Open config.py <code>nano ~/mycar/config.py</code> and make sure that you see the lines:</p>
 <ul>
 <li>STEERING_CHANNEL = 1</li>
 <li>THROTTLE_CHANNEL = 0</li>
@@ -333,30 +335,31 @@ so you can connect to it via SSH. </p>
 <p>The 1 and 0 for the parts arguments should match whichever channel you used to plug your servo/ESC leads in to your 9685 board. Usually this ranges from 0-15 and it numbered on the board.</p>
 <p>Note: If you are using the prebuilt image specified above, your Pi is not using the full capacity of the SD card. To make the full capacity accessible, SSH into the Pi and run <code>sudo raspi-config</code> to go into the configuration tool. Select <code>7 Advanced Options</code> and <code>A1 Expand Filesystem</code>. And then select <code>&lt;Finish&gt;</code> to exit the configuration tool and reboot. The Pi can access the full capacity of the SD card now.</p>
 </blockquote>
-<h3 id="update-donkeycar-python-code-and-install">Update Donkeycar Python code and install</h3>
-<p>The donkeycar Python code on the memory card image is likely older than the that on the Github repo, so update things once you have the Pi running.</p>
-<pre><code class="bash">cd ~/donkeycar
-git pull
-pip install -e .
+<h3 id="install-donkeycar">Install Donkeycar</h3>
+<p>The disk image only has the libraries(tensorflow..) installed, not donkeycar.</p>
+<pre><code class="bash">pip install donkeycar[pi]
+</code></pre>
+
+<h3 id="create-your-car-app">Create your car app.</h3>
+<p>Now generate the drive script, config and folder structure for your car.</p>
+<pre><code class="bash">donkey createcar ~/
 </code></pre>
 
 <hr />
-<p>Now let's setup the same donkey library on your laptop or server so you can test and train autopilots. Install varies 
-depending on platform.</p>
+<p>Now let's setup the same donkey library on your laptop or server so you can test and train autopilots. Install varies depending on platform.</p>
 <h2 id="install-donkeycar-on-linux">Install donkeycar on Linux</h2>
 <p>Install dependencies, setup virtualenv</p>
 <pre><code class="bash">sudo apt-get install virtualenv build-essential python3-dev gfortran libhdf5-dev
 virtualenv env -p python3
 source env/bin/activate
-pip install keras==2.0.6
-pip install tensorflow==1.3.0
+pip install tensorflow==1.8.0
 </code></pre>
 
 <ul>
 <li>Install donkey source and create your local working dir:</li>
 </ul>
 <pre><code class="bash">git clone https://github.com/wroscoe/donkey donkeycar
-pip install -e donkeycar
+pip install -e .
 </code></pre>
 
 <p><a href="../calibrate/">Next: Calibrate your car.</a></p>
@@ -398,12 +401,12 @@ activate donkey
 <li>Install donkey source and create your local working dir:</li>
 </ul>
 <pre><code>pip install -e .
-donkey createcar --path ~/d2
+donkey createcar ~/mycar
 </code></pre>
 
 <blockquote>
-<p>Note: After closing the Anaconda Prompt, when you open it again, you will need to 
-type <code>activate donkey</code> to re-enable the mappings to donkey specific 
+<p>Note: After closing the Anaconda Prompt, when you open it again, you will need to
+type <code>activate donkey</code> to re-enable the mappings to donkey specific
 Python libraries</p>
 </blockquote>
 <p><a href="../calibrate/">Next: Calibrate your car.</a></p>
@@ -457,15 +460,47 @@ source activate donkey
 <li>Install donkey source and create your local working dir:</li>
 </ul>
 <pre><code>pip install -e .
-donkey createcar --path ~/d2
+donkey createcar --path ~/mycar
 </code></pre>
 
 <p><a href="../calibrate/">Next: Calibrate your car.</a></p>
 <blockquote>
-<p>Note: After closing the Terminal, when you open it again, you will need to 
-type <code>source activate donkey</code> to re-enable the mappings to donkey specific 
+<p>Note: After closing the Terminal, when you open it again, you will need to
+type <code>source activate donkey</code> to re-enable the mappings to donkey specific
 Python libraries</p>
 </blockquote>
+<hr />
+<h2 id="install-donkeycar-on-aws-sagemaker">Install donkeycar on AWS Sagemaker</h2>
+<h3 id="introduction">Introduction</h3>
+<p>The following instructions will show you how to install donkeycar on an <a href="https://aws.amazon.com/sagemaker/">AWS SageMaker</a> <em>Notebook instance</em>.</p>
+<p>The <em>Notebook instance</em> is typically used for experimenting and preparing your data and model for training. The convention is then to distribute the training on a separate cluster of <em>training instances</em>. This, however, requires you to adapt your training script (and model) to work in a distributed manner, preferably using the <a href="https://github.com/aws/sagemaker-python-sdk">SageMaker Python SDK</a>, which is not currently available in Donkey.</p>
+<p>That said, it is still possible to install and train your model on the <em>Notebook instance</em>. It will allow you to train your <a href="../../../donkeycar/parts/keras.py">Keras model</a> using a beefy instance type with a large GPU, and, perhaps most importantly, shut it down when finished so that you only pay for what you use.</p>
+<h3 id="create-a-notebook-instance">Create a Notebook instance</h3>
+<p>If you havn't already, log in to your <a href="https://console.aws.amazon.com/console/home">AWS Console</a> and create a new <a href="https://aws.amazon.com/sagemaker/">AWS SageMaker</a> Notebook instance:</p>
+<ul>
+<li>https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-notebooks-instances.html#howitworks-create-ws</li>
+</ul>
+<p>Suggest using a <code>ml.p2.xlarge</code> instance type. You can find a list of available types here:</p>
+<ul>
+<li>https://aws.amazon.com/sagemaker/pricing/instance-types/</li>
+</ul>
+<h3 id="clone-the-donkey-git-in-sagemaker">Clone the donkey git in SageMaker</h3>
+<p>When you've created your new instance, open it up and create a new <a href="http://jupyter.org/">Jupyter Notebook</a> (click <em>New</em>, <em>conda_tensorflow_p36</em>).</p>
+<ul>
+<li>In the first cell, type:</li>
+</ul>
+<pre><code class="python">!git clone https://github.com/wroscoe/donkey ~/SageMaker/donkey
+</code></pre>
+
+<ul>
+<li>Close the Jupyter Notebook (not the instance!). You can delete it if you want.</li>
+</ul>
+<h3 id="install-donkey-on-sagemaker">Install donkey on SageMaker</h3>
+<p>After cloning the git, you'll find the donkey folder in the SageMaker Notebook root:</p>
+<p><img alt="donkey dir" src="../../assets/sm-tree-donkey.gif" /></p>
+<ul>
+<li>Open <em>donkey/docs/guide/sm-install-donkey.ipynb</em> and follow the instructions.</li>
+</ul>
 <hr />
 <h3 id="install-another-fork-of-donkeycar">Install another fork of donkeycar</h3>
 <p>Occasionally you may want to run with changes from a separate fork of donkey. You may uninstall one and install another. That's fastest, but leaves you with only the forked version installed:</p>
@@ -477,10 +512,27 @@ pip install -e .
 
 <p>To get back to the stock donkey install:</p>
 <pre><code>pip uninstall donkeycar
-git clone --depth=1 https://github.com/wroscoe/donkey donkey
-cd donkey
-pip install -e .
+pip install donkeycar
 </code></pre>
+
+<h3 id="install-donkeycar-with-tensorflow-dependencies">Install donkeycar with TensorFlow dependencies</h3>
+<p>Donkey requires the TensorFlow library to work. It comes in 2 flavors; <em>tensorflow</em> (CPU) and <em>tensorflow-gpu</em> (GPU).</p>
+<p>This poses a problem, because if donkey specifies either of them as a dependency, <code>pip</code> will uninstall any pre-installed version of the <strong>other</strong> flavor of the library. And since they are mutually exclusive, both cannot be listed as dependencies.</p>
+<p>To solve this, donkey does not specify <em>tensorflow</em> nor <em>tensorflow-gpu</em> as dependencies. Instead, they are listed as <code>extras_require</code>, which means you have to explicitly tell <code>pip</code> what flavor you want to use. If no flavor is specified (default), it is assumed one version of <em>TensorFlow</em> is already installed.</p>
+<p>Install donkeycar assuming a compatible tensorflow library (either <em>tensorflow</em> or <em>tensorflow-gpu</em>) already installed:</p>
+<pre><code class="bash"># Assuming CWD is the cloned donkey git
+pip install donkeycar
+</code></pre>
+
+<p>Install donkeycar and use <em>tensorflow</em> dependency:</p>
+<pre><code class="bash">pip install donkeycar[tf]
+</code></pre>
+
+<p>Install donkeycar and use <em>tensorflow-gpu</em> dependency:</p>
+<pre><code class="bash">pip install donkeycar[tf_gpu]
+</code></pre>
+
+<p>See <a href="https://github.com/tensorflow/tensorflow/issues/7166">https://github.com/tensorflow/tensorflow/issues/7166</a> for more information.</p>
               
             </div>
           </div>

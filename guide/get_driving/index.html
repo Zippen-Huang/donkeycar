@@ -227,11 +227,11 @@
             <div class="section">
               
                 <h1 id="drive-your-car">Drive your car.</h1>
-<p>After you've calibrated your car you can start driving it. </p>
+<p>After you've calibrated your car you can start driving it.</p>
 <h3 id="start-your-car">Start your car.</h3>
 <blockquote>
-<p><strong><em> Put your car in a safe place where the wheels are off the ground </em></strong><br />
-This is the step were the car can take off. </p>
+<p><strong><em> Put your car in a safe place where the wheels are off the ground </em></strong>
+This is the step were the car can take off.</p>
 </blockquote>
 <hr />
 <h1 id="normal-usage">Normal usage</h1>
@@ -240,46 +240,46 @@ This is the step were the car can take off. </p>
 <ul>
 <li>start a new Anaconda Prompt from Windows start menu</li>
 <li>Activate mappings to donkey Python setup with: <code>activate donkey</code></li>
-<li>Change to your local dir for managing donkey: <code>cd ~/d2</code></li>
+<li>Change to your local dir for managing donkey: <code>cd ~/mycar</code></li>
 <li>Find your pi</li>
 </ul>
-<p>This will show your IP address, prompt for your password, and then search 
-for your cars IP address. </p>
+<p>This will show your IP address, prompt for your password, and then search
+for your cars IP address.</p>
 <blockquote>
 <p>If your car's IP address is not shown:</p>
 <ol>
-<li>Find another way to scan your local network for your raspberry pi </li>
-<li>Connect a monitor/keyboard and ensure your pi is connected to the the same wifi network as your computer. </li>
+<li>Find another way to scan your local network for your raspberry pi</li>
+<li>Connect a monitor/keyboard and ensure your pi is connected to the the same wifi network as your computer.</li>
 </ol>
 </blockquote>
-<p>Assuming that you did find your pi on the network, you can now connect to it via SSH. </p>
+<p>Assuming that you did find your pi on the network, you can now connect to it via SSH.</p>
 <pre><code>ssh pi@&lt;your_pi_ip_address&gt;
 </code></pre>
 
 <p>The default user name is 'pi' and the password is 'raspberry'.  If you are using the pre-built Donkey image, the password is 'asdfasdf'.</p>
 <h3 id="make-sure-youve-created-your-car-application">Make sure you've created your car application.</h3>
-<pre><code>donkey createcar --template donkey2 --path ~/d2
+<pre><code>donkey createcar --template donkey2 --path ~/mycar
 </code></pre>
 
 <p>See also <a href="../../utility/donkey/#create-car">more information.</a></p>
 <h4 id="start-your-car_1">Start your car.</h4>
-<p>Open your car's folder and start your car. </p>
-<pre><code>cd ~/d2
+<p>Open your car's folder and start your car.</p>
+<pre><code>cd ~/mycar
 python manage.py drive
 </code></pre>
 
-<p>This script will start the drive loop in your car which includes a part that 
+<p>This script will start the drive loop in your car which includes a part that
 is a web server for you to control your car. You can now control your car
 from a web browser at the URL: <code>&lt;your car's IP's address&gt;:8887</code></p>
 <p><img alt="drive UI" src="../../assets/drive_UI.png" /></p>
 <h2 id="driving-with-web-controller">Driving with Web Controller</h2>
 <p>On your phone you can now press start to set your phones current tilt to be
-zero throttle and steering. Now tilting your phone forward will increase throttle and tilting it side to side will turn the steering. </p>
+zero throttle and steering. Now tilting your phone forward will increase throttle and tilting it side to side will turn the steering.</p>
 <h3 id="features">Features</h3>
 <ul>
-<li>Recording - Press record data to start recording images, steering angels and throttle values. </li>
-<li>Throttle mode - Option to set the throttle as constant. This is used in 
-races if you have a pilot that will steer but doesn't control throttle. </li>
+<li>Recording - Press record data to start recording images, steering angels and throttle values.</li>
+<li>Throttle mode - Option to set the throttle as constant. This is used in
+races if you have a pilot that will steer but doesn't control throttle.</li>
 <li>Pilot mode - Choose this if the pilot should control the angle and/or throttle.</li>
 <li>Max throttle - Select the maximum throttle.</li>
 </ul>
@@ -289,8 +289,8 @@ races if you have a pilot that will steer but doesn't control throttle. </li>
 <li><code>r</code> : toggle recording</li>
 <li><code>i</code> : increase throttle</li>
 <li><code>k</code> : decrease throttle</li>
-<li><code>j</code> : turn left </li>
-<li><code>l</code> : turn right </li>
+<li><code>j</code> : turn left</li>
+<li><code>l</code> : turn right</li>
 </ul>
 <hr />
 <h2 id="driving-with-physical-joystick-controller">Driving with Physical Joystick Controller</h2>
@@ -298,7 +298,7 @@ races if you have a pilot that will steer but doesn't control throttle. </li>
 <h3 id="setup-bluetooth-and-pair-joystick">Setup Bluetooth and pair joystick</h3>
 <p>Check the <a href="../../parts/controllers/#physical-joystick-controller">Controllers</a> section to read about setting up the bluetooth connection.</p>
 <h3 id="start-car">Start car</h3>
-<pre><code>cd ~/d2
+<pre><code>cd ~/mycar
 python manage.py drive --js
 </code></pre>
 
@@ -327,7 +327,7 @@ python manage.py drive --js
 <li>Start - Toggle constant throttle. Sets to max throttle (modified by X and Triangle).</li>
 </ul>
 <h3 id="start-car-for-self-driving">Start car for self-driving</h3>
-<pre><code>cd ~/d2
+<pre><code>cd ~/mycar
 python manage.py drive --model &lt;path/to/model&gt; --js
 </code></pre>
 

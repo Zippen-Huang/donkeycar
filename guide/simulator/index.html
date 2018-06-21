@@ -286,8 +286,8 @@
 <li>Wait 10-15 minutes until you have recorded 10K+ frames of data.</li>
 <li>Hit the <code>Stop</code> button</li>
 <li>Hit the <code>Exit</code> button</li>
-<li>Move the <code>log</code> dir to the <code>~/d2/data/</code> dir where you normally put tub data. This will create a <code>~/d2/data/log</code> path.</li>
-<li>Train as usual. </li>
+<li>Move the <code>log</code> dir to the <code>~/mycar/data/</code> dir where you normally put tub data. This will create a <code>~/mycar/data/log</code> path.</li>
+<li>Train as usual.</li>
 </ul>
 <blockquote>
 <p>Note: I had problems w default categorical model. Linear model worked better for me.</p>
@@ -296,7 +296,7 @@
 </code></pre>
 
 <ul>
-<li>Start the simulator server. </li>
+<li>Start the simulator server.</li>
 </ul>
 <pre><code class="bash">donkey sim --model=models/mypilot
 </code></pre>
@@ -309,7 +309,7 @@
 </ul>
 <hr />
 <h2 id="joystick-setup">Joystick Setup</h2>
-<p>Keyboard input provides a poor learning signal. I recommend using the joystick to provide manual driving data. </p>
+<p>Keyboard input provides a poor learning signal. I recommend using the joystick to provide manual driving data.</p>
 <h5 id="linux-joystick-setup">Linux Joystick Setup</h5>
 <p>Unity on Linux uses the SDL library to see your joystick. And in particular the GamePad API. This is not setup by default. I needed to do these steps:</p>
 <pre><code class="bash">git clone https://github.com/Grumbel/sdl-jstest

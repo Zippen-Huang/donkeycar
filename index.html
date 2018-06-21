@@ -216,23 +216,23 @@
             <div class="section">
               
                 <h1 id="about-donkey">About Donkey</h1>
-<p>Donkey is a high level self driving library written in Python. It was 
+<p>Donkey is a high level self driving library written in Python. It was
 developed with a focus on enabling fast experimentation and easy contribution.</p>
 <hr />
 <h3 id="build-your-own-donkey2">Build your own Donkey2</h3>
-<p>Donkey2 is the standard car that most people build first. The parts cost $200
-and take 2 hours to assemble. Here are the main steps to build your own car: </p>
+<p>Donkey2 is the standard car that most people build first. The parts cost about $250 to $300</p>
+<p>and take 2 hours to assemble. Here are the main steps to build your own car:</p>
 <ol>
 <li><a href="guide/build_hardware/">Assemble hardware.</a></li>
 <li><a href="guide/install_software/">Install software.</a></li>
 <li><a href="guide/calibrate/">Calibrate your car.</a></li>
-<li><a href="guide/get_driving/">Start driving.</a> </li>
-<li><a href="guide/train_autopilot/">Train an autopilot.</a> </li>
-<li><a href="guide/simulator/">Experiment with simulator.</a> </li>
+<li><a href="guide/get_driving/">Start driving.</a></li>
+<li><a href="guide/train_autopilot/">Train an autopilot.</a></li>
+<li><a href="guide/simulator/">Experiment with simulator.</a></li>
 </ol>
 <hr />
 <h3 id="hello-world">Hello World.</h3>
-<p>Donkeycar is designed to make adding new parts to your car easy. Here's and 
+<p>Donkeycar is designed to make adding new parts to your car easy. Here's and
 example car application that captures images from the camera and saves them.</p>
 <pre><code class="python">import donkey as dk
 
@@ -244,8 +244,8 @@ cam = dk.parts.PiCamera()
 V.add(cam, outputs=['image'], threaded=True)
 
 #add tub part to record images
-tub = dk.parts.Tub(path='~/d2/gettings_started', 
-                   inputs=['image'], 
+tub = dk.parts.Tub(path='~/mycar/gettings_started',
+                   inputs=['image'],
                    types=['image_array'])
 V.add(tub, inputs=inputs)
 
@@ -264,8 +264,8 @@ pip install -e donkeycar
 <hr />
 <h3 id="why-the-name-donkey">Why the name Donkey?</h3>
 <p>The ultimate goal of this project is to build something useful. Donkey's were
-one of the first domesticated pack animals, they're notoriously stubborn, and 
-they are kid safe. Until the car can navigate from one side of a city to the 
+one of the first domesticated pack animals, they're notoriously stubborn, and
+they are kid safe. Until the car can navigate from one side of a city to the
 other, we'll hold off naming it after some celestial being.</p>
               
             </div>
@@ -317,6 +317,6 @@ other, we'll hold off naming it after some celestial being.</p>
 </html>
 
 <!--
-MkDocs version : 0.17.3
-Build Date UTC : 2018-05-27 18:48:04
+MkDocs version : 0.17.4
+Build Date UTC : 2018-06-21 04:55:28
 -->
