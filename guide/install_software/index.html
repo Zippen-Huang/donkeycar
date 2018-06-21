@@ -338,6 +338,8 @@ so you can connect to it via SSH.</p>
 <h3 id="install-donkeycar">Install Donkeycar</h3>
 <p>The disk image only has the libraries(tensorflow..) installed, not donkeycar.</p>
 <pre><code class="bash">pip install donkeycar[pi]
+#test that you are using the most recent version (found in __init__ file)
+python -c &quot;import donkeycar as dk; print(dk.__version__)&quot;
 </code></pre>
 
 <h3 id="create-your-car-app">Create your car app.</h3>
