@@ -344,7 +344,7 @@ python -c &quot;import donkeycar as dk; print(dk.__version__)&quot;
 
 <h3 id="create-your-car-app">Create your car app.</h3>
 <p>Now generate the drive script, config and folder structure for your car.</p>
-<pre><code class="bash">donkey createcar ~/
+<pre><code class="bash">donkey createcar ~/mycar
 </code></pre>
 
 <hr />
@@ -448,7 +448,7 @@ cd donkey
 <ul>
 <li>Create the Python anaconda environment</li>
 </ul>
-<pre><code>conda env create -f envs/mac.yml
+<pre><code>conda env create -f install/envs/mac.yml
 source activate donkey
 </code></pre>
 
@@ -462,7 +462,7 @@ source activate donkey
 <li>Install donkey source and create your local working dir:</li>
 </ul>
 <pre><code>pip install -e .
-donkey createcar --path ~/mycar
+donkey createcar ~/mycar
 </code></pre>
 
 <p><a href="../calibrate/">Next: Calibrate your car.</a></p>
