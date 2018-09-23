@@ -1,6 +1,6 @@
 from donkeycar import util
 import pytest
-
+from donkeycar.management.base import execute_from_command_line
 
 def is_error(err):
     for e in err:
@@ -20,21 +20,27 @@ def cardir(tmpdir):
 
 
 def test_createcar(cardir):
-    cmd = ['donkey', 'createcar', '--path', cardir]
-    out, err, proc_id = util.proc.run_shell_command(cmd)
-    assert is_error(err) is False
+    cmd = ['donkey', 'createcar', cardir]
+    #out, err, proc_id = util.proc.run_shell_command(cmd)
+    #out, err, proc_id = util.proc.run_shell_command(cmd)
+    execute_from_command_line(cmd)
+    #assert is_error(err) is False
 
 def test_drivesim(cardir):
-    cmd = ['donkey', 'createcar', '--path', cardir ,'--template', 'square']
-    out, err, proc_id = util.proc.run_shell_command(cmd, timeout=10)
+    cmd = ['donkey', 'createcar', cardir ,'--template', 'square']
+    execute_from_command_line(cmd)
+    #out, err, proc_id = util.proc.run_shell_command(cmd, timeout=10)
     cmd = ['python', 'manage.py', 'drive']
-    out, err, proc_id = util.proc.run_shell_command(cmd, cwd = cardir)
-    print(err)
+    execute_from_command_line(cmd)
+    #out, err, proc_id = util.proc.run_shell_command(cmd, cwd = cardir)
+    #print(err)
 
+    """
     if is_error(err) is True:
         print('out', out)
         print('error: ', err)
         raise ValueError (err)
+    """
 
 def test_bad_command_fails():
     cmd = ['donkey', 'not a comand']

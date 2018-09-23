@@ -420,7 +420,7 @@ class ShowPredictionPlots(BaseCommand):
 
         plt.show()
 
-def execute_from_command_line():
+def execute_from_command_line(args=None):
     """
     This is the fuction linked to the "donkey" terminal command.
     """
@@ -436,7 +436,9 @@ def execute_from_command_line():
             'sim': Sim,
                 }
 
-    args = sys.argv[:]
+    if args is None:
+        args = sys.argv[:]
+
     command_text = args[1]
 
     if command_text in commands.keys():
