@@ -252,6 +252,8 @@
 <li>Exceed Blaze <a href="https://amzn.to/2rf4MgS">Hyper Blue</a>, <a href="https://amzn.to/2jlf3EA">Yellow</a></li>
 </ul>
 <p>These cars are electrically identical but have different tires, mounting and other details.  It is worth noting that the Desert Monster, Short Course Truck and Blaze all require adapters which can be easily printed or purchased from the donkey store.  These are the standard build cars because they are mostly plug and play, both have a brushed motor which makes training easier, they handle rough driving surfaces well and are inexpensive.</p>
+<p>In a pinch, the Latrax prerunner also works, with the existing adapters and plastics.<br />
+LaTrax Prerunner <a href="https://www.amazon.com/Traxxas-LaTrax-Electric-Prerunner-Control/dp/B07B3PQTRD">link</a></p>
 <p>here is a <a href="https://youtu.be/UucnCmCAGTI">video</a> overview of the different cars and how to assemble them.</p>
 <p>In addition there are 3 more cars supported under the "Donkey Pro" name.  These are 1/10 scale cars which means that they are bigger, perform a little better and are slightly more expensive.  They can be found here:
 <em>  HobbyKing Trooper (not pro version) <a href="https://hobbyking.com/en_us/turnigy-trooper-sct-4x4-1-10-brushless-short-course-truck-arr.html?___store=en_us">found here</a>
@@ -266,7 +268,7 @@
 <h2 id="parts-needed">Parts Needed:</h2>
 <h3 id="option-1-buying-through-an-official-donkey-store">Option 1: Buying through an official Donkey Store</h3>
 <p>There are two official stores:</p>
-<p>If you are in the US, you can use the Donkeystore.  The intention of the Donkey Store is to make it easier and less expensive to build the Donkey Car.  The Donkey Store is run by the original founders of donkey car and profits are used to fund development of the donkey cars.  Also it is worth noting the design of the parts out of the Donkey store is slightly improved over the standard build as it uses better parts that are only available in large quantities or are harder to get.  The Donkey Store builds are open source like all others.   </p>
+<p>If you are in the US, you can use the Donkey store.  The intention of the Donkey Store is to make it easier and less expensive to build the Donkey Car.  The Donkey Store is run by the original founders of donkey car and profits are used to fund development of the donkey cars.  Also it is worth noting the design of the parts out of the Donkey store is slightly improved over the standard build as it uses better parts that are only available in large quantities or are harder to get.  The Donkey Store builds are open source like all others.   </p>
 <p>If you are in Asia, the DIYRobocars community in Hong Kong also sells car kits at <a href="https://www.robocarstore.com/products/donkey-car-starter-kit">Robocar Store</a>.  They are long term Donkey community members and use proceeds to support the R&amp;D efforts of this project. It is worth noting they can also sell to Europe and the US but it is likely less cost effective.  </p>
 <table>
 <thead>
@@ -299,8 +301,8 @@
 </tr>
 <tr>
 <td>Donkey Partial Kit</td>
-<td><a href="https://squareup.com/store/donkeycar/item/magnet-partial-kit">Magnet</a> or <a href="https://squareup.com/store/donkeycar/item/desert-monster-short-course-truck-or-blaze-partial-kit">Desert Monster, SCT, Blaze</a></td>
-<td>$85 or $92</td>
+<td>[Magnet] ](https://squareup.com/store/donkeycar/item/magnet-partial-kit) or <a href="https://squareup.com/store/donkeycar/item/desert-monster-short-course-truck-or-blaze-partial-kit">Desert Monster, SCT, Blaze</a></td>
+<td>$89 or $99</td>
 </tr>
 </tbody>
 </table>
@@ -382,6 +384,10 @@
 <p>&nbsp;</p>
 <h3 id="optional-upgrades">Optional Upgrades</h3>
 <ul>
+<li><strong>Sombrero Hat</strong> The sombrero hat replaces the Servo driver and the USB battery and can be purchased at the Donkeycar store <a href="https://squareup.com/store/donkeycar/">here</a> and video instructions can be found <a href="https://www.youtube.com/watch?v=vuAXdrtNjpk">here</a>. Implementing the Sombrero hat requires a LiPo battery (see below).</li>
+</ul>
+<p><img alt="sombrero" src="../../assets/Sombrero_assembled.jpg" /></p>
+<ul>
 <li><strong>LiPo Battery and Accessories:</strong> LiPo batteries have significantly better energy density and have a better dropoff curve.  See below (courtesy of Traxxas).</li>
 </ul>
 <p><img alt="donkey" src="../../assets/build_hardware/traxxas.PNG" /></p>
@@ -432,6 +438,7 @@
 <p><img alt="donkey" src="../../assets/build_hardware/3b.PNG" /></p>
 <p>&nbsp;</p>
 <h3 id="step-4-connect-servo-shield-to-raspberry-pi">Step 4: Connect Servo Shield to Raspberry Pi.</h3>
+<p><strong><em>note: this is not necessary if you have a Sombrero, the Sombrero just plugs into the Pi</em></strong></p>
 <p>You could do this after attaching the Raspberry Pi to the bottom plate, I just think it is easier to see the parts when they are laying on the workbench.  Connect the parts as you see below:</p>
 <p><img alt="donkey" src="../../assets/build_hardware/4a.PNG" /></p>
 <p>For reference, below is the Raspberry Pi Pinout for reference.  You will notice we connect to 3.3v, the two I2C pins (SDA and SCL) and ground:</p>
